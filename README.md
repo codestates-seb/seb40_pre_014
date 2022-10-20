@@ -1,4 +1,36 @@
-# 아이폰 "14" pro 조의 레포지토리 입니다.
+# pre-project
+
+## TEAM 아이폰 "14" pro
+
+<br />
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center">
+      <a href="https://github.com/heoputer">
+      <img src="https://avatars.githubusercontent.com/u/58350169?v=4" width="100px;" alt=""/><br /><sub><b>Jung-woo Heo</b></sub></a><br /><a href="https://github.com/codestates-seb/seb40_pre_014/commits?author=heoputer" title="Documentation">📖</a> <a href="https://github.com/codestates-seb/seb40_pre_014/pulls?q=is%3Apr+author%3Aheoputer" title="Pull Requests">🥂</a></td>
+      <td align="center"><a href="https://github.com/Exist95"><img src="https://avatars.githubusercontent.com/u/96723716?v=4" width="100px;" alt=""/><br /><sub><b>Jong-yeol Noh</b></sub></a><br /><a href="https://github.com/codestates-seb/seb40_pre_014/commits?author=Exist95" title="Documentation">📖</a> <a href="https://github.com/codestates-seb/seb40_pre_014/pulls?q=is%3Apr+author%3AExist95" title="Pull Requests">🥂</a></td>
+      <td align="center"><a href="https://github.com/inmyownway"><img src="https://avatars.githubusercontent.com/u/90558247?v=4" width="100px;" alt=""/><br /><sub><b>
+Jung-min Park</b></sub></a><br /><a href="https://github.com/codestates-seb/seb40_pre_014/commits?author=inmyownway" title="Documentation">📖</a> <a href="https://github.com/codestates-seb/seb40_pre_014/pulls?q=is%3Apr+author%3Ainmyownway" title="Pull Requests">🥂</a></td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/riverrevir"><img src="https://avatars.githubusercontent.com/u/81510864?v=4" width="100px;" alt=""/><br /><sub><b>Dong-gwan Lee</b></sub></a><br /><a href="https://github.com/codestates-seb/seb40_pre_014/commits?author=riverrevir" title="Documentation">📖</a> <a href="https://github.com/codestates-seb/seb40_pre_014/pulls?q=is%3Apr+author%3Ariverrevir" title="Pull Requests">🥂</a></td>
+      <td align="center"><a href="https://github.com/chungmin23"><img src="https://avatars.githubusercontent.com/u/20486170?v=4" width="100px;" alt=""/><br /><sub><b>chung-min Lee</b></sub></a><br /><a href="https://github.com/codestates-seb/seb40_pre_014/commits?author=chungmin23" title="Documentation">📖</a> <a href="https://github.com/codestates-seb/seb40_pre_014/pulls?q=is%3Apr+author%3Achungmin23" title="Pull Requests">🥂</a></td>
+      <td align="center"><a href="https://github.com/js-ha"><img src="https://avatars.githubusercontent.com/u/103746767?v=4" width="100px;" alt=""/><br /><sub><b>Ji-soo Ha</b></sub></a><br /><a href="https://github.com/codestates-seb/seb40_pre_014/commits?author=js-ha" title="Documentation">📖</a> <a href="https://github.com/codestates-seb/seb40_pre_014/pulls?q=is%3Apr+author%3Ajs-ha" title="Pull Requests">🥂</a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+</br>
 
 ## 커밋 규칙
 |아이콘| 설명 | 아이콘 | 설명 |
@@ -20,3 +52,4 @@
 |📄|라이센스 추가/수정|💡|주석 추가/수정|
 |🍻|술 취해서 쓴 코드|🗃|데이버베이스 관련 수정|
 |🔊|로그 추가/수정|🙈|.gitignore 추가/수정|
+
