@@ -1,12 +1,15 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Bars from './components/Layout/Bars';
+import Layout from './components/Layout/Layout';
+import { RecoilRoot } from 'recoil';
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Bars />} />
-    </Routes>
+    <RecoilRoot>
+      <Routes>
+        <Route path="/" element={<Layout />} />
+      </Routes>
+    </RecoilRoot>
   );
 };
 
