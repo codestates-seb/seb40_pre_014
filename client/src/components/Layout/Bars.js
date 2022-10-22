@@ -5,7 +5,7 @@ const Bars = () => {
   return (
     <div>
       <Nav />
-      <div>asdasdsdasdasd</div>
+      <div>Bars</div>
     </div>
   );
 };
