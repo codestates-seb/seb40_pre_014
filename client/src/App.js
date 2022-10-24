@@ -1,13 +1,15 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
-import { RecoilRoot } from 'recoil';
+import Login from './pages/login';
 
 const App = () => {
   return (
     <RecoilRoot>
       <Routes>
         <Route path="/" element={<Layout />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </RecoilRoot>
   );
