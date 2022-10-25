@@ -1,20 +1,28 @@
 import React from 'react';
-import { MenuBox, CategoryBox, SubMenuUL, SubMenuLI } from './MenuList.style';
-import { Link } from 'react-router-dom';
+import {
+  MenuBox,
+  CategoryBox,
+  SubMenuUL,
+  SubMenuLI,
+  LinkBox,
+} from './MenuList.style';
 
 const MenuList = ({ menuCategories, to, subMenus }) => {
   return (
     <MenuBox>
       <CategoryBox>
-        <Link to={to}>
+        <LinkBox to={to}>
           <h4>{menuCategories}</h4>
-        </Link>
+        </LinkBox>
       </CategoryBox>
       <SubMenuUL>
         {subMenus.map((link, i) => {
-          <SubMenuLI index={i} key={link.title} className={link.className}>
-            <Link to={link.to}>{link.title}</Link>
-          </SubMenuLI>;
+          return (
+            //별**
+            <SubMenuLI index={i} key={link.title}>
+              <LinkBox to={link.to}>{link.title}</LinkBox>
+            </SubMenuLI>
+          );
         })}
       </SubMenuUL>
     </MenuBox>

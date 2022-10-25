@@ -4,7 +4,7 @@ export const Footers = styled.footer`
   display: flex;
   justify-content: center;
   width: 100vw;
-  height: 25vh;
+  height: 35vh;
   background-color: #232629;
 `;
 

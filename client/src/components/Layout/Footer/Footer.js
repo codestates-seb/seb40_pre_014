@@ -3,6 +3,7 @@ import { Footers, FooterBox, IconBox, BottomNav } from './Footer.style';
 import BottomLogo from '../../../../src/assets/images/768px-Stack_Overflow_icon.svg.png';
 import menus from './menus';
 import MenuList from './MenuList/MenuList';
+import Copyright from './Copy/Copyright';
 
 const Footer = () => {
   return (
@@ -15,6 +16,7 @@ const Footer = () => {
             style={{
               height: '60px',
               width: '60px',
+              paddingRight: '10px',
             }}
           />
         </IconBox>
@@ -28,6 +30,7 @@ const Footer = () => {
             />
           ))}
         </BottomNav>
+        <Copyright />
       </FooterBox>
     </Footers>
   );

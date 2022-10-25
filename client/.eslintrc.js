@@ -29,10 +29,11 @@ module.exports = {
   },
   rules: {
     'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
     'prettier/prettier': [
       'error',
       {
-        arrowParens: 'avoid', // 화살표 함수 괄호 사용 방식
+        arrowParens: 'always', // 화살표 함수 괄호 사용 방식
         bracketSpacing: true, // 객체 리터럴의 괄호 사이에 공백 출력
         endOfLine: 'auto', // 개행문자 CRLF/LF 자동 설정
         printWidth: 80, // 줄바꿈 길이 설정
