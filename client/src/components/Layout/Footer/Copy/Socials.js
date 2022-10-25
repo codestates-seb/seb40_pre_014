@@ -7,7 +7,7 @@ const Socials = () => {
       {SocialList.map((link, i) => {
         return (
           <SocialLI index={i} key={link.title}>
-            <LinkBox to={link.to}>{link.title}</LinkBox>
+            <LinkBox href={link.to}>{link.title}</LinkBox>
           </SocialLI>
         );
       })}

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { SubMenuLI, SubMenuUL } from '../MenuList/MenuList.style';
 
 export const CopyBox = styled.div`
@@ -17,7 +16,7 @@ export const CopyBox = styled.div`
   }
 `;
 
-export const LinkBox = styled(Link)`
+export const LinkBox = styled.a`
   text-decoration: none;
 `;
 

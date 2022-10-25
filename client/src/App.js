@@ -2,7 +2,7 @@ import React from 'react';
 import { RecoilRoot } from 'recoil';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
-import Login from './pages/login';
+import Login from './Pages/login';
 
 const App = () => {
   return (
