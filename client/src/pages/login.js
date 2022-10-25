@@ -17,7 +17,7 @@ const Login = () => {
           </Input_Wrap>
           <Input_Wrap>
             <span>Password</span>
-            <input />
+            <input type={'password'} />
           </Input_Wrap>
           <Btn
             text={'Log in'}

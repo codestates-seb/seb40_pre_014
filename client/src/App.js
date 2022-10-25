@@ -3,6 +3,7 @@ import { RecoilRoot } from 'recoil';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import Login from './pages/login';
+import Signup from './pages/signup';
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </RecoilRoot>
   );
