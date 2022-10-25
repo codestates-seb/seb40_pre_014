@@ -19,11 +19,19 @@ const Button = styled.div`
   }
 
   :hover {
-    background: #0069c5;
+    background: ${(props) => props.hoverColor};
   }
 `;
 
-const Btn = ({ text, textColor, height, backColor, width, fontSize }) => {
+const Btn = ({
+  text,
+  textColor,
+  height,
+  backColor,
+  width,
+  fontSize,
+  hoverColor,
+}) => {
   return (
     <Button
       textColor={textColor}
@@ -31,6 +39,7 @@ const Btn = ({ text, textColor, height, backColor, width, fontSize }) => {
       backColor={backColor}
       width={width}
       fontSize={fontSize}
+      hoverColor={hoverColor}
     >
       <span> {text} </span>
     </Button>
@@ -44,6 +53,7 @@ Btn.propTypes = {
   backColor: PropTypes.string,
   width: PropTypes.string,
   fontSize: PropTypes.string,
+  hoverColor: PropTypes.string,
 };
 
 export default Btn;
