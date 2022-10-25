@@ -8,8 +8,17 @@ export const LoginContainer = styled.div`
   width: 100vw;
   height: 100vh;
   background: #eff0f1;
-  > div > span {
-    color: #202225;
+
+  .signup {
+    color: #41739a;
+    margin-left: 2px;
+    border-style: none;
+    cursor: pointer;
+  }
+  .support {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
   }
 `;
 
@@ -37,8 +46,8 @@ export const Login_Form = styled.div`
   justify-content: center;
   background: white;
   border-radius: 5px;
-  height: 240px;
-  width: 290px;
+  height: ${(props) => props.height || '240px'};
+  width: ${(props) => props.width || '290px'};
   padding: 5px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08), 0 6px 6px rgba(0, 0, 0, 0.23);
   margin-bottom: 30px;
