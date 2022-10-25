@@ -5,6 +5,7 @@ import Main from './Main/Main';
 import Nav from './Nav/Nav';
 import LeftSide from './SideBar/LeftSide';
 import RightSide from './SideBar/RightSide';
+import Tag from './SideBar/Tag';
 
 const LayoutBox = styled.div`
   display: flex;
@@ -18,6 +19,7 @@ const Layout = () => {
       <Nav />
       <LeftSide />
       <RightSide />
+      <Tag />
       <Main />
       <Footer />
     </LayoutBox>

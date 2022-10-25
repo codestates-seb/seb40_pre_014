@@ -8,7 +8,7 @@ export const LeftBar = styled.div`
   width: 184px;
   background: #ffffff;
   margin: 0;
-  padding-top: 1.5rem;
+  padding-top: 3rem;
   padding-bottom: 4rem;
   li {
     display: flex;
@@ -21,14 +21,21 @@ export const LeftBar = styled.div`
   }
   .li-title {
     display: flex;
-    justify-content: space-between;
-    width: 170px;
     font-size: 13px;
+  }
+  span {
+    font-size: 13px;
+    display: flex;
+    padding-left: 16px;
   }
   button {
     background-color: orange;
     color: white;
-    border-radius: 5px;
+    border-radius: 3px;
     border: none;
+    margin-left: 16px;
+  }
+  img {
+    padding-left: 16px;
   }
 `;
