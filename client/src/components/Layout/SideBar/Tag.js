@@ -1,13 +1,19 @@
 import React from 'react';
 import dummyTags from '../../../static/dummyData';
+import { TagBar } from './Tag.style';
 
 const Tag = () => {
   console.log(dummyTags);
 
   return (
-    <div>
+    <TagBar>
       <header>Related Tags</header>
-    </div>
+      <ul>
+        {dummyTags.map((tag) => (
+          <button key={tag.id}>{tag.name}</button>
+        ))}
+      </ul>
+    </TagBar>
   );
 };
 

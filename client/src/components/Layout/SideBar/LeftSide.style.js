@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import { FaGlobeAmericas } from 'react-icons/fa';
 
 export const LeftBar = styled.div`
   position: sticky;
   top: 56px;
   display: flex;
   align-items: center;
-  width: 184px;
+  width: 200px;
   background: #ffffff;
   margin: 0;
   padding-top: 3rem;
@@ -14,28 +15,44 @@ export const LeftBar = styled.div`
     display: flex;
     justify-content: left;
     align-items: center;
-    padding-left: 16px;
-    width: 100%;
+    padding-left: 30px;
+    width: 80%;
     height: 40px;
     color: #666d72;
   }
-  .li-title {
+  div {
+    padding-left: 30px;
     display: flex;
     font-size: 13px;
   }
+  li:hover {
+    background-color: #ddd;
+    color: #000;
+    border-right: 2px solid #f27622;
+  }
   span {
-    font-size: 13px;
+    font-size: 12px;
     display: flex;
-    padding-left: 16px;
+    padding-left: 30px;
+    color: #666d72;
   }
   button {
     background-color: orange;
     color: white;
     border-radius: 3px;
     border: none;
-    margin-left: 16px;
+    margin-left: 30px;
   }
   img {
-    padding-left: 16px;
+    padding-left: 30px;
+    padding-top: 10px;
   }
+`;
+
+export const QuestionIcon = styled(FaGlobeAmericas)`
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  color: black;
+  top: 17%;
 `;

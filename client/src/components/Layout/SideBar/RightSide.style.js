@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { FaPen, FaRegCommentAlt } from 'react-icons/fa';
 
 export const RightBar = styled.div`
   width: 19rem;
-  height: 23rem;
+  height: 18rem;
   margin-top: 50px;
   margin-right: 0;
   border: 1px solid hsl(47, 65%, 84%);
@@ -24,7 +25,6 @@ export const RightBar = styled.div`
   li {
     margin: 12px 0;
     font-size: 13px;
-    list-style: inside;
   }
 `;
 
@@ -53,4 +53,18 @@ export const RightSide2 = styled.div`
   img {
     width: 40px;
   }
+`;
+
+export const PenIcon = styled(FaPen)`
+  width: 10px;
+  height: 10px;
+  color: black;
+  padding-right: 5px;
+`;
+
+export const CommentIcon = styled(FaRegCommentAlt)`
+  width: 10px;
+  height: 10px;
+  color: skyblue;
+  padding-right: 5px;
 `;
