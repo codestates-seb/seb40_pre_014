@@ -1,8 +1,6 @@
 package com.iphone.server.user.controller;
 
-import com.iphone.server.user.dto.UserExistResponse;
-import com.iphone.server.user.dto.UserRegisterRequest;
-import com.iphone.server.user.dto.UserRegisterResponse;
+import com.iphone.server.user.dto.*;
 import com.iphone.server.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -27,4 +25,8 @@ public class UserController {
         return userService.nickDuplicateCheck(nick);
     }
 
+    @PostMapping("/login")
+    public LoginResponse login(@RequestBody LoginRequest loginRequest){
+        return userService.loginResponse(loginRequest);
+    }
 }

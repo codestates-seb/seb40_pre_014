@@ -40,4 +40,16 @@ public class UserService {
         boolean flag=userRepository.existsByNickName(nick);
         return new UserExistResponse(flag);
     }
+
+    public LoginResponse loginResponse(LoginRequest request){
+        final String email= request.getEmail();
+        final String password= request.getPassword();
+
+        User user=userRepository.findByEmail(email).orElseThrow(()->new IllegalArgumentException("아이디 또는 비밀번호를 확인하세요."));
+        if(!passwordEncoder.matches(password, user.getPassword())){
+            throw new IllegalArgumentException("아이디 또는 비밀번호를 확인하세요.");
+        }
+        String token= jwtTokenUtil.generateToken(email);
+        return new LoginResponse(token);
+    }
 }
