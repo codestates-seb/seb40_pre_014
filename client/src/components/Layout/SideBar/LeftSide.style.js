@@ -3,7 +3,7 @@ import { FaGlobeAmericas } from 'react-icons/fa';
 
 export const LeftBar = styled.div`
   position: sticky;
-  top: 56px;
+  top: auto;
   display: flex;
   align-items: center;
   width: 200px;
@@ -18,6 +18,10 @@ export const LeftBar = styled.div`
     padding-left: 30px;
     width: 80%;
     height: 40px;
+    color: #666d72;
+  }
+  a {
+    text-decoration: none;
     color: #666d72;
   }
   div {
@@ -36,7 +40,7 @@ export const LeftBar = styled.div`
     padding-left: 30px;
     color: #666d72;
   }
-  button {
+  .team {
     background-color: orange;
     color: white;
     border-radius: 3px;
@@ -54,5 +58,5 @@ export const QuestionIcon = styled(FaGlobeAmericas)`
   height: 20px;
   position: absolute;
   color: black;
-  top: 17%;
+  padding-top: 0.5rem;
 `;
