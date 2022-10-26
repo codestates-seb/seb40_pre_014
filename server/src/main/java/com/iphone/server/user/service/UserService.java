@@ -1,10 +1,7 @@
 package com.iphone.server.user.service;
 
 import com.iphone.server.user.config.jwt.JwtTokenUtil;
-import com.iphone.server.user.dto.User;
-import com.iphone.server.user.dto.UserRegisterRequest;
-import com.iphone.server.user.dto.UserRegisterResponse;
-import com.iphone.server.user.dto.UserRepository;
+import com.iphone.server.user.dto.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -32,5 +29,15 @@ public class UserService {
 
         String token= jwtTokenUtil.generateToken(email);
         return new UserRegisterResponse(token);
+    }
+
+    public UserExistResponse emailDuplicateCheck(String email){
+        boolean flag=userRepository.existsByEmail(email);
+        return new UserExistResponse(flag);
+    }
+
+    public UserExistResponse nickDuplicateCheck(String nick){
+        boolean flag=userRepository.existsByNickName(nick);
+        return new UserExistResponse(flag);
     }
 }
