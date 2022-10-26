@@ -3,6 +3,9 @@ package com.iphone.server.user.service;
 import com.iphone.server.user.config.jwt.JwtTokenUtil;
 import com.iphone.server.user.dto.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -51,5 +54,12 @@ public class UserService {
         }
         String token= jwtTokenUtil.generateToken(email);
         return new LoginResponse(token);
+    }
+
+    public ResponseEntity<?> logoutResponse(){
+        String deleteToken="";
+        HttpHeaders headers =new HttpHeaders();
+        headers.set("Authorization",deleteToken);
+        return new ResponseEntity<>(headers, HttpStatus.OK);
     }
 }

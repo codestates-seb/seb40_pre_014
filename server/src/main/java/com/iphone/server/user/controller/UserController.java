@@ -3,6 +3,7 @@ package com.iphone.server.user.controller;
 import com.iphone.server.user.dto.*;
 import com.iphone.server.user.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -28,5 +29,10 @@ public class UserController {
     @PostMapping("/login")
     public LoginResponse login(@RequestBody LoginRequest loginRequest){
         return userService.loginResponse(loginRequest);
+    }
+
+    @GetMapping("/logout")
+    public ResponseEntity<?> logout(){
+        return userService.logoutResponse();
     }
 }
