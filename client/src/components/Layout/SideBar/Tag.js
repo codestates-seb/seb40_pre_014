@@ -3,8 +3,6 @@ import dummyTags from '../../../static/dummyData';
 import { TagBar } from './Tag.style';
 
 const Tag = () => {
-  console.log(dummyTags);
-
   return (
     <TagBar>
       <header>Related Tags</header>

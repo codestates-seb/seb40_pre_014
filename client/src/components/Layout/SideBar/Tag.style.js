@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const TagBar = styled.div`
-  margin-top: 60px;
+  margin-top: 150px;
   width: 19rem;
-  height: 23rem;
+  /* height: 23rem; */
   button {
     display: flex;
     font-size: 12px;

@@ -2,10 +2,10 @@ import React from 'react';
 import { RecoilRoot } from 'recoil';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
-import Login from './pages/login';
-import Signup from './pages/signup';
-import Tags from './pages/Tags';
-import Users from './pages/Users';
+import Login from './Pages/login';
+import Signup from './Pages/signup';
+import Tags from './Pages/Tags';
+import Users from './Pages/Users';
 
 const App = () => {
   return (
