@@ -13,6 +13,7 @@ const Button = styled.div`
   height: ${(props) => props.height || '40px'};
   font-size: ${(props) => props.fontSize};
   border-radius: 5px;
+  margin: ${(props) => props.margin};
 
   > span {
     color: ${(props) => props.textColor || 'white'};
@@ -20,6 +21,7 @@ const Button = styled.div`
 
   :hover {
     background: ${(props) => props.hoverColor};
+    cursor: ${(props) => props.cursorPointer};
   }
 `;
 
@@ -31,6 +33,8 @@ const Btn = ({
   width,
   fontSize,
   hoverColor,
+  cursorPointer,
+  margin,
 }) => {
   return (
     <Button
@@ -40,6 +44,8 @@ const Btn = ({
       width={width}
       fontSize={fontSize}
       hoverColor={hoverColor}
+      cursorPointer={cursorPointer}
+      margin={margin}
     >
       <span> {text} </span>
     </Button>

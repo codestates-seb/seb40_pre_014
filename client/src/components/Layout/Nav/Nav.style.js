@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const NavHeader = styled.header`
   display: flex;
   justify-content: center;
-  position: fixed;
   width: 100%;
   height: 50px;
   background-color: #f8f9f9;

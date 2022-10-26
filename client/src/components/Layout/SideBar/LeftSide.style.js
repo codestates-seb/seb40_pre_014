@@ -1,24 +1,25 @@
 import styled from 'styled-components';
 import { FaGlobeAmericas } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 export const LeftBar = styled.div`
   position: sticky;
-  top: auto;
   display: flex;
-  align-items: center;
-  width: 200px;
-  background: #ffffff;
-  margin: 0;
-  padding-top: 3rem;
-  padding-bottom: 4rem;
+  justify-content: center;
+  border-right: 1px solid #e3e5e7;
+  margin-left: 10%;
   li {
     display: flex;
     justify-content: left;
     align-items: center;
-    padding-left: 30px;
-    width: 80%;
+    padding-left: 40px;
+    width: 75%;
     height: 40px;
     color: #666d72;
+    #icon {
+      display: flex;
+      position: relative;
+    }
   }
   a {
     text-decoration: none;
@@ -54,9 +55,15 @@ export const LeftBar = styled.div`
 `;
 
 export const QuestionIcon = styled(FaGlobeAmericas)`
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   position: absolute;
+  top: 6.5%;
+  left: 10%;
   color: black;
-  padding-top: 0.5rem;
+`;
+
+export const LinkBox = styled(Link)``;
+export const PublicBox = styled.div`
+  padding-bottom: 5px;
 `;
