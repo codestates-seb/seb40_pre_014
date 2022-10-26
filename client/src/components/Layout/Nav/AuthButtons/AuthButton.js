@@ -1,19 +1,30 @@
 import React from 'react';
-import {
-  AuthButtonBox,
-  LoginBox,
-  SignupBox,
-  AuthButtonLink,
-} from './AuthButton.style';
+import Btn from '../../../Btn';
+import { AuthButtonBox, AuthButtonLink } from './AuthButton.style';
 
 const AuthButton = () => {
   return (
     <AuthButtonBox>
       <AuthButtonLink to="/login">
-        <LoginBox>Log in</LoginBox>
+        <Btn
+          text={'Log in'}
+          backColor={'#dee9f2'}
+          textColor={'#41739a'}
+          width={'50px'}
+          height={'35px'}
+          fontSize={'13px'}
+          hoverColor={'#aacde7'}
+        ></Btn>
       </AuthButtonLink>
       <AuthButtonLink to="/signup">
-        <SignupBox>Sign up</SignupBox>
+        <Btn
+          text={'Sign up'}
+          backColor={'#0d8ae1'}
+          width={'60px'}
+          height={'35px'}
+          fontSize={'13px'}
+          hoverColor={'#0069c5'}
+        ></Btn>
       </AuthButtonLink>
     </AuthButtonBox>
   );
