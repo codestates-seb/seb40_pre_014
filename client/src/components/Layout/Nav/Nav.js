@@ -13,19 +13,21 @@ const Nav = () => {
       <NavBox>
         {/* <Bars /> */}
         <LogoBox>
-          <Link to="/" />
-          <img
-            src={Stacklogo}
-            alt=""
-            style={{
-              height: '35px',
-              width: '150px',
-              marginLeft: '50px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          />
+          <Link to="/">
+            <img
+              src={Stacklogo}
+              alt=""
+              style={{
+                height: '35px',
+                width: '150px',
+                marginLeft: '50px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                cursor: 'pointer',
+              }}
+            />
+          </Link>
         </LogoBox>
         <TopLink />
         <SearchBox />
