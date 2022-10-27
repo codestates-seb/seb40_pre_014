@@ -52,8 +52,9 @@ public class UserService {
         if(!passwordEncoder.matches(password, user.getPassword())){
             throw new IllegalArgumentException("아이디 또는 비밀번호를 확인하세요.");
         }
+        Long id=user.getNumber();
         String token= jwtTokenUtil.generateToken(email);
-        return new LoginResponse(token);
+        return new LoginResponse(id,token);
     }
 
     public ResponseEntity<?> logoutResponse(){
