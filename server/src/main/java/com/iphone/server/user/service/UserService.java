@@ -3,6 +3,8 @@ package com.iphone.server.user.service;
 import com.iphone.server.user.config.jwt.JwtTokenUtil;
 import com.iphone.server.user.dto.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -62,5 +64,13 @@ public class UserService {
         HttpHeaders headers =new HttpHeaders();
         headers.set("Authorization",deleteToken);
         return new ResponseEntity<>(headers, HttpStatus.OK);
+    }
+
+    public Page<UserInfoResponse> getUsers(Pageable pageable){
+        return userRepository.findAll(pageable).map(UserInfoResponse::from);
+    }
+
+    public Page<UserInfoResponse> getUsersByNickname(Pageable pageable,String nickname){
+        return userRepository.findAllByNickName(nickname,pageable).map(UserInfoResponse::from);
     }
 }
