@@ -3,17 +3,17 @@ import styled from 'styled-components';
 export const Footers = styled.footer`
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
   background-color: #232629;
 `;
 
 export const FooterBox = styled.div`
-  flex: 1 1 auto;
-  position: relative;
   display: flex;
+  flex: 1 1 auto;
   flex-flow: row wrap;
   max-width: 1300px;
   padding: 40px 30px 40px 30px;
+  position: relative;
 
   // '>'는 자식 선택자
   // '*' 자식 전체
@@ -30,6 +30,15 @@ export const IconBox = styled.div`
 export const BottomIcon = styled.img`
   width: 50px;
   height: 60px;
+
+  @media screen and (max-width: 980px) {
+    width: 60px;
+    height: 70px;
+  }
+
+  @media screen and (max-width: 640px) {
+    display: none;
+  }
 `;
 
 export const BottomNav = styled.nav`
