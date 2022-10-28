@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 export const TopLinkList = styled.ul`
   display: flex;
-  margin-left: 1px;
+  margin-left: 10px;
+  gap: 5px;
 `;
 
 export const TopLinks = styled(Link)`
@@ -25,10 +26,10 @@ const TopList = styled.li`
   border-radius: 20px;
   width: 80px;
   height: 32px;
-  font-size: 1rem;
+  font-size: 10px;
   transition: background-color 0.4s;
   &:hover {
-    background-color: #f1f2f3;
+    background-color: #dddd;
     cursor: pointer;
   }
 `;

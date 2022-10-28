@@ -1,62 +1,56 @@
 import styled from 'styled-components';
 import { FaGlobeAmericas } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 export const LeftBar = styled.div`
-  position: sticky;
-  top: auto;
   display: flex;
-  align-items: center;
-  width: 200px;
-  background: #ffffff;
-  margin: 0;
-  padding-top: 3rem;
-  padding-bottom: 4rem;
+  border-right: 1px solid #e3e5e7;
+  //마진 쓰면 안 됨.
+  padding: 50px 0 0 5px;
+  box-sizing: border-box;
+  @media screen and (max-width: 680px) {
+    max-width: 100%;
+  }
   li {
     display: flex;
     justify-content: left;
     align-items: center;
-    padding-left: 30px;
-    width: 80%;
+    padding-left: 40px;
     height: 40px;
     color: #666d72;
+    .icon {
+      display: flex;
+      position: relative;
+    }
   }
   a {
     text-decoration: none;
     color: #666d72;
   }
   div {
-    padding-left: 30px;
     display: flex;
-    font-size: 13px;
   }
-  li:hover {
+  .home {
     background-color: #ddd;
     color: #000;
     border-right: 2px solid #f27622;
+    cursor: pointer;
   }
-  span {
+  li:hover {
     font-size: 12px;
-    display: flex;
-    padding-left: 30px;
-    color: #666d72;
-  }
-  .team {
-    background-color: orange;
-    color: white;
-    border-radius: 3px;
-    border: none;
-    margin-left: 30px;
-  }
-  img {
-    padding-left: 30px;
-    padding-top: 10px;
+    font-weight: 800;
   }
 `;
 
+//아이콘
 export const QuestionIcon = styled(FaGlobeAmericas)`
-  width: 20px;
-  height: 20px;
+  width: 13px;
+  height: 14px;
   position: absolute;
-  color: black;
-  padding-top: 0.5rem;
+  left: -35%;
+`;
+
+export const LinkBox = styled(Link)``;
+export const PublicBox = styled.div`
+  padding: 0 0 5px 5px;
 `;

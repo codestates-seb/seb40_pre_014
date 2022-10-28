@@ -2,29 +2,35 @@ import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 
 export const SearchContainer = styled.div`
-  width: 56em;
-  height: 30px;
-  margin: -5px 0 0 10px;
-  position: relative;
-  border: 0;
+  width: 45em;
+  display: flex;
+  outline: solid 1px silver;
+  border-radius: 3px;
+  font-size: 15px;
+  background-color: #ffffff;
+  align-items: center;
+  margin-left: 5px;
 `;
 
 export const Search = styled.input`
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
   border: 0;
-  padding-left: 30px;
-  background-color: #ffffff;
   width: 100%;
-  height: 100%;
-  outline: solid 1px silver;
-  border-radius: 3px;
-  position: relative;
+  height: 30px;
+  :focus {
+    outline: none;
+    border-color: 2px rgb(0, 25, 244, 0.6);
+  }
 `;
 
 export const SearchIcon = styled(FaSearch)`
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 20%;
-  left: 1%;
+  display: flex;
+  width: 15px;
+  padding: 0 5px;
   color: silver;
+  cursor: pointer;
 `;

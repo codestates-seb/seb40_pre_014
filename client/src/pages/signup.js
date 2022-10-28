@@ -1,5 +1,5 @@
 import React from 'react';
-import Btn from '../components/Btn';
+import Btn from '../components/Button/Btn';
 import Nav from '../components/Layout/Nav/Nav';
 import { useNavigate } from 'react-router-dom';
 import { Input_Wrap } from './login.style';
