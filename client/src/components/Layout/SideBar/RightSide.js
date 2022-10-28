@@ -53,4 +53,7 @@ const RightSideBox = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 0 0 2%;
+  @media screen and (max-width: 1100px) {
+    display: none;
+  }
 `;

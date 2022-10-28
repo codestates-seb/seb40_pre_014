@@ -1,5 +1,5 @@
 import React from 'react';
-import Btn from '../../Btn';
+import Btn from '../../Button/Btn';
 import { dummy } from './Dummy';
 import {
   MainBox,
@@ -10,6 +10,9 @@ import {
   RigthSection,
   ContentsSection,
   MainMidBox,
+  SectionUL,
+  SectionLI,
+  ContentLI,
 } from './Main.style';
 import LeftSide from '../SideBar/LeftSide';
 import RightSide from '../SideBar/RightSide';
@@ -25,7 +28,7 @@ const Main = () => {
             <Btn
               text={'Ask Question'}
               backColor={'#0d8ae1'}
-              width={'80px'}
+              width={'90px'}
               height={'35px'}
               fontSize={'13px'}
               hoverColor={'#0069c5'}
@@ -40,27 +43,27 @@ const Main = () => {
           <ContentsBox>
             {dummy.map((data, i) => {
               return (
-                <ul key={i}>
-                  <li>
+                <SectionUL key={i}>
+                  <SectionLI>
                     <RigthSection>
                       <div>{data.votes} votes</div>
                       <div>{data.answers} answers</div>
                       <div>{data.views} views</div>
                     </RigthSection>
-                  </li>
-                  <li>
+                  </SectionLI>
+                  <ContentLI>
                     <ContentsSection>
                       <a href="*">{data.title}</a>
                       <p>{data.contents}</p>
                       <footer>
-                        <div>태그</div>
+                        <div>[태그]</div>
                         <div>
                           {data.userName} {data.createAt}
                         </div>
                       </footer>
                     </ContentsSection>
-                  </li>
-                </ul>
+                  </ContentLI>
+                </SectionUL>
               );
             })}
           </ContentsBox>

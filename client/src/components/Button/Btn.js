@@ -14,6 +14,7 @@ const Button = styled.div`
   font-size: ${(props) => props.fontSize};
   border-radius: 5px;
   margin: ${(props) => props.margin};
+  padding: ${(props) => props.padding};
 
   > span {
     color: ${(props) => props.textColor || 'white'};
@@ -35,6 +36,7 @@ const Btn = ({
   hoverColor,
   cursorPointer,
   margin,
+  padding,
 }) => {
   return (
     <Button
@@ -46,6 +48,7 @@ const Btn = ({
       hoverColor={hoverColor}
       cursorPointer={cursorPointer}
       margin={margin}
+      padding={padding}
     >
       <span> {text} </span>
     </Button>

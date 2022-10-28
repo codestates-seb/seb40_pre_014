@@ -16,6 +16,8 @@ const Layout = () => {
 
 const LayoutBox = styled.div`
   display: flex;
+  width: 100%;
+  height: 100vh;
   flex-flow: row wrap;
   justify-content: center;
 `;
