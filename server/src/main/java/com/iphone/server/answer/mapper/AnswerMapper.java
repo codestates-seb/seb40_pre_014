@@ -11,13 +11,13 @@ import org.mapstruct.Mapper;
 public interface AnswerMapper {
     default Answer answerPostDtoToAnswer(AnswerPostDto answerPostDto)
     {
-//        Answer answer = new Answer();
+       Answer answer = new Answer();
 
-  //      answer.setContent(answerPostDto.getContent());
+    answer.setContent(answerPostDto.getContent());
 
-        Answer answer = Answer.builder()
-                .content(answerPostDto.getContent())
-                .build();
+//        Answer answer = Answer.builder()
+//                .content(answerPostDto.getContent())
+//                .build();
 
         return answer;
 
@@ -41,9 +41,12 @@ public interface AnswerMapper {
 
     default Answer answerPatchDtoToAnswer(AnswerPatchDto answerPatchDto)
     {
-        Answer answer = Answer.builder()
-                .content(answerPatchDto.getContent())
-                .build();
+//        Answer answer = Answer.builder()
+//                .content(answerPatchDto.getContent())
+//                .build();
+
+        Answer answer = new Answer();
+        answer.setContent(answerPatchDto.getContent());
 
         return answer;
     }
