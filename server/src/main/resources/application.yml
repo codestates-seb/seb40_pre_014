@@ -1,0 +1,27 @@
+#spring:
+# h2:
+#  console:
+#    enabled: true
+#    path: /h2     # (1) Context path
+# datasource:
+#    url: jdbc:h2:mem:test     # (2) JDBC URL
+# sql:
+#  init:
+#    schema-locations: classpath*:db/h2/schema.sql
+#    data-locations: classpath*:db/h2/data.sql
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        jdbc:
+#           core: TRACE
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  datasource:
+    url: jdbc:h2:mem:test
+  sql:
+    init:
+      schema-locations: classpath*:db/h2/schema.sql
