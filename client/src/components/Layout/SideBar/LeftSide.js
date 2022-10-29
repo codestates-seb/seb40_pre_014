@@ -1,27 +1,25 @@
 import React from 'react';
-import { LeftBar, QuestionIcon } from './LeftSide.style';
-import ad from '../../../assets/images/ad.png';
-import { Link } from 'react-router-dom';
+import { LeftBar, QuestionIcon, LinkBox, PublicBox } from './LeftSide.style';
+import Ad from './Ad';
 
 const LeftSide = () => {
   return (
     <LeftBar>
       <ul>
-        <QuestionIcon />
-        <li>
-          <Link to="/">Questions</Link>
+        <PublicBox>Public</PublicBox>
+        <li className="home">
+          <div className="icon">
+            <QuestionIcon />
+            <LinkBox to="/">Questions</LinkBox>
+          </div>
         </li>
-
         <li>
-          <Link to="/tags">Tags</Link>
+          <LinkBox to="/tags">Tags</LinkBox>
         </li>
         <li>
-          <Link to="/users">Users</Link>
+          <LinkBox to="/users">Users</LinkBox>
         </li>
-        <div>Stack Overflow for Teams</div>
-        <span>Start collaborating and sharing organizational knowledge.</span>
-        <img src={ad} alt="" />
-        <button className="team">Create free Team</button>
+        <Ad />
       </ul>
     </LeftBar>
   );
