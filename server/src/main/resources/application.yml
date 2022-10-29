@@ -1,27 +1,19 @@
-#spring:
-# h2:
-#  console:
-#    enabled: true
-#    path: /h2     # (1) Context path
-# datasource:
-#    url: jdbc:h2:mem:test     # (2) JDBC URL
-# sql:
-#  init:
-#    schema-locations: classpath*:db/h2/schema.sql
-#    data-locations: classpath*:db/h2/data.sql
-#logging:
-#  level:
-#    org:
-#      springframework:
-#        jdbc:
-#           core: TRACE
 spring:
-  h2:
-    console:
-      enabled: true
-      path: /h2
   datasource:
-    url: jdbc:h2:mem:test
-  sql:
-    init:
-      schema-locations: classpath*:db/h2/schema.sql
+    url: jdbc:mysql://endpoint:3306/seb014?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username:
+    password:
+  jpa:
+    open-in-view: false
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  main:
+    allow-circular-references: true
+  jwt:
+    secret:
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
