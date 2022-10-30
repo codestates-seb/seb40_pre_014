@@ -1,4 +1,4 @@
-package com.iphone.server.user.dto;
+package com.iphone.server.user.domain;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

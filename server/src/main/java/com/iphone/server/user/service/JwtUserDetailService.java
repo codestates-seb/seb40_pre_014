@@ -1,6 +1,6 @@
 package com.iphone.server.user.service;
 
-import com.iphone.server.user.dto.UserRepository;
+import com.iphone.server.user.domain.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
