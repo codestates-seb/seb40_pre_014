@@ -52,10 +52,26 @@ const Users = () => {
               onChange={userSearch}
               placeholder="Filter by user"
             ></FilterInput>
-            <div>
-              <button onClick={clickhandle}> Name </button>
-              <button onClick={datehandle}> Date </button>
-            </div>
+            <ul className="tabs">
+              <li className="tab">
+                <input
+                  type="radio"
+                  id="tab-1"
+                  name="tab-group-1"
+                  onClick={clickhandle}
+                />
+                <label htmlFor="tab-1">Name</label>
+              </li>
+              <li className="tab">
+                <input
+                  type="radio"
+                  id="tab-2"
+                  name="tab-group-1"
+                  onClick={datehandle}
+                />
+                <label htmlFor="tab-2">Date</label>
+              </li>
+            </ul>
           </FilterButtonWrap>
           <User users={users} />
         </UserContainer>
@@ -100,13 +116,32 @@ const FilterButtonWrap = styled.div`
   display: flex;
   justify-content: space-between;
 
-  > div > button {
+  .tabs {
+    position: relative;
+    padding: 0;
+    list-style: none;
+  }
+  .tab {
+    float: left;
+    padding: 10px 0;
+  }
+  .tab label {
+    position: relative;
     background: white;
-    height: 35px;
-    width: 90px;
+    padding: 8px 20px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 10px;
-    border: 1px solid rgb(121, 129, 138);
+  }
+  .tab [type='radio'] {
+    display: none;
+  }
+  .tab [type='radio']:checked ~ label {
+    background: rgb(223, 226, 229);
+    z-index: 2;
+  }
+  .tab [type='radio']:checked + label + .content {
+    z-index: 1;
+    display: block;
   }
 `;
 export default Users;
