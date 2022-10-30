@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 
 export const ModalContainer = styled.div`
+  width: 100%;
+  justify-content: center;
+  align-items: center;
   display: flex;
   position: fixed;
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
-  justify-content: ${(props) => props.justify};
-  align-items: ${(props) => props.align};
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: 99;
+  padding: 15px;
   cursor: auto;
 
   @keyframes modalAnimation {
@@ -37,7 +37,8 @@ export const ModalStyle = styled.section`
   top: ${(props) => props.top};
   left: ${(props) => props.left};
   border-radius: 0.3rem;
-  background-color: #fff;
+  background-color: black;
   animation: modalAnimation 0.3s;
   overflow: hidden;
+  transform: ${(props) => props.translate};
 `;
