@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
+import TagDummy from './TagDummy';
 
 const TagTitle = ({ tags, setTags }) => {
   const clickpopular = () => {
@@ -21,9 +22,11 @@ const TagTitle = ({ tags, setTags }) => {
 
   const tagsearch = (event) => {
     const filterTag = [];
-    tags.filter((tag) => {
-      return tag.name.includes(event.target.value) ? filterTag.push(tag) : null;
+
+    TagDummy.filter((tag) => {
+      tag.name.includes(event.target.value) ? filterTag.push(tag) : null;
     });
+
     console.log(filterTag);
     setTags([...filterTag]);
   };
