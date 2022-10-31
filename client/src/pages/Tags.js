@@ -11,7 +11,7 @@ const Tags = () => {
   const [tags, setTags] = useState(TagDummy);
 
   return (
-    <>
+    <div>
       <Nav />
       <Container>
         <LeftSide />
@@ -21,7 +21,7 @@ const Tags = () => {
         </section>
       </Container>
       <Footer />
-    </>
+    </div>
   );
 };
 
