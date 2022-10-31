@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Editor } from '@toast-ui/react-editor';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import Question_Wrapper from '../components/Question_Input';
+import Btn from '../components/Button/Btn';
 
 // const onChange = () => {
 //   const data = editorRef.current.getInstance().getHTML();
@@ -18,39 +19,48 @@ import Question_Wrapper from '../components/Question_Input';
 
 const Question = () => {
   const [title, setTitle] = useState();
+  const [tags, setTags] = useState();
 
   const titleHandler = (e) => {
     let temp = e.target.value;
     setTitle(temp);
   };
+  const tagsHandler = (e) => {
+    let temp = e.target.value;
+    setTags(temp);
+  };
 
   console.log(title);
+  console.log(tags);
   return (
     <>
       <Nav> </Nav>
       <Question_Container>
         <Question_Main>
-          <Question_Wrapper
-            subTitle={'Title'}
-            info={
-              'Be specific and imagine you’re asking a question to another person.'
-            }
-          >
+          <div>
+            <Question_Wrapper
+              subTitle={'Title'}
+              info={
+                'Be specific and imagine you’re asking a question to another person.'
+              }
+            />
             <Question_Input
               onChange={titleHandler}
               placeholder="e.g Is there R function for finding the index of an element in a vector?"
             />
-          </Question_Wrapper>
-          <Question_Body>
-            <h1 className="subTitle"> Body </h1>
-            <span className="subTitleInfo">
-              Include all the information someone would need to answer your
-              question
-            </span>
+          </div>
+
+          <div>
+            <Question_Wrapper
+              subTitle={'Body'}
+              info={
+                'Include all the information someone would need to answer your question.'
+              }
+            />
             <Editor
               placeholder="내용을 입력해주세요."
               previewStyle="vertical" // 미리보기 스타일 지정
-              height="300px" // 에디터 창 높이
+              height="550px" // 에디터 창 높이
               initialEditType="wysiwyg" // 초기 입력모드 설정(디폴트 markdown)
               toolbarItems={[
                 // 툴바 옵션 설정
@@ -60,9 +70,28 @@ const Question = () => {
                 ['table', 'link'],
                 ['code', 'codeblock'],
               ]}
-            ></Editor>
-          </Question_Body>
+            />
+          </div>
+          <div>
+            <Question_Wrapper
+              subTitle={'Tags'}
+              info={'Add up to 5 tags to describe what your question is about'}
+            />
+            <Question_Input
+              onChange={tagsHandler}
+              placeholder="e.g (angular sql-server string)"
+            />
+          </div>
         </Question_Main>
+        <Btn
+          text={'Review your question'}
+          backColor={'#0d8ae1'}
+          width={'148px'}
+          height={'37px'}
+          fontSize={'13.8px'}
+          hoverColor={'#0069c5'}
+          margin={'20px 0px 0px 0px'}
+        ></Btn>
       </Question_Container>
     </>
   );
@@ -70,35 +99,24 @@ const Question = () => {
 
 const Question_Container = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: rgb(239, 240, 241);
+  height: 100vh;
+  width: 100vw;
 `;
 
 const Question_Main = styled.div`
   display: flex;
   flex-direction: column;
-  height: 900px;
+  justify-content: space-between;
+  height: 850px;
   width: 870px;
-  margin-top: 200px;
   padding: 20px;
   border-radius: 5px;
   background: white;
   box-shadow: rgb(128, 128, 128) 0px 0px 3px 0px;
-
-  .subTitle {
-    font-weight: 500;
-    font-size: 20px;
-  }
-
-  .subTitleInfo {
-    font-size: 13px;
-    font-weight: 350;
-    color: #525960;
-    margin: 5 px 0px 5px 0px;
-    background: #eee;
-    width: 100%;
-  }
 `;
 
 const Question_Input = styled.input`
@@ -107,12 +125,8 @@ const Question_Input = styled.input`
   border-radius: 3px;
   font-size: 13.3px;
   padding: 8px 10px 8px 10px;
-  margin-top: 10px;
+  /* margin-bottom: 20px; */
+  width: 850px;
 `;
 
-const Question_Body = styled.div`
-  width: 854px;
-  height: 607px;
-  margin-top: 20px;
-`;
 export default Question;

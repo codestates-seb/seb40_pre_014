@@ -13,6 +13,20 @@ const Question_Wrapper = ({ subTitle, info }) => {
 const Question_Title = styled.div`
   display: flex;
   flex-direction: column;
+  /* margin: 5px 0px 10px 0px; */
+
+  .subTitle {
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  .subTitleInfo {
+    font-size: 13px;
+    font-weight: 350;
+    color: #525960;
+    margin: 7px 0px 7px 0px;
+    width: 100%;
+  }
 `;
 
 export default Question_Wrapper;
