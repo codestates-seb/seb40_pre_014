@@ -15,7 +15,7 @@ const Tags = () => {
       <Nav />
       <Container>
         <LeftSide />
-        <section>
+        <section style={{ width: '100%' }}>
           <TagTitle tags={tags} setTags={setTags} />
           <TagList tags={tags} />
         </section>
