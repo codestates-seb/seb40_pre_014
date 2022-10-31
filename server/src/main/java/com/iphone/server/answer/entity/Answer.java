@@ -3,13 +3,11 @@ package com.iphone.server.answer.entity;
 import com.iphone.server.answer_like.entity.Answer_like;
 import com.iphone.server.user.dto.BaseTimeEntity;
 import com.iphone.server.user.dto.User;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,3 +47,5 @@ public class Answer extends BaseTimeEntity {
         answer_likes.add(answer_like);
     }
 }
+
+// 레파지토리 , 엔티티 추가

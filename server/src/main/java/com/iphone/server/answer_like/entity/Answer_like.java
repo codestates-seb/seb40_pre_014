@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Getter
 @Entity
 public class Answer_like extends BaseTimeEntity {
-// vote
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="answer_like_id")
