@@ -1,7 +1,9 @@
 package com.iphone.server.user.service;
 
 import com.iphone.server.user.config.jwt.JwtTokenUtil;
+import com.iphone.server.user.domain.UserRepository;
 import com.iphone.server.user.dto.*;
+import com.iphone.server.user.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,28 +1,27 @@
-package com.iphone.server.user.dto;
+package com.iphone.server.user.domain;
 
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
-@Table(name="seb_user")
-public class User extends BaseTimeEntity{
+@Table(name="member")
+public class User extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="user_id")
+    @Column(name="id")
     private Long number;
 
-    @Column(name="user_email",unique=true)
+    @Column(name="email",unique=true)
     private String email;
 
-    @Column(name = "user_password")
+    @Column(name = "password")
     private String password;
 
-    @Column(name="user_nickname")
+    @Column(name="nickname")
     private String nickName;
 
     @Column(name="img")

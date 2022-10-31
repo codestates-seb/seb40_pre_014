@@ -1,7 +1,7 @@
 package com.iphone.server.user.config.jwt;
 
-import com.iphone.server.user.dto.User;
-import com.iphone.server.user.dto.UserRepository;
+import com.iphone.server.user.domain.User;
+import com.iphone.server.user.domain.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

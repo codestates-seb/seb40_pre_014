@@ -1,15 +1,12 @@
 package com.iphone.server.answer.entity;
 
-import com.iphone.server.answer.audit.Auditable;
 import com.iphone.server.answer_like.entity.Answer_like;
-import com.iphone.server.user.dto.BaseTimeEntity;
-import lombok.Builder;
+import com.iphone.server.user.domain.BaseTimeEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
