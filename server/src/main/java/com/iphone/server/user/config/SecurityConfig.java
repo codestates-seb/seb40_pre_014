@@ -57,7 +57,8 @@ public class SecurityConfig {
                 // 이 요청은 인증을 하지 않는다.
                 .authorizeRequests().antMatchers(
                         "/authenticate",
-                        "/api/users/**")
+                        "/api/users/**","/question/**","/answer/**","/tags/**")
+
                 .permitAll()
                 // 다른 모든 요청은 인증을 한다.
                 .anyRequest().authenticated().and()

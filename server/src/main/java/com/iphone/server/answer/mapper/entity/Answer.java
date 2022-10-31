@@ -1,7 +1,9 @@
-package com.iphone.server.answer.entity;
+package com.iphone.server.answer.mapper.entity;
 
-import com.iphone.server.answer_like.entity.Answer_like;
+import com.iphone.server.answer_like.entity.AnswerLike;
+import com.iphone.server.question.entity.Question;
 import com.iphone.server.user.domain.BaseTimeEntity;
+import com.iphone.server.user.domain.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,6 +27,13 @@ public class Answer extends BaseTimeEntity {
     private String content;
 
 
+    @ManyToOne
+    @JoinColumn(name="question_id" )
+    private Question question;
+
+    @ManyToOne
+    @JoinColumn(name="user_id" )
+    private User user;
 
 
 //    @Column(name="created_at")
@@ -41,9 +50,9 @@ public class Answer extends BaseTimeEntity {
     }
 
     @OneToMany(mappedBy = "answer")
-    private List<Answer_like> answer_likes = new ArrayList<>();
+    private List<AnswerLike> answer_likes = new ArrayList<>();
 
-    public void addAnswer_like(Answer_like answer_like)
+    public void addAnswer_like(AnswerLike answer_like)
     {
         answer_likes.add(answer_like);
     }
