@@ -6,16 +6,7 @@ import { Editor } from '@toast-ui/react-editor';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import Question_Wrapper from '../components/Question_Input';
 import Btn from '../components/Button/Btn';
-
-// const onChange = () => {
-//   const data = editorRef.current.getInstance().getHTML();
-//   setContent(data);
-//   const dataWithoutTag = data.replace(
-//     /<\/?("[^"]*"|'[^']*'|[^>])*(>|$)/gi,
-//     ''
-//   );
-//   setLengthContent(dataWithoutTag.length);
-// };
+import Footer from '../components/Layout/Footer/Footer';
 
 const Question = () => {
   const [title, setTitle] = useState();
@@ -93,6 +84,7 @@ const Question = () => {
           margin={'20px 0px 0px 0px'}
         ></Btn>
       </Question_Container>
+      <Footer />
     </>
   );
 };
@@ -117,6 +109,7 @@ const Question_Main = styled.div`
   border-radius: 5px;
   background: white;
   box-shadow: rgb(128, 128, 128) 0px 0px 3px 0px;
+  margin-top: 50px;
 `;
 
 const Question_Input = styled.input`
@@ -125,7 +118,6 @@ const Question_Input = styled.input`
   border-radius: 3px;
   font-size: 13.3px;
   padding: 8px 10px 8px 10px;
-  /* margin-bottom: 20px; */
   width: 850px;
 `;
 
