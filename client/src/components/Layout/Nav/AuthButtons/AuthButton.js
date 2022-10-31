@@ -1,5 +1,5 @@
 import React from 'react';
-import Btn from '../../../Btn';
+import Btn from '../../../Button/Btn';
 import { AuthButtonBox, AuthButtonLink } from './AuthButton.style';
 
 const AuthButton = () => {

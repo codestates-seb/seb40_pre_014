@@ -1,31 +1,27 @@
 import React from 'react';
 import Stacklogo from '../../../assets/images/logo.png';
-import { NavHeader, NavBox, LogoBox } from './Nav.style';
+import { NavHeader, NavBox, LogoBox, LogoImg } from './Nav.style';
 // import Bars from '../../Bars/Bars';
 import { Link } from 'react-router-dom';
 import TopLink from './TopLink/TopLink';
 import SearchBox from './SearchBox/SearchBox';
 import AuthButton from './AuthButtons/AuthButton';
 
+const add = async () => {
+  const res = await fetch('http://3.38.108.228:8080/api/users');
+  const body = await res.json();
+  console.log(body);
+};
+
 const Nav = () => {
   return (
     <NavHeader>
       <NavBox>
         {/* <Bars /> */}
-        <LogoBox>
-          <Link to="/" />
-          <img
-            src={Stacklogo}
-            alt=""
-            style={{
-              height: '35px',
-              width: '150px',
-              marginLeft: '50px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          />
+        <LogoBox onClick={add}>
+          <Link to="/">
+            <LogoImg src={Stacklogo} alt="" />
+          </Link>
         </LogoBox>
         <TopLink />
         <SearchBox />

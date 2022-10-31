@@ -1,14 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 import Footer from './Footer/Footer';
 import Main from './Main/Main';
 import Nav from './Nav/Nav';
-
-const LayoutBox = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-`;
+import styled from 'styled-components';
 
 const Layout = () => {
   return (
@@ -19,5 +13,13 @@ const Layout = () => {
     </LayoutBox>
   );
 };
+
+const LayoutBox = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-flow: row wrap;
+  justify-content: center;
+`;
 
 export default Layout;
