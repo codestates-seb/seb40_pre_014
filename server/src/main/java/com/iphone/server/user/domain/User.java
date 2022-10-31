@@ -8,20 +8,20 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name="seb_user")
+@Table(name="member")
 public class User extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="user_id")
+    @Column(name="id")
     private Long number;
 
-    @Column(name="user_email",unique=true)
+    @Column(name="email",unique=true)
     private String email;
 
-    @Column(name = "user_password")
+    @Column(name = "password")
     private String password;
 
-    @Column(name="user_nickname")
+    @Column(name="nickname")
     private String nickName;
 
     @Column(name="img")
