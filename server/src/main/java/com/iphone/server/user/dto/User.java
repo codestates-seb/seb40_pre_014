@@ -1,10 +1,14 @@
 package com.iphone.server.user.dto;
 
+import com.iphone.server.answer.entity.Answer;
+import com.iphone.server.answer_like.entity.Answer_like;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -29,4 +33,14 @@ public class User extends BaseTimeEntity{
 
     @Column(name="type")
     private String type;
+
+    @OneToMany(mappedBy = "user")
+    private List<Answer> answers = new ArrayList<>();
+
+    public void addAnswer(Answer answer)
+    {
+        answers.add(answer);
+    }
+
+
 }

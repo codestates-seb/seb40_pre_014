@@ -12,20 +12,11 @@ public interface AnswerMapper {
     default Answer answerPostDtoToAnswer(AnswerPostDto answerPostDto)
     {
        Answer answer = new Answer();
+       answer.setContent(answerPostDto.getContent());
 
-    answer.setContent(answerPostDto.getContent());
+       return answer;
 
-//        Answer answer = Answer.builder()
-//                .content(answerPostDto.getContent())
-//                .build();
 
-        return answer;
-
-//        Question question = Question.builder()
-//                .index(post.getIndex())
-//                .content(post.getContent())
-//                .build();
-//        return question;
     }
 
     default AnswerResponseDto answerToAnswerResponseDto(Answer answer){
@@ -34,17 +25,11 @@ public interface AnswerMapper {
         answerResponseDto.setAnswer_id(answer.getAnswer_id());
         answerResponseDto.setContent(answer.getContent());
 
-
-
         return answerResponseDto;
     }
 
     default Answer answerPatchDtoToAnswer(AnswerPatchDto answerPatchDto)
     {
-//        Answer answer = Answer.builder()
-//                .content(answerPatchDto.getContent())
-//                .build();
-
         Answer answer = new Answer();
         answer.setContent(answerPatchDto.getContent());
 

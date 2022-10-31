@@ -1,6 +1,5 @@
 package com.iphone.server.answer_like.entity;
 
-import com.iphone.server.answer.audit.Auditable;
 import com.iphone.server.answer.entity.Answer;
 import com.iphone.server.user.dto.BaseTimeEntity;
 import lombok.Getter;

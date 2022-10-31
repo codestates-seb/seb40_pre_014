@@ -1,8 +1,8 @@
 package com.iphone.server.answer.entity;
 
-import com.iphone.server.answer.audit.Auditable;
 import com.iphone.server.answer_like.entity.Answer_like;
 import com.iphone.server.user.dto.BaseTimeEntity;
+import com.iphone.server.user.dto.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,17 +27,6 @@ public class Answer extends BaseTimeEntity {
     @Column(name="content",nullable = false)
     private String content;
 
-
-
-
-//    @Column(name="created_at")
-//    private LocalDateTime created_at = LocalDateTime.now();
-//
-//    @Column(name="modified_at")
-//    private LocalDateTime modified_at = LocalDateTime.now();
-
-
-
     public Answer(Long answer_id, String content) {
         this.answer_id = answer_id;
         this.content = content;
@@ -45,6 +34,15 @@ public class Answer extends BaseTimeEntity {
 
     @OneToMany(mappedBy = "answer")
     private List<Answer_like> answer_likes = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public void addUsser(User user)
+    {
+        this.user=user;
+    }
 
     public void addAnswer_like(Answer_like answer_like)
     {
