@@ -15,7 +15,10 @@ const Button = styled.div`
   border-radius: 5px;
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
-
+  color: ${(props) => {
+    return props.color;
+  }};
+  border: ${(props) => props.border};
   > span {
     color: ${(props) => props.textColor || 'white'};
   }
@@ -37,6 +40,7 @@ const Btn = ({
   cursorPointer,
   margin,
   padding,
+  border,
 }) => {
   return (
     <Button
@@ -49,6 +53,7 @@ const Btn = ({
       cursorPointer={cursorPointer}
       margin={margin}
       padding={padding}
+      border={border}
     >
       <span> {text} </span>
     </Button>
@@ -63,6 +68,7 @@ Btn.propTypes = {
   width: PropTypes.string,
   fontSize: PropTypes.string,
   hoverColor: PropTypes.string,
+  color: PropTypes.string,
 };
 
 export default Btn;
