@@ -1,6 +1,6 @@
 package com.iphone.server.answer.service;
 
-import com.iphone.server.answer.entity.Answer;
+import com.iphone.server.answer.mapper.entity.Answer;
 import com.iphone.server.answer.repository.AnswerRepository;
 import com.iphone.server.exception.BusinessLogicException;
 import com.iphone.server.exception.ExceptionCode;

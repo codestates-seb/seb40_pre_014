@@ -2,13 +2,12 @@ package com.iphone.server.answer.controller;
 
 import com.iphone.server.answer.dto.AnswerPatchDto;
 import com.iphone.server.answer.dto.AnswerPostDto;
-import com.iphone.server.answer.entity.Answer;
+import com.iphone.server.answer.mapper.entity.Answer;
 import com.iphone.server.answer.mapper.AnswerMapper;
 import com.iphone.server.answer.response.SingleResponseDto;
 import com.iphone.server.answer.service.AnswerService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -18,17 +17,15 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @Slf4j
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/v1/answers")
+
 public class AnswerController {
 
     // 답변 작성
     private final AnswerService answerService;
     private final AnswerMapper mapper;
 
-    public AnswerController(AnswerService answerService, AnswerMapper mapper) {
-        this.answerService = answerService;
-        this.mapper = mapper;
-    }
 
     // 답변 작성
     @PostMapping("/answer")

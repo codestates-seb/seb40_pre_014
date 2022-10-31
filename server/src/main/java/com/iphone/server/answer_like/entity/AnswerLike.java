@@ -1,6 +1,6 @@
 package com.iphone.server.answer_like.entity;
 
-import com.iphone.server.answer.entity.Answer;
+import com.iphone.server.answer.mapper.entity.Answer;
 import com.iphone.server.user.domain.BaseTimeEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,8 +12,8 @@ import javax.persistence.*;
 @Setter
 @Getter
 @Entity
-public class Answer_like extends BaseTimeEntity {
-// vote
+public class AnswerLike extends BaseTimeEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="answer_like_id")
@@ -31,7 +31,7 @@ public class Answer_like extends BaseTimeEntity {
         this.answer=answer;
     }
 
-    public Answer_like(int answer_like_id, char status) {
+    public AnswerLike(int answer_like_id, char status) {
         this.answer_like_id = answer_like_id;
         this.status = status;
     }

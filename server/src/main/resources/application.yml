@@ -1,15 +1,19 @@
 spring:
   datasource:
-    url: jdbc:mysql://endpoint:3306/seb014?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: jdbc:mysql://endpoint:3306/test?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
     username:
     password:
+
   jpa:
     open-in-view: false
     generate-ddl: true
     show-sql: true
     hibernate:
       ddl-auto: update
+
+
+
   main:
     allow-circular-references: true
   jwt:
@@ -17,3 +21,14 @@ spring:
   mvc:
     path match:
       matching-strategy: ant_path_matcher
+
+
+logging:
+  level:
+    org:
+      springframework:
+        orm:
+          jpa: DEBUG
+
+
+
