@@ -95,7 +95,7 @@ const Question_Container = styled.div`
   justify-content: center;
   align-items: center;
   background: rgb(239, 240, 241);
-  height: 100vh;
+  height: 1200px;
   width: 100vw;
 `;
 
