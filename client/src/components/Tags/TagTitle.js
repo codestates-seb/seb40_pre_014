@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 import TagDummy from './TagDummy';
+import SortTab from '../Button/SortTab';
 
 const TagTitle = ({ tags, setTags }) => {
   const clickpopular = () => {
@@ -42,10 +43,12 @@ const TagTitle = ({ tags, setTags }) => {
       <div className="between">
         <SearchIcon />
         <TextInput placeholder="Filter by tag name" onChange={tagsearch} />
-        <div className="filterBtn">
-          <button onClick={clickpopular}>Popular</button>
-          <button onClick={clickname}>Name</button>
-        </div>
+        <SortTab
+          funcprop={clickpopular}
+          funcprop2={clickname}
+          text={'Popular'}
+          text2={'Name'}
+        />
       </div>
     </Container>
   );
