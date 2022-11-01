@@ -82,7 +82,7 @@ const Users = () => {
 };
 
 const UserContainer = styled.div`
-  height: 1145px;
+  height: 1000px;
   width: 1100px;
   padding: 20px;
   border-left: 1px solid rgb(177, 183, 188);
@@ -115,6 +115,7 @@ const MiddleBox = styled.div`
 const FilterButtonWrap = styled.div`
   display: flex;
   justify-content: space-between;
+  height: 80px;
 
   .tabs {
     position: relative;
