@@ -90,7 +90,7 @@ public interface QuestionMapper {
             aResDto.setAnswerId(answer.getAnswer_id());
             aResDto.setContent(answer.getContent());
             aResDto.setRegDate(answer.getCreatedDate());
-            aResDto.setNickName(aResDto.getNickName());
+            aResDto.setNickName(answer.getUser().getNickName());
             return aResDto;
         }).collect(Collectors.toList());
     }
