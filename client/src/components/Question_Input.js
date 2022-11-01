@@ -13,7 +13,6 @@ const Question_Wrapper = ({ subTitle, info }) => {
 const Question_Title = styled.div`
   display: flex;
   flex-direction: column;
-  /* margin: 5px 0px 10px 0px; */
 
   .subTitle {
     font-weight: 500;

@@ -5,6 +5,7 @@ import LeftSide from '../components/Layout/SideBar/LeftSide';
 import styled from 'styled-components';
 import User from '../components/User';
 import dummyUsers from '../static/dummyUsers';
+import SortTab from '../components/Button/SortTab';
 
 const Users = () => {
   const [users, setUsers] = useState(dummyUsers);
@@ -41,43 +42,31 @@ const Users = () => {
   };
 
   return (
-    <LayoutBox>
+    <>
       <Nav />
-      <MiddleBox>
-        <LeftSide />
-        <UserContainer>
-          <h1> Users </h1>
-          <FilterButtonWrap>
-            <FilterInput
-              onChange={userSearch}
-              placeholder="Filter by user"
-            ></FilterInput>
-            <ul className="tabs">
-              <li className="tab">
-                <input
-                  type="radio"
-                  id="tab-1"
-                  name="tab-group-1"
-                  onClick={clickhandle}
-                />
-                <label htmlFor="tab-1">Name</label>
-              </li>
-              <li className="tab">
-                <input
-                  type="radio"
-                  id="tab-2"
-                  name="tab-group-1"
-                  onClick={datehandle}
-                />
-                <label htmlFor="tab-2">Date</label>
-              </li>
-            </ul>
-          </FilterButtonWrap>
-          <User users={users} />
-        </UserContainer>
-      </MiddleBox>
-      <Footer />
-    </LayoutBox>
+      <LayoutBox>
+        <MiddleBox>
+          <LeftSide />
+          <UserContainer>
+            <h1> Users </h1>
+            <FilterButtonWrap>
+              <FilterInput
+                onChange={userSearch}
+                placeholder="Filter by user"
+              ></FilterInput>
+              <SortTab
+                funcprop={clickhandle}
+                funcprop2={datehandle}
+                text={'Name'}
+                text2={'Newest'}
+              />
+            </FilterButtonWrap>
+            <User users={users} />
+          </UserContainer>
+        </MiddleBox>
+        <Footer />
+      </LayoutBox>
+    </>
   );
 };
 
@@ -85,7 +74,6 @@ const UserContainer = styled.div`
   height: 1000px;
   width: 1100px;
   padding: 20px;
-  border-left: 1px solid rgb(177, 183, 188);
   > h1 {
     font-size: 27px;
     margin-bottom: 30px;
@@ -104,6 +92,7 @@ const LayoutBox = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  padding-top: 50px;
 `;
 
 const MiddleBox = styled.div`
@@ -116,33 +105,5 @@ const FilterButtonWrap = styled.div`
   display: flex;
   justify-content: space-between;
   height: 80px;
-
-  .tabs {
-    position: relative;
-    padding: 0;
-    list-style: none;
-  }
-  .tab {
-    float: left;
-    padding: 10px 0;
-  }
-  .tab label {
-    position: relative;
-    background: white;
-    padding: 8px 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  .tab [type='radio'] {
-    display: none;
-  }
-  .tab [type='radio']:checked ~ label {
-    background: rgb(223, 226, 229);
-    z-index: 2;
-  }
-  .tab [type='radio']:checked + label + .content {
-    z-index: 1;
-    display: block;
-  }
 `;
 export default Users;
