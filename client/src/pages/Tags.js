@@ -6,6 +6,7 @@ import Footer from '../components/Layout/Footer/Footer';
 import Nav from '../components/Layout/Nav/Nav';
 import TagDummy from '../components/Tags/TagDummy';
 import { useState } from 'react';
+import Paging from '../components/Paging';
 
 const Tags = () => {
   const [tags, setTags] = useState(TagDummy);
@@ -20,6 +21,7 @@ const Tags = () => {
           <TagList tags={tags} />
         </section>
       </Container>
+      <Paging />
       <Footer />
     </div>
   );
