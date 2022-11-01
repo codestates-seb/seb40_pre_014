@@ -15,17 +15,10 @@ public interface AnswerMapper {
 
     answer.setContent(answerPostDto.getContent());
 
-//        Answer answer = Answer.builder()
-//                .content(answerPostDto.getContent())
-//                .build();
 
         return answer;
 
-//        Question question = Question.builder()
-//                .index(post.getIndex())
-//                .content(post.getContent())
-//                .build();
-//        return question;
+
     }
 
     default AnswerResponseDto answerToAnswerResponseDto(Answer answer){
@@ -41,9 +34,7 @@ public interface AnswerMapper {
 
     default Answer answerPatchDtoToAnswer(AnswerPatchDto answerPatchDto)
     {
-//        Answer answer = Answer.builder()
-//                .content(answerPatchDto.getContent())
-//                .build();
+
 
         Answer answer = new Answer();
         answer.setContent(answerPatchDto.getContent());

@@ -7,6 +7,7 @@ import com.iphone.server.user.domain.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -32,17 +33,17 @@ public class Answer extends BaseTimeEntity {
     private Question question;
 
     @ManyToOne
-    @JoinColumn(name="user_id" )
+    @JoinColumn(name="user_id",nullable = true )
     private User user;
 
 
-//    @Column(name="created_at")
-//    private LocalDateTime created_at = LocalDateTime.now();
-//
-//    @Column(name="modified_at")
-//    private LocalDateTime modified_at = LocalDateTime.now();
+    @Column
+    @ColumnDefault("0")
+    private int voteCount;
 
-
+    @Column
+    @ColumnDefault("0")
+    private int viewCount;
 
     public Answer(Long answer_id, String content) {
         this.answer_id = answer_id;
