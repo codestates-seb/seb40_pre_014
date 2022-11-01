@@ -37,10 +37,10 @@ export const LeftBar = styled.div`
     border-right: 2px solid #f27622;
     cursor: pointer;
   }
-  // li:hover {
-  //   font-size: 12px;
-  //   font-weight: 800;
-  // }
+  li:hover {
+    font-size: 18px;
+    font-weight: 600;
+  }
 
   .selected {
     color: blue;
