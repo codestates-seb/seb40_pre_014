@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const MainBox = styled.div`
@@ -109,4 +110,8 @@ export const ContentsSection = styled.section`
       flex-direction: column;
     }
   }
+`;
+
+export const LinkBox = styled(Link)`
+  text-decoration: none;
 `;

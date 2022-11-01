@@ -41,6 +41,8 @@ const Btn = ({
   margin,
   padding,
   border,
+  funcProps = function () {},
+  funcProps2 = function () {},
 }) => {
   return (
     <Button
@@ -54,6 +56,8 @@ const Btn = ({
       margin={margin}
       padding={padding}
       border={border}
+      onClick={funcProps}
+      funcProps2={funcProps2}
     >
       <span> {text} </span>
     </Button>
