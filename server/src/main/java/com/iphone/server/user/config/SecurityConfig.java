@@ -57,9 +57,10 @@ public class SecurityConfig {
                 .csrf().disable()
                 // 이 요청은 인증을 하지 않는다.
                 .authorizeRequests()
+                .antMatchers(HttpMethod.GET,"/question/**").permitAll()
                 .antMatchers(
                         "/authenticate",
-                        "/api/users/**","/answer/**","/question/**","/tags/**")
+                        "/api/users/**","/answer/**","/tags/**")
 
                 .permitAll()
                 // 다른 모든 요청은 인증을 한다.
