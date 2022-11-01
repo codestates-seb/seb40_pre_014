@@ -13,8 +13,6 @@ spring:
     hibernate:
       ddl-auto: update
 
-
-
   main:
     allow-circular-references: true
   jwt:
@@ -23,13 +21,9 @@ spring:
     path match:
       matching-strategy: ant_path_matcher
 
-
 logging:
   level:
     org:
       springframework:
         orm:
           jpa: DEBUG
-
-
-

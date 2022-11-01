@@ -1,7 +1,6 @@
 import React from 'react';
 import { LeftBar, QuestionIcon, LinkBox, PublicBox } from './LeftSide.style';
 import Ad from './Ad';
-import { NavLink } from 'react-router-dom';
 
 const LeftSide = () => {
   return (
@@ -15,7 +14,7 @@ const LeftSide = () => {
           </div>
         </li>
         <li>
-          <NavLink to="/tags">Tags</NavLink>
+          <LinkBox to="/tags">Tags</LinkBox>
         </li>
         <li>
           <LinkBox to="/users">Users</LinkBox>

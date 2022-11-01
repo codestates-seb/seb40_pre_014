@@ -7,6 +7,7 @@ import Signup from './Pages/signup';
 import Tags from './Pages/Tags';
 import Users from './Pages/Users';
 import Question from './Pages/quetion';
+import Question_Detail from './Pages/question_detail';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/tags" element={<Tags />} />
         <Route path="/users" element={<Users />} />
         <Route path="/question" element={<Question />} />
+        <Route path="/question_detail" element={<Question_Detail />} />
       </Routes>
     </RecoilRoot>
   );

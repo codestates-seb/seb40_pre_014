@@ -59,7 +59,7 @@ export const QuestionIcon = styled(FaGlobeAmericas)`
 `;
 
 export const LinkBox = styled(NavLink)`
-  &:active {
+  &.active {
     color: rgb(82, 89, 96);
     background-color: orange;
   }
