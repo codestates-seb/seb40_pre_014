@@ -1,5 +1,7 @@
 package com.iphone.server.answer.controller;
 
+import com.iphone.server.answer.dto.AnswerLikeDto;
+import com.iphone.server.answer.dto.AnswerLikeResponseDto;
 import com.iphone.server.answer.dto.AnswerPatchDto;
 import com.iphone.server.answer.dto.AnswerPostDto;
 import com.iphone.server.answer.entity.Answer;
@@ -7,7 +9,11 @@ import com.iphone.server.answer.mapper.AnswerMapper;
 import com.iphone.server.answer.repository.AnswerRepository;
 import com.iphone.server.answer.response.SingleResponseDto;
 import com.iphone.server.answer.service.AnswerService;
+import com.iphone.server.answer_like.entity.AnswerLike;
 import com.iphone.server.answer_like.repository.AnswerLikeRepository;
+import com.iphone.server.question.dto.QuestionLikeDto;
+import com.iphone.server.question.dto.QuestionLikeResponseDto;
+import com.iphone.server.question.entity.QuestionLike;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -48,7 +54,7 @@ public class AnswerController {
                 HttpStatus.CREATED);
     }
 
-    // 답변 수정 ( 자기 답변 아니면 접근 x)
+    // 답변 수정
     @PatchMapping("/answer/{answer-id}")
     public ResponseEntity patchAnswer(@PathVariable("answer-id") @Positive @NotNull long answer_id, @RequestBody @Valid AnswerPatchDto answerPatchDto)
 
@@ -61,6 +67,7 @@ public class AnswerController {
                 HttpStatus.CREATED);
 
     }
+    // 답변 삭제
     @DeleteMapping("/answer/{answer-id")
     public ResponseEntity deleteMember(@PathVariable("answer-id") @Positive @NotNull long answer_id)
     {
@@ -68,4 +75,20 @@ public class AnswerController {
         return new ResponseEntity<>("삭제완료",HttpStatus.OK);
 
     }
+
+    // 답변 좋아요
+    @PostMapping("/answer/like/{answer-id}")
+    public ResponseEntity likeQuestion(@PathVariable("answer-id") @Positive @NotNull long answer_id,
+                                       @Valid @RequestBody AnswerLikeDto answerLikeDto) {
+        int voteCount = answerLikeRepository.findlikeCount(answer_id).size()- answerLikeRepository.findUnlikeCount(answer_id).size();
+
+        AnswerLike likeAnswer =answerService.likeAnswer(mapper.answerPostLikeDtoToQuestionLike(answer_id,answerLikeDto),voteCount);
+
+        AnswerLikeResponseDto answerLikeResponseDto = new AnswerLikeResponseDto();
+        answerLikeResponseDto.setAnswerLikeId(likeAnswer.getAnswer_like_id());
+
+        return new ResponseEntity<>(new com.iphone.server.response.SingleResponseDto<>(answerLikeResponseDto),
+                HttpStatus.CREATED);
+    }
+
 }

@@ -2,10 +2,7 @@ package com.iphone.server.answer_like.entity;
 
 import com.iphone.server.answer.entity.Answer;
 import com.iphone.server.user.domain.BaseTimeEntity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -13,13 +10,14 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Setter
 @Getter
+@Builder
 @Entity
 public class AnswerLike extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="answer_like_id")
-    private int answer_like_id;
+    private long answer_like_id;
 
     @Column(name="status")
     private char status;
@@ -33,7 +31,7 @@ public class AnswerLike extends BaseTimeEntity {
         this.answer=answer;
     }
 
-    public AnswerLike(int answer_like_id, char status) {
+    public AnswerLike(long answer_like_id, char status) {
         this.answer_like_id = answer_like_id;
         this.status = status;
     }
