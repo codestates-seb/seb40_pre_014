@@ -36,6 +36,7 @@ const User_Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 5px 5px 7px 7px;
+  height: 500px;
 
   .textWrap {
     height: 60px;
