@@ -2,6 +2,7 @@ package com.iphone.server.answer_like.entity;
 
 import com.iphone.server.answer.entity.Answer;
 import com.iphone.server.user.domain.BaseTimeEntity;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,6 +10,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -22,7 +24,7 @@ public class AnswerLike extends BaseTimeEntity {
     @Column(name="status")
     private char status;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY )
     @JoinColumn(name = "answer_id")
     private Answer answer;
 
