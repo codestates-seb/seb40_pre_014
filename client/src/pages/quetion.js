@@ -2,11 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import Nav from '../components/Layout/Nav/Nav';
 import { useState } from 'react';
-import { Editor } from '@toast-ui/react-editor';
-import '@toast-ui/editor/dist/toastui-editor.css';
 import Question_Wrapper from '../components/Question_Input';
 import Btn from '../components/Button/Btn';
 import Footer from '../components/Layout/Footer/Footer';
+import TextEditor from '../components/TextEditor';
 
 const Question = () => {
   const [title, setTitle] = useState();
@@ -48,20 +47,7 @@ const Question = () => {
                 'Include all the information someone would need to answer your question.'
               }
             />
-            <Editor
-              placeholder="내용을 입력해주세요."
-              previewStyle="vertical" // 미리보기 스타일 지정
-              height="550px" // 에디터 창 높이
-              initialEditType="wysiwyg" // 초기 입력모드 설정(디폴트 markdown)
-              toolbarItems={[
-                // 툴바 옵션 설정
-                ['heading', 'bold', 'italic', 'strike'],
-                ['hr', 'quote'],
-                ['ul', 'ol', 'task', 'indent', 'outdent'],
-                ['table', 'link'],
-                ['code', 'codeblock'],
-              ]}
-            />
+            <TextEditor height={'550px'} />
           </div>
           <div>
             <Question_Wrapper
