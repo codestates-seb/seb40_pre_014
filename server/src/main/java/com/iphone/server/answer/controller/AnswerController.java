@@ -2,7 +2,7 @@ package com.iphone.server.answer.controller;
 
 import com.iphone.server.answer.dto.AnswerPatchDto;
 import com.iphone.server.answer.dto.AnswerPostDto;
-import com.iphone.server.answer.mapper.entity.Answer;
+import com.iphone.server.answer.entity.Answer;
 import com.iphone.server.answer.mapper.AnswerMapper;
 import com.iphone.server.answer.response.SingleResponseDto;
 import com.iphone.server.answer.service.AnswerService;

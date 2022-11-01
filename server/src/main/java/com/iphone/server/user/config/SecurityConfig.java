@@ -5,6 +5,7 @@ import com.iphone.server.user.config.jwt.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -55,9 +56,10 @@ public class SecurityConfig {
                 .and()
                 .csrf().disable()
                 // 이 요청은 인증을 하지 않는다.
-                .authorizeRequests().antMatchers(
+                .authorizeRequests()
+                .antMatchers(
                         "/authenticate",
-                        "/api/users/**","/question/**","/answer/**","/tags/**")
+                        "/api/users/**","/answer/**","/question/**","/tags/**")
 
                 .permitAll()
                 // 다른 모든 요청은 인증을 한다.

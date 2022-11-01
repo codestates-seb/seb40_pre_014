@@ -11,7 +11,8 @@ public enum ExceptionCode {
     CANNOT_CHANGE_ORDER(403, "Order can not change"),
     NOT_IMPLEMENTATION(501, "Not Implementation"),
 
-    QUESTION_NOT_FOUND(413,"Question not found");
+    QUESTION_NOT_FOUND(413,"Question not found"),
+    USER_NOT_FOUND(415, "User not found");
 
     @Getter
     private int status;

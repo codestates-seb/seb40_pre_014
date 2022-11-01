@@ -1,4 +1,4 @@
-package com.iphone.server.answer.mapper.entity;
+package com.iphone.server.answer.entity;
 
 import com.iphone.server.answer_like.entity.AnswerLike;
 import com.iphone.server.question.entity.Question;

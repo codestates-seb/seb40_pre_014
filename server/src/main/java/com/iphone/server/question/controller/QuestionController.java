@@ -1,6 +1,6 @@
 package com.iphone.server.question.controller;
 
-import com.iphone.server.answer.mapper.entity.Answer;
+import com.iphone.server.answer.entity.Answer;
 import com.iphone.server.question.dto.QuestionLikeDto;
 import com.iphone.server.question.dto.QuestionLikeResponseDto;
 import com.iphone.server.question.dto.QuestionPatchDto;
@@ -113,7 +113,7 @@ public class QuestionController {
     @PatchMapping("/question/{question-id}")
     public ResponseEntity updateQuestion(@PathVariable("question-id") @Positive @NotNull  long questionId, @RequestBody @Valid QuestionPatchDto questionPatchDto){
         questionPatchDto.setQuestionId(questionId);
-        log.info(questionPatchDto.toString());
+
         Question question = questionService.updateQuestion(questionMapper.questionPatchDtoToQuestion(questionPatchDto));
 
         return new ResponseEntity<>(questionMapper.questionToResponseDto(question),

@@ -4,7 +4,7 @@ package com.iphone.server.answer.mapper;
 import com.iphone.server.answer.dto.AnswerPatchDto;
 import com.iphone.server.answer.dto.AnswerPostDto;
 import com.iphone.server.answer.dto.AnswerResponseDto;
-import com.iphone.server.answer.mapper.entity.Answer;
+import com.iphone.server.answer.entity.Answer;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

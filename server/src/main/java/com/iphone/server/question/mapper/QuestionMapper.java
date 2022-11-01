@@ -1,6 +1,6 @@
 package com.iphone.server.question.mapper;
 
-import com.iphone.server.answer.mapper.entity.Answer;
+import com.iphone.server.answer.entity.Answer;
 import com.iphone.server.question.dto.*;
 import com.iphone.server.question.entity.Question;
 import com.iphone.server.question.entity.QuestionLike;
