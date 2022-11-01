@@ -110,3 +110,16 @@ export const ContentsSection = styled.section`
     }
   }
 `;
+
+export const Tags = styled.div`
+  display: flex;
+`;
+
+export const Tag = styled.div`
+  margin-right: 5px;
+  background: rgb(221, 233, 242);
+  border-radius: 3px;
+  color: #39739d;
+  padding: 3px;
+  font-size: 13px;
+`;
