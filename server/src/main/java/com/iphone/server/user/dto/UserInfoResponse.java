@@ -1,5 +1,6 @@
 package com.iphone.server.user.dto;
 
+import com.iphone.server.user.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

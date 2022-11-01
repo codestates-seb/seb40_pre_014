@@ -7,12 +7,18 @@ import TopLink from './TopLink/TopLink';
 import SearchBox from './SearchBox/SearchBox';
 import AuthButton from './AuthButtons/AuthButton';
 
+const add = async () => {
+  const res = await fetch('http://3.38.108.228:8080/api/users');
+  const body = await res.json();
+  console.log(body);
+};
+
 const Nav = () => {
   return (
     <NavHeader>
       <NavBox>
         {/* <Bars /> */}
-        <LogoBox>
+        <LogoBox onClick={add}>
           <Link to="/">
             <LogoImg src={Stacklogo} alt="" />
           </Link>

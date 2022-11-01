@@ -1,37 +1,25 @@
 import React from 'react';
-import { LeftBar, QuestionIcon, PublicBox, LinkBox } from './LeftSide.style';
+import { LeftBar, QuestionIcon, LinkBox, PublicBox } from './LeftSide.style';
 import Ad from './Ad';
+import { NavLink } from 'react-router-dom';
 
 const LeftSide = () => {
   return (
     <LeftBar>
       <ul>
         <PublicBox>Public</PublicBox>
-        <LinkBox
-          to={'/'}
-          className={({ isActive }) => 'nav-link' + (isActive ? 'a' : '')}
-        >
-          <li>
-            <div className="icon">
-              <QuestionIcon />
-              Question
-            </div>
-          </li>
-        </LinkBox>
-
-        <LinkBox
-          to={'/tags'}
-          className={({ isActive }) => 'nav-link' + (isActive ? 'a' : '')}
-        >
-          <li>Tags</li>
-        </LinkBox>
-
-        <LinkBox
-          to={'/users'}
-          className={({ isActive }) => 'nav-link' + (isActive ? 'a' : '')}
-        >
-          <li>Users</li>
-        </LinkBox>
+        <li className="home">
+          <div className="icon">
+            <QuestionIcon />
+            <LinkBox to="/">Questions</LinkBox>
+          </div>
+        </li>
+        <li>
+          <NavLink to="/tags">Tags</NavLink>
+        </li>
+        <li>
+          <LinkBox to="/users">Users</LinkBox>
+        </li>
         <Ad />
       </ul>
     </LeftBar>

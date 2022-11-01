@@ -16,6 +16,7 @@ import {
 } from './Main.style';
 import LeftSide from '../SideBar/LeftSide';
 import RightSide from '../SideBar/RightSide';
+import { Link } from 'react-router-dom';
 
 const Main = () => {
   return (
@@ -25,16 +26,18 @@ const Main = () => {
         <MainMiniBox>
           <MainFirstBox>
             <h1>All Questions</h1>
-            <Btn
-              text={'Ask Question'}
-              backColor={'#0d8ae1'}
-              width={'90px'}
-              height={'35px'}
-              fontSize={'13px'}
-              hoverColor={'#0069c5'}
-              cursorPointer={'pointer'}
-              margin={'5px 5px 0 0'}
-            ></Btn>
+            <Link to={'/question'}>
+              <Btn
+                text={'Ask Question'}
+                backColor={'#0d8ae1'}
+                width={'90px'}
+                height={'35px'}
+                fontSize={'13px'}
+                hoverColor={'#0069c5'}
+                cursorPointer={'pointer'}
+                margin={'5px 5px 0 0'}
+              ></Btn>
+            </Link>
           </MainFirstBox>
           <MainSecondBox>
             <h2>{dummy.length} results</h2>

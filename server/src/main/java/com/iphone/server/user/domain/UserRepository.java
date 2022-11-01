@@ -1,5 +1,6 @@
-package com.iphone.server.user.dto;
+package com.iphone.server.user.domain;
 
+import com.iphone.server.user.domain.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

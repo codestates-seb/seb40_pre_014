@@ -1,20 +1,25 @@
-package com.iphone.server.user.dto;
+package com.iphone.server.question.entity;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import javax.persistence.Column;
 import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
-@Getter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class BaseTimeEntity {
-    @CreatedDate
-    private LocalDateTime createdDate;
+@Getter
+public abstract class BaseEntity {
 
     @CreatedDate
-    private LocalDateTime modifiedDate;
+    @Column(name="created_at")
+    private LocalDateTime regDate;
+
+    @LastModifiedDate
+    @Column(name="modified_at")
+    private LocalDateTime modDate;
 }
