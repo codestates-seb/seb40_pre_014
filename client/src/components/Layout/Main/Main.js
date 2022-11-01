@@ -14,10 +14,10 @@ import {
   SectionUL,
   SectionLI,
   ContentLI,
+  LinkBox,
 } from './Main.style';
 import LeftSide from '../SideBar/LeftSide';
 import RightSide from '../SideBar/RightSide';
-import { Link } from 'react-router-dom';
 
 const Main = () => {
   return (
@@ -27,7 +27,7 @@ const Main = () => {
         <MainMiniBox>
           <MainFirstBox>
             <h1>All Questions</h1>
-            <Link to={'/question'}>
+            <LinkBox to={'/question'}>
               <Btn
                 text={'Ask Question'}
                 backColor={'#0d8ae1'}
@@ -38,7 +38,7 @@ const Main = () => {
                 cursorPointer={'pointer'}
                 margin={'5px 5px 0 0'}
               ></Btn>
-            </Link>
+            </LinkBox>
           </MainFirstBox>
           <MainSecondBox>
             <h2>{dummy.length} results</h2>
