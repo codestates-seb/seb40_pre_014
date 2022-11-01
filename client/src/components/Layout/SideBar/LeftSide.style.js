@@ -12,6 +12,9 @@ export const LeftBar = styled.div`
   @media screen and (max-width: 680px) {
     max-width: 100%;
   }
+  @media screen and (max-width: 580px) {
+    display: none;
+  }
   li {
     display: flex;
     justify-content: left;

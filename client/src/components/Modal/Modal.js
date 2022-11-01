@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { modalStates } from '../states/modal';
+import { modalStates } from '../../states/modal';
 import { ModalContainer } from './Modal.style';
 
 const Modal = ({ children }) => {

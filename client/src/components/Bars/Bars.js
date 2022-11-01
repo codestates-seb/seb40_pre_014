@@ -3,9 +3,9 @@ import { FaBarss } from './Bars.style';
 
 const Bars = () => {
   return (
-    <>
+    <div>
       <FaBarss />
-    </>
+    </div>
   );
 };
 

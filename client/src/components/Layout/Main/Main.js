@@ -47,7 +47,7 @@ const Main = () => {
         <MainMiniBox>
           <MainFirstBox>
             <h1>All Questions</h1>
-            <Link to={'/question'}>
+            <LinkBox to={'/question'}>
               <Btn
                 text={'Ask Question'}
                 backColor={'#0d8ae1'}
@@ -58,7 +58,7 @@ const Main = () => {
                 cursorPointer={'pointer'}
                 margin={'5px 5px 0 0'}
               ></Btn>
-            </Link>
+            </LinkBox>
           </MainFirstBox>
           <MainSecondBox>
             <h2>{dummyQuestion.length} results</h2>

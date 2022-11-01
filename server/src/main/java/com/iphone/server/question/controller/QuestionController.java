@@ -17,6 +17,7 @@ import com.iphone.server.question.service.TagService;
 import com.iphone.server.response.DetailResponseDto;
 import com.iphone.server.response.MultiResponseDto;
 
+import com.iphone.server.response.SingleResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -76,7 +77,7 @@ public class QuestionController {
         List<Answer> answer = questionService.findAnswer(questionId);
 
 
-        return new ResponseEntity<>(new DetailResponseDto(questionMapper.QuestionToQuestionDetailResponseDto(question),questionMapper.AnswerToAnswerResponseDto(answer)),
+        return new ResponseEntity<>(new SingleResponseDto<>(new DetailResponseDto(questionMapper.QuestionToQuestionDetailResponseDto(question),questionMapper.AnswerToAnswerResponseDto(answer))),
                 HttpStatus.OK);
 
     }
@@ -103,7 +104,7 @@ public class QuestionController {
         tagService.createTags(questionPostDto,question.getQuestionId());
 
 
-        return new ResponseEntity<>(questionMapper.questionToResponseDto(question),
+        return new ResponseEntity<>(new SingleResponseDto<>(questionMapper.questionToResponseDto(question)),
                 HttpStatus.CREATED);
     }
 
@@ -116,7 +117,7 @@ public class QuestionController {
 
         Question question = questionService.updateQuestion(questionMapper.questionPatchDtoToQuestion(questionPatchDto));
 
-        return new ResponseEntity<>(questionMapper.questionToResponseDto(question),
+        return new ResponseEntity<>(new SingleResponseDto<>(questionMapper.questionToResponseDto(question)),
                 HttpStatus.OK);
     }
 
@@ -124,7 +125,7 @@ public class QuestionController {
     @DeleteMapping("/question/{question-id}")
     public ResponseEntity deleteQuestion(@PathVariable("question-id") @Positive @NotNull  long questionId){
         questionService.deleteQuestion(questionId);
-        return new ResponseEntity<>("삭제완료",
+        return new ResponseEntity<>(new SingleResponseDto<>("삭제완료"),
                 HttpStatus.OK);
     }
 
@@ -148,7 +149,7 @@ public class QuestionController {
         questionLikeResponseDto.setQuestionLikeId(likeQuestion.getQuestionLikeId());
 
 
-        return new ResponseEntity<>(questionLikeResponseDto,
+        return new ResponseEntity<>(new SingleResponseDto<>(questionLikeResponseDto),
                 HttpStatus.CREATED);
     }
     //태그 ------------------------------------------
