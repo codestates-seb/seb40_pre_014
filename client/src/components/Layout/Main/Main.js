@@ -1,7 +1,6 @@
-import React from 'react';
-// import Btn from '../../Button/Btn';
+import React, { useState } from 'react';
 import Btn from '../../Button/Btn';
-import { dummy } from './Dummy';
+import dummyQuestion from '../../../static/dymmyQuestion';
 import {
   MainBox,
   MainMiniBox,
@@ -14,12 +13,33 @@ import {
   SectionUL,
   SectionLI,
   ContentLI,
+  Tags,
+  Tag,
 } from './Main.style';
 import LeftSide from '../SideBar/LeftSide';
 import RightSide from '../SideBar/RightSide';
 import { Link } from 'react-router-dom';
+import SortTab from '../../Button/SortTab';
 
 const Main = () => {
+  const [question, setQuestion] = useState(dummyQuestion);
+
+  const clickVote = () => {
+    let sort = dummyQuestion.sort((a, b) => {
+      return b.voteCount - a.voteCount;
+    });
+    console.log(sort);
+    setQuestion([...sort]);
+  };
+
+  const clickNewest = () => {
+    let sort = dummyQuestion.sort((a, b) => {
+      return new Date(b.regDate) - new Date(a.regDate);
+    });
+    console.log(sort);
+    setQuestion([...sort]);
+  };
+
   return (
     <MainBox>
       <LeftSide />
@@ -41,28 +61,37 @@ const Main = () => {
             </Link>
           </MainFirstBox>
           <MainSecondBox>
-            <h2>{dummy.length} results</h2>
-            <h2>정렬 탭 들어갈 자리</h2>
+            <h2>{dummyQuestion.length} results</h2>
+            <SortTab
+              funcprop={clickVote}
+              funcprop2={clickNewest}
+              text={'Vote'}
+              text2={'Newest'}
+            />
           </MainSecondBox>
           <ContentsBox>
-            {dummy.map((data, i) => {
+            {question.map((data) => {
               return (
-                <SectionUL key={i}>
+                <SectionUL key={data.questionId}>
                   <SectionLI>
                     <RigthSection>
-                      <div>{data.votes} votes</div>
-                      <div>{data.answers} answers</div>
-                      <div>{data.views} views</div>
+                      <div>{data.voteCount} votes</div>
+                      <div>{data.answers.length} answers</div>
+                      <div>{data.view} views</div>
                     </RigthSection>
                   </SectionLI>
                   <ContentLI>
                     <ContentsSection>
                       <a href="*">{data.title}</a>
-                      <p>{data.contents}</p>
+                      <p>{data.content}</p>
                       <footer>
-                        <div>[태그]</div>
+                        <Tags>
+                          {data.tagList.map((tag, i) => {
+                            return <Tag key={i}> {tag} </Tag>;
+                          })}
+                        </Tags>
                         <div>
-                          {data.userName} {data.createAt}
+                          {data.nickName} {data.regDate}
                         </div>
                       </footer>
                     </ContentsSection>
