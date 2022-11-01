@@ -5,6 +5,9 @@ export const TopLinkList = styled.ul`
   display: flex;
   margin-left: 10px;
   gap: 5px;
+  @media screen and (max-width: 980px) {
+    margin-left: -2px;
+  }
 `;
 
 export const TopLinks = styled(Link)`

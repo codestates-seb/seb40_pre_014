@@ -1,31 +1,31 @@
 import React from 'react';
 import Stacklogo from '../../../assets/images/logo.png';
-import { NavHeader, NavBox, LogoBox, LogoImg } from './Nav.style';
-// import Bars from '../../Bars/Bars';
+import SmStackLogo from '../../../assets/images/768px-Stack_Overflow_icon.svg.png';
+import { NavHeader, NavBox, LogoBox, LogoImg, SmallLogo } from './Nav.style';
+import Bars from '../../Bars/Bars';
 import { Link } from 'react-router-dom';
 import TopLink from './TopLink/TopLink';
 import SearchBox from './SearchBox/SearchBox';
 import AuthButton from './AuthButtons/AuthButton';
-
-const add = async () => {
-  const res = await fetch('http://3.38.108.228:8080/api/users');
-  const body = await res.json();
-  console.log(body);
-};
+import { useRecoilState } from 'recoil';
+import { loginStates } from '../../../states/login';
+import HideAuthButton from './AuthButtons/HideAuthButton';
 
 const Nav = () => {
+  const [login, setLogin] = useRecoilState(loginStates); // eslint-disable-line no-unused-vars
   return (
     <NavHeader>
       <NavBox>
-        {/* <Bars /> */}
-        <LogoBox onClick={add}>
+        <Bars />
+        <LogoBox>
           <Link to="/">
             <LogoImg src={Stacklogo} alt="" />
+            <SmallLogo src={SmStackLogo} alt="" />
           </Link>
         </LogoBox>
         <TopLink />
         <SearchBox />
-        <AuthButton />
+        {login.Profilelogin === true ? <HideAuthButton /> : <AuthButton />}
       </NavBox>
     </NavHeader>
   );
