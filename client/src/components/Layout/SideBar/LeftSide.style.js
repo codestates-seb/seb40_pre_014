@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { FaGlobeAmericas } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+// import { Link } from 'react-router-dom';
 
 export const LeftBar = styled.div`
   display: flex;
@@ -30,14 +32,14 @@ export const LeftBar = styled.div`
   div {
     display: flex;
   }
-  .home {
+  /* .home {
     background-color: #ddd;
     color: #000;
     border-right: 2px solid #f27622;
     cursor: pointer;
-  }
+  } */
   li:hover {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 800;
   }
 `;
@@ -50,7 +52,11 @@ export const QuestionIcon = styled(FaGlobeAmericas)`
   left: -35%;
 `;
 
-export const LinkBox = styled(Link)``;
+export const LinkBox = styled(NavLink)`
+  &.active > li {
+    background: rgb(239, 240, 241);
+  }
+`;
 export const PublicBox = styled.div`
   padding: 0 0 5px 5px;
 `;

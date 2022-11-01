@@ -1,5 +1,5 @@
 import React from 'react';
-import { LeftBar, QuestionIcon, LinkBox, PublicBox } from './LeftSide.style';
+import { LeftBar, QuestionIcon, PublicBox, LinkBox } from './LeftSide.style';
 import Ad from './Ad';
 
 const LeftSide = () => {
@@ -7,18 +7,31 @@ const LeftSide = () => {
     <LeftBar>
       <ul>
         <PublicBox>Public</PublicBox>
-        <li className="home">
-          <div className="icon">
-            <QuestionIcon />
-            <LinkBox to="/">Questions</LinkBox>
-          </div>
-        </li>
-        <li>
-          <LinkBox to="/tags">Tags</LinkBox>
-        </li>
-        <li>
-          <LinkBox to="/users">Users</LinkBox>
-        </li>
+        <LinkBox
+          to={'/'}
+          className={({ isActive }) => 'nav-link' + (isActive ? 'a' : '')}
+        >
+          <li>
+            <div className="icon">
+              <QuestionIcon />
+              Question
+            </div>
+          </li>
+        </LinkBox>
+
+        <LinkBox
+          to={'/tags'}
+          className={({ isActive }) => 'nav-link' + (isActive ? 'a' : '')}
+        >
+          <li>Tags</li>
+        </LinkBox>
+
+        <LinkBox
+          to={'/users'}
+          className={({ isActive }) => 'nav-link' + (isActive ? 'a' : '')}
+        >
+          <li>Users</li>
+        </LinkBox>
         <Ad />
       </ul>
     </LeftBar>
