@@ -1,7 +1,7 @@
 package com.iphone.server.question.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.iphone.server.answer.mapper.entity.Answer;
+import com.iphone.server.answer.entity.Answer;
 
 import com.iphone.server.user.domain.User;
 

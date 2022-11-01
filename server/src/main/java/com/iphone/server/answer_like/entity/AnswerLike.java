@@ -1,6 +1,6 @@
 package com.iphone.server.answer_like.entity;
 
-import com.iphone.server.answer.mapper.entity.Answer;
+import com.iphone.server.answer.entity.Answer;
 import com.iphone.server.user.domain.BaseTimeEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
