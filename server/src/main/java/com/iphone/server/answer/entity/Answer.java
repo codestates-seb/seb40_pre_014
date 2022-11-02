@@ -29,7 +29,7 @@ public class Answer extends BaseTimeEntity {
 
 
     @ManyToOne
-    @JoinColumn(name="question_id" )
+    @JoinColumn(name="question_id",nullable = true )
     private Question question;
 
     @ManyToOne

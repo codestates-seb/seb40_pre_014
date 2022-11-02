@@ -18,10 +18,11 @@ public interface AnswerMapper {
     {
        Answer answer = new Answer();
 
-    answer.setContent(answerPostDto.getContent());
-
-
+        answer.setContent(answerPostDto.getContent());
+        answer.getQuestion().setQuestionId(answerPostDto.getQuestionId());
+        answer.getUser().setNumber(answerPostDto.getUserId());
         return answer;
+
 
 
     }
@@ -31,6 +32,8 @@ public interface AnswerMapper {
 
         answerResponseDto.setAnswer_id(answer.getAnswer_id());
         answerResponseDto.setContent(answer.getContent());
+        answerResponseDto.setUserId(answer.getUser().getNumber());
+        answerResponseDto.setQuestionId(answer.getQuestion().getQuestionId());
 
 
 

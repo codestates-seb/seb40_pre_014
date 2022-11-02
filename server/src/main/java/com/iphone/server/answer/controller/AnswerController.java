@@ -30,8 +30,6 @@ import javax.validation.constraints.Positive;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1/answers")
-
 public class AnswerController {
 
     // 답변 작성
@@ -41,7 +39,7 @@ public class AnswerController {
     private final AnswerLikeRepository answerLikeRepository;
     private final AnswerRepository answerRepository;
 
-
+ // 사람 빠짐, 게시판
 
     // 답변 작성
     @PostMapping("/answer")
