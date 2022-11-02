@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const MainBox = styled.div`
@@ -125,6 +125,8 @@ export const Tag = styled.div`
   font-size: 13px;
 `;
 
-export const LinkBox = styled(Link)`
+export const LinkBox = styled.button`
   text-decoration: none;
+  border-style: none;
+  background: white;
 `;

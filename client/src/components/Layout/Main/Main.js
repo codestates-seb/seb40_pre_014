@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Btn from '../../Button/Btn';
 import dummyQuestion from '../../../static/dymmyQuestion';
+import { useNavigate } from 'react-router-dom';
 import {
   MainBox,
   MainMiniBox,
@@ -23,6 +24,7 @@ import LeftSide from '../SideBar/LeftSide';
 
 const Main = () => {
   const [question, setQuestion] = useState(dummyQuestion);
+  const navigate = useNavigate();
 
   const clickVote = () => {
     let sort = dummyQuestion.sort((a, b) => {
@@ -40,6 +42,15 @@ const Main = () => {
     setQuestion([...sort]);
   };
 
+  const clickAsk = () => {
+    if (localStorage.getItem('Token')) {
+      navigate('/askquestion');
+    } else {
+      alert('로그인을 해주세요.');
+      navigate('/login');
+    }
+  };
+
   return (
     <MainBox>
       <MainMidBox>
@@ -47,7 +58,7 @@ const Main = () => {
         <MainMiniBox>
           <MainFirstBox>
             <h1>All Questions</h1>
-            <LinkBox to={'/question'}>
+            <LinkBox>
               <Btn
                 text={'Ask Question'}
                 backColor={'#0d8ae1'}
@@ -57,6 +68,7 @@ const Main = () => {
                 hoverColor={'#0069c5'}
                 cursorPointer={'pointer'}
                 margin={'5px 5px 0 0'}
+                funcProps={clickAsk}
               ></Btn>
             </LinkBox>
           </MainFirstBox>
