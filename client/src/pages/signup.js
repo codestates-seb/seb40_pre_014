@@ -17,11 +17,21 @@ import {
 const Signup = () => {
   const navigate = useNavigate();
 
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // 유효성 검사
+  const [isName, setIsName] = useState(false);
   const [isEmail, setIsEmail] = useState(false);
   const [isPassword, setIspassword] = useState(false);
+
+  const passName = (name) => {
+    if (name.length !== 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   // 삼항연산자로 하면 적용이 안됨
   const pass = (password) => {
@@ -35,6 +45,15 @@ const Signup = () => {
   const passEmail = (email) => {
     const emailRegex = /\S+@\S+\.\S+/;
     return emailRegex.test(email);
+  };
+
+  const handleChangeN = (event) => {
+    if (passName(event.target.value) === false) {
+      setIsName('Please enter your nickname');
+    } else {
+      setIsName(null);
+    }
+    setName(event.target.value);
   };
 
   const handleChangeE = (event) => {
@@ -85,7 +104,22 @@ const Signup = () => {
           <Signup_Form>
             <Input_Wrap>
               <span>Display Name</span>
-              <input />
+              <input
+                value={name}
+                onChange={handleChangeN}
+                style={{ marginBottom: 0 }}
+              />
+              <div
+                style={{
+                  color: 'rgb(208, 57, 62)',
+                  fontSize: '13px',
+                  fontWeight: 'bold',
+                  marginTop: '5px',
+                  marginBottom: '15px',
+                }}
+              >
+                {isName}
+              </div>
             </Input_Wrap>
             <Input_Wrap>
               <span>Email</span>
