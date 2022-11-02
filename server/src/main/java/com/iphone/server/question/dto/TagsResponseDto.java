@@ -12,5 +12,7 @@ public class TagsResponseDto {
 
     private String tagName;
 
-    private String content;
+   // private String content;
+
+    private Integer count;
 }
