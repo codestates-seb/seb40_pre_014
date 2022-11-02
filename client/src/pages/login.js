@@ -1,29 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Btn from '../components/Button/Btn';
 import Nav from '../components/Layout/Nav/Nav';
 import { useNavigate } from 'react-router-dom';
 import { LoginContainer, Input_Wrap, Login_Form } from './login.style';
-import { useRecoilState } from 'recoil';
-import { loginStates } from '../states/login';
+// import { useRecoilState } from 'recoil';
+// import { loginStates } from '../states/login';
+import axios from 'axios';
 
 const Login = () => {
-  const [login, setLogin] = useRecoilState(loginStates);
-  console.log(login);
+  // const [login, setLogin] = useRecoilState(loginStates);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
+
+  const emailHandle = (e) => {
+    setEmail(e.target.value);
+  };
+  const passwordHandle = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const submitHandle = () => {
+    axios
+      .post('/api/users/authentication', {
+        email: email,
+        password: password,
+      })
+      .then((res) => localStorage.setItem('Token', res.data.token))
+      .then(navigate('/'))
+      .then(window.location.reload());
+  };
 
   return (
     <div>
-      {login.Profilelogin ? navigate('/') : ''}
+      {/* {login.Profilelogin ? navigate('/') : ''} */}
       <Nav />
       <LoginContainer>
         <Login_Form>
           <Input_Wrap>
             <span>Email</span>
-            <input />
+            <input onChange={emailHandle} />
           </Input_Wrap>
           <Input_Wrap>
             <span>Password</span>
-            <input type={'password'} />
+            <input onChange={passwordHandle} type={'password'} />
           </Input_Wrap>
           <Btn
             text={'Log in'}
@@ -34,7 +54,7 @@ const Login = () => {
             fontSize={'16px'}
             hoverColor={'#0069c5'}
             cursorPointer={'pointer'}
-            funcProps={() => setLogin({ Profilelogin: true })}
+            funcProps={submitHandle}
           />
         </Login_Form>
         <div className="support">
