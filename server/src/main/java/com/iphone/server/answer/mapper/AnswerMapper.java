@@ -10,17 +10,26 @@ import com.iphone.server.answer_like.entity.AnswerLike;
 import com.iphone.server.question.dto.QuestionLikeDto;
 import com.iphone.server.question.entity.Question;
 import com.iphone.server.question.entity.QuestionLike;
+import com.iphone.server.user.domain.User;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface AnswerMapper {
     default Answer answerPostDtoToAnswer(AnswerPostDto answerPostDto)
     {
-       Answer answer = new Answer();
 
+        Question question = new Question();
+        question.setQuestionId(answerPostDto.getQuestionId());
+
+        User user = new User();
+        user.setNumber(answerPostDto.getUserId());
+
+
+       Answer answer = new Answer();
         answer.setContent(answerPostDto.getContent());
-        answer.getQuestion().setQuestionId(answerPostDto.getQuestionId());
-        answer.getUser().setNumber(answerPostDto.getUserId());
+        answer.setQuestion(question);
+        answer.setUser(user);
+
         return answer;
 
 
@@ -45,8 +54,8 @@ public interface AnswerMapper {
 
 
         Answer answer = new Answer();
+        answer.setAnswer_id(answerPatchDto.getAnswer_id());
         answer.setContent(answerPatchDto.getContent());
-
         return answer;
     }
     default AnswerLike answerPostLikeDtoToQuestionLike(Long id, AnswerLikeDto post){

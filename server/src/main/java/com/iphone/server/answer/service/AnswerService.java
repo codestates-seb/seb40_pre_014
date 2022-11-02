@@ -38,12 +38,12 @@ public class AnswerService {
     }
     public Answer updateAnswer(Answer answer)
     {
-        Answer findAnswer = findVerifiedAnswer(answer.getAnswer_id());
 
+        Answer findAnswer = findVerifiedAnswer(answer.getAnswer_id());
         Optional.ofNullable(answer.getContent())
                 .ifPresent(answerContent -> findAnswer.setContent(answerContent));
-
         Answer updateAnswer = answerRepository.save(findAnswer);
+
         return updateAnswer;
 
     }
