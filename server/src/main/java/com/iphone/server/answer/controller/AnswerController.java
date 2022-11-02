@@ -78,7 +78,7 @@ public class AnswerController {
 
     // 답변 좋아요
     @PostMapping("/answer/like/{answer-id}")
-    public ResponseEntity likeQuestion(@PathVariable("answer-id") @Positive @NotNull long answer_id,
+    public ResponseEntity likeAnswer(@PathVariable("answer-id") @Positive @NotNull long answer_id,
                                        @Valid @RequestBody AnswerLikeDto answerLikeDto) {
         int voteCount = answerLikeRepository.findlikeCount(answer_id).size()- answerLikeRepository.findUnlikeCount(answer_id).size();
 
