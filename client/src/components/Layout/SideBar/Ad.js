@@ -8,7 +8,8 @@ const Ad = () => {
     <ADBox>
       <ADtitle>Stack Overflow for Teams</ADtitle>
       <ADsubtitle>
-        - Start collaborating and sharing organizational knowledge.
+        <span>-</span>
+        Start collaborating and sharing organizational knowledge.
       </ADsubtitle>
       <ADImg src={ad} alt="" />
       <Btn

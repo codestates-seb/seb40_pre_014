@@ -4,7 +4,10 @@ export const ADBox = styled.div`
   display: flex;
   width: 150px;
   flex-direction: column;
-  padding-right: 10px;
+  padding: 10px;
+  margin: 5px 0 0 0;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  border-right: none;
 `;
 
 export const ADtitle = styled.div`
@@ -18,8 +21,7 @@ export const ADtitle = styled.div`
 export const ADsubtitle = styled.span`
   font-size: 10px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: left;
   color: #666d72;
 `;
 

@@ -18,7 +18,6 @@ const MenuList = ({ menuCategories, to, subMenus }) => {
       <SubMenuUL>
         {subMenus.map((link, i) => {
           return (
-            //별**
             <SubMenuLI index={i} key={link.title}>
               <LinkBox to={link.to}>{link.title}</LinkBox>
             </SubMenuLI>

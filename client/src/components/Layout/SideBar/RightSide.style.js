@@ -4,7 +4,7 @@ import { FaPen, FaRegCommentAlt } from 'react-icons/fa';
 export const RightBar = styled.div`
   margin-top: 20px;
   overflow: hidden;
-  width: 25em;
+  width: 20em;
   border: 1px solid #fbf3d5;
   background-color: #fbf3d5;
   color: rgb(59, 64, 69);
