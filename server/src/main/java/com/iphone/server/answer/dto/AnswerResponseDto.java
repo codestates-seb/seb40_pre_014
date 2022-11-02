@@ -13,6 +13,10 @@ public class AnswerResponseDto {
 
     private Long answer_id;
     private String content;
+
+    private long questionId;
+    private long userId;
+
    // private LocalDateTime created_at;
     //private LocalDateTime modified_at;
 
