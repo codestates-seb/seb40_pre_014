@@ -19,14 +19,14 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenUtil jwtTokenUtil;
-    private static final String baseProfile="base-profile";
+    private static final String baseProfile = "base-profile";
 
-    public UserRegisterResponse UserRegister(UserRegisterRequest request){
-        final String email=request.getEmail();
-        final String password= request.getPassword();
-        final String nickName=request.getNickName();
+    public UserRegisterResponse UserRegister(UserRegisterRequest request) {
+        final String email = request.getEmail();
+        final String password = request.getPassword();
+        final String nickName = request.getNickName();
 
-        User user=new User();
+        User user = new User();
         user.setEmail(email);
         user.setPassword(passwordEncoder.encode(password));
         user.setNickName(nickName);
@@ -34,45 +34,50 @@ public class UserService {
         user.setType(".jpg");
         userRepository.save(user);
 
-        String token= jwtTokenUtil.generateToken(email);
+        String token = jwtTokenUtil.generateToken(email);
         return new UserRegisterResponse(token);
     }
 
-    public UserExistResponse emailDuplicateCheck(String email){
-        boolean flag=userRepository.existsByEmail(email);
+    public UserExistResponse emailDuplicateCheck(String email) {
+        boolean flag = userRepository.existsByEmail(email);
         return new UserExistResponse(flag);
     }
 
-    public UserExistResponse nickDuplicateCheck(String nick){
-        boolean flag=userRepository.existsByNickName(nick);
+    public UserExistResponse nickDuplicateCheck(String nick) {
+        boolean flag = userRepository.existsByNickName(nick);
         return new UserExistResponse(flag);
     }
 
-    public LoginResponse loginResponse(LoginRequest request){
-        final String email= request.getEmail();
-        final String password= request.getPassword();
+    public LoginResponse loginResponse(LoginRequest request) {
+        final String email = request.getEmail();
+        final String password = request.getPassword();
 
-        User user=userRepository.findByEmail(email).orElseThrow(()->new IllegalArgumentException("아이디 또는 비밀번호를 확인하세요."));
-        if(!passwordEncoder.matches(password, user.getPassword())){
+        User user = userRepository.findByEmail(email).orElseThrow(() -> new IllegalArgumentException("아이디 또는 비밀번호를 확인하세요."));
+        if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new IllegalArgumentException("아이디 또는 비밀번호를 확인하세요.");
         }
-        Long id=user.getNumber();
-        String token= jwtTokenUtil.generateToken(email);
-        return new LoginResponse(id,token);
+        Long id = user.getNumber();
+        String token = jwtTokenUtil.generateToken(email);
+        return new LoginResponse(id, token);
     }
 
-    public ResponseEntity<?> logoutResponse(){
-        String deleteToken="";
-        HttpHeaders headers =new HttpHeaders();
-        headers.set("Authorization",deleteToken);
+    public ResponseEntity<?> logoutResponse() {
+        String deleteToken = "";
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", deleteToken);
         return new ResponseEntity<>(headers, HttpStatus.OK);
     }
 
-    public Page<UserInfoResponse> getUsers(Pageable pageable){
+    public Page<UserInfoResponse> getUsers(Pageable pageable) {
         return userRepository.findAll(pageable).map(UserInfoResponse::from);
     }
 
-    public Page<UserInfoResponse> getUsersByNickname(Pageable pageable,String nickname){
-        return userRepository.findAllByNickName(nickname,pageable).map(UserInfoResponse::from);
+    public Page<UserInfoResponse> getUsersByNickname(Pageable pageable, String nickname) {
+        return userRepository.findAllByNickName(nickname, pageable).map(UserInfoResponse::from);
+    }
+
+    public UserTokenDetailResponse getUserInfoFromToken(String email) {
+        User user = userRepository.findByEmail(email).orElseThrow(() -> new IllegalArgumentException("사용자 정보를 불러오는데 문제가 발생하였습니다."));
+        return UserTokenDetailResponse.from(user);
     }
 }
