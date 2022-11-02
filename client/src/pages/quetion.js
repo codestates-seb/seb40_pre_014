@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Nav from '../components/Layout/Nav/Nav';
 import { useState } from 'react';
 import Question_Wrapper from '../components/Question_Input';
 import Btn from '../components/Button/Btn';
-import Footer from '../components/Layout/Footer/Footer';
 import TextEditor from '../components/TextEditor';
 
 const Question = () => {
@@ -24,7 +22,6 @@ const Question = () => {
   console.log(tags);
   return (
     <>
-      <Nav> </Nav>
       <Question_Container>
         <Question_Main>
           <div>
@@ -70,7 +67,6 @@ const Question = () => {
           margin={'20px 0px 0px 0px'}
         ></Btn>
       </Question_Container>
-      <Footer />
     </>
   );
 };

@@ -28,7 +28,7 @@ const Container = styled.div`
     display: flex;
     gap: 5px;
     justify-content: center;
-    margin: 1rem;
+    margin: 10px;
 
     & > li:first-child {
       display: none;
@@ -55,8 +55,8 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
     border-radius: 3px;
+    padding: 5px;
 
     a {
       color: gray;

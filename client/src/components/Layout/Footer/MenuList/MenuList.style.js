@@ -38,13 +38,11 @@ export const SubMenuUL = styled.ul`
 export const SubMenuLI = styled.li`
   a {
     color: #fff;
-
     &:visited {
       color: blue;
     }
-
     &:hover {
-      color: #fff;
+      color: #81867f;
     }
   }
 

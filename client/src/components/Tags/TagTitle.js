@@ -56,8 +56,7 @@ const TagTitle = ({ tags, setTags }) => {
 
 const Container = styled.div`
   position: relative;
-  width: 100%;
-  margin-bottom: 1rem;
+
   p {
     width: 630px;
     font-size: 15px;
@@ -66,7 +65,6 @@ const Container = styled.div`
   }
   h1 {
     font-size: 27px;
-    margin-top: 3rem;
     margin-bottom: 24px;
   }
   .between {

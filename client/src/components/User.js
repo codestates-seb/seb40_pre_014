@@ -2,20 +2,18 @@ import styled from 'styled-components';
 
 const User = ({ users }) => {
   return (
-    <>
-      <User_Container>
-        {users.map((user) => (
-          <User_Wrap key={user.id}>
-            <img src={user.img} alt=""></img>
-            <div className="textWrap">
-              <p> {user.name} </p>
-              <p> {user.email} </p>
-              <p> {user.createAt}</p>
-            </div>
-          </User_Wrap>
-        ))}
-      </User_Container>
-    </>
+    <User_Container>
+      {users.map((user) => (
+        <User_Wrap key={user.id}>
+          <img src={user.img} alt=""></img>
+          <div className="textWrap">
+            <p> {user.name} </p>
+            <p> {user.email} </p>
+            <p> {user.createAt}</p>
+          </div>
+        </User_Wrap>
+      ))}
+    </User_Container>
   );
 };
 
@@ -36,7 +34,7 @@ const User_Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 5px 5px 7px 7px;
-  height: 500px;
+  width: 100%;
 
   .textWrap {
     height: 60px;
