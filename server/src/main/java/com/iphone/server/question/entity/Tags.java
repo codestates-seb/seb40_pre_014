@@ -23,7 +23,9 @@ public class Tags extends BaseEntity{
     @Column(name = "tag_name")
     private String tagName;
 
+
     @Column
     private String content;
 
+    private Integer count;
 }

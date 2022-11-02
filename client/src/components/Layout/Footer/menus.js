@@ -4,11 +4,11 @@ const stackOverflow = {
   subMenus: [
     {
       title: 'Questions',
-      to: '/questions',
+      to: '/',
     },
     {
       title: 'Help',
-      to: '/',
+      to: '/questions',
     },
   ],
 };
@@ -23,30 +23,30 @@ const products = {
     },
     {
       title: 'Advertising',
-      to: '/',
+      to: '/questions',
     },
     {
       title: 'Collectives',
-      to: '/',
+      to: '/questions',
     },
     {
       title: 'Talent',
-      to: '/',
+      to: '/questions',
     },
   ],
 };
 
 const company = {
   menuCategory: 'COMPANY',
-  to: '/',
+  to: '/questions',
   subMenus: [
     {
       title: 'About',
-      to: '/',
+      to: '/questions',
     },
     {
       title: 'Press',
-      to: '/',
+      to: '/questions',
     },
     {
       title: 'Work Here',

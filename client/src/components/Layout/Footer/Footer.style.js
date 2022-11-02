@@ -5,6 +5,7 @@ export const Footers = styled.footer`
   justify-content: center;
   width: 100vw;
   background-color: #232629;
+  padding-bottom: 35px;
 `;
 
 export const FooterBox = styled.div`

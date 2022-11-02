@@ -15,11 +15,11 @@ import {
   ContentLI,
   Tags,
   Tag,
+  LinkBox,
 } from './Main.style';
-import LeftSide from '../SideBar/LeftSide';
 import RightSide from '../SideBar/RightSide';
-import { Link } from 'react-router-dom';
 import SortTab from '../../Button/SortTab';
+import LeftSide from '../SideBar/LeftSide';
 
 const Main = () => {
   const [question, setQuestion] = useState(dummyQuestion);
@@ -42,8 +42,8 @@ const Main = () => {
 
   return (
     <MainBox>
-      <LeftSide />
       <MainMidBox>
+        <LeftSide />
         <MainMiniBox>
           <MainFirstBox>
             <h1>All Questions</h1>

@@ -7,7 +7,7 @@ export const MainBox = styled.div`
   flex-flow: row nowrap;
   justify-content: center;
   //nav 높이만큼 패딩 해줘야 side바 border 안 끊김
-  padding-top: 50px;
+  padding: 50px 0 0 0;
 `;
 
 export const MainMidBox = styled.section`
@@ -46,7 +46,7 @@ export const MainFirstBox = styled.div`
   justify-content: space-between;
   padding: 20px 0 0 20px;
   h1 {
-    font-size: 30px;
+    font-size: 27px;
   }
 `;
 
@@ -123,4 +123,8 @@ export const Tag = styled.div`
   color: #39739d;
   padding: 3px;
   font-size: 13px;
+`;
+
+export const LinkBox = styled(Link)`
+  text-decoration: none;
 `;

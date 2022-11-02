@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { SubMenuLI, SubMenuUL } from '../MenuList/MenuList.style';
+import { SubMenuUL } from '../MenuList/MenuList.style';
 
 export const CopyBox = styled.div`
   display: flex;
@@ -29,10 +29,21 @@ export const SociallUL = styled(SubMenuUL)`
   font-size: 0.8rem;
 `;
 
-export const SocialLI = styled(SubMenuLI)`
+export const SocialLI = styled.li`
   margin-bottom: auto;
+  a {
+    color: #81867f;
+    &:visited {
+      color: blue;
+    }
+    &:hover {
+      color: #fff;
+    }
+  }
   @media screen and (max-width: 980px) {
     flex-flow: column wrap;
+    width: max-content;
+    margin-top: 0px;
   }
 `;
 

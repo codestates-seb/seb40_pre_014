@@ -10,6 +10,7 @@ import {
   SearchHelp,
 } from './Searchs';
 import Btn from '../../../Button/Btn';
+import { LinkBox } from '../../Main/Main.style';
 
 const SearchBox = () => {
   const [searchs, setSearchs] = useState(false);
@@ -31,6 +32,7 @@ const SearchBox = () => {
   });
   //defendency array 넣지마세요!
 
+  console.log(searchs, searchModalRef);
   return (
     <SearchContainer>
       <SearchIcon />
@@ -59,18 +61,20 @@ const SearchBox = () => {
           <SearchsWrap>
             <SearchDiv2>
               <SearchsData>
-                <Btn
-                  text={'Ask Question'}
-                  textColor={'hsl(205,47%,42%);'}
-                  backColor={'hsl(205,46%,92%);'}
-                  width={'100px'}
-                  height={'18px'}
-                  fontSize={'10px'}
-                  hoverColor={'#B3D3EA'}
-                  cursorPointer={'pointer'}
-                  padding={'6.6px'}
-                  border={'1px solid hsl(205,41%,63%) '}
-                ></Btn>
+                <LinkBox to="/question">
+                  <Btn
+                    text={'Ask Question'}
+                    textColor={'hsl(205,47%,42%);'}
+                    backColor={'hsl(205,46%,92%);'}
+                    width={'100px'}
+                    height={'18px'}
+                    fontSize={'10px'}
+                    hoverColor={'#B3D3EA'}
+                    cursorPointer={'pointer'}
+                    padding={'6.6px'}
+                    border={'1px solid hsl(205,41%,63%) '}
+                  ></Btn>
+                </LinkBox>
               </SearchsData>
               <SearchsData>
                 <SearchHelp>Search help</SearchHelp>

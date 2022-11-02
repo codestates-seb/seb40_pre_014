@@ -1,25 +1,18 @@
 import React from 'react';
+// import styled from 'styled-components';
 import Footer from './Footer/Footer';
-import Main from './Main/Main';
 import Nav from './Nav/Nav';
-import styled from 'styled-components';
 
-const Layout = () => {
+export const Layout = ({ children }) => {
   return (
-    <LayoutBox>
+    <div>
       <Nav />
-      <Main />
+      <main>{children}</main>
       <Footer />
-    </LayoutBox>
+    </div>
   );
 };
 
-const LayoutBox = styled.div`
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  flex-flow: row wrap;
-  justify-content: center;
-`;
-
-export default Layout;
+// const Main = styled.main`
+//   display: flex;
+// `;

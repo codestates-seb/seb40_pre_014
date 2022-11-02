@@ -1,5 +1,6 @@
 package com.iphone.server.question.dto;
 
+import com.iphone.server.question.entity.TagList;
 import lombok.*;
 
 import java.util.List;
@@ -16,6 +17,6 @@ public class QuestionResponseDto {
 
     private String content;
 
-    private List<String> questionTags;
 
+   // private List<TagList> tagLists;
 }

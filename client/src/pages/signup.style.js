@@ -21,6 +21,7 @@ export const SignupContainer = styled.div`
 export const Input_Wrap = styled.div`
   display: flex;
   flex-direction: column;
+
   > span {
     font-weight: bold;
     margin-bottom: 5px;
@@ -42,7 +43,7 @@ export const Signup_Form = styled.div`
   justify-content: start;
   background: white;
   border-radius: 5px;
-  height: 400px;
+  height: 450px;
   width: 300px;
   padding: 50px 5px 10px 5px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08), 0 6px 6px rgba(0, 0, 0, 0.23);

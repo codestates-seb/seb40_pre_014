@@ -1,9 +1,11 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/seb014?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+
+    url: jdbc:mysql://endpoint:3306/sebdb?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: yourPassword
+    username:
+    password:
+
 
 
   jpa:
@@ -16,7 +18,7 @@ spring:
   main:
     allow-circular-references: true
   jwt:
-    secret: adsa
+    secret: 
   mvc:
     path match:
       matching-strategy: ant_path_matcher
