@@ -33,7 +33,7 @@ const Signup = () => {
     }
   };
 
-  // 삼항연산자로 하면 적용이 안됨
+  // 삼항연산자로 하면 적용이 안됨 왜?
   const pass = (password) => {
     if (password.length >= 8) {
       return true;
