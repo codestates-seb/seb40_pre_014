@@ -5,7 +5,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class AnswerPatchDto {
-    @Setter
+
     private Long answer_id;
 
     private String content;
