@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Btn from '../components/Button/Btn';
 import Nav from '../components/Layout/Nav/Nav';
 import { useNavigate } from 'react-router-dom';
@@ -16,6 +16,45 @@ import {
 
 const Signup = () => {
   const navigate = useNavigate();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  // 유효성 검사
+  const [isEmail, setIsEmail] = useState(false);
+  const [isPassword, setIspassword] = useState(false);
+
+  // 삼항연산자로 하면 적용이 안됨
+  const pass = (password) => {
+    if (password.length >= 8) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const passEmail = (email) => {
+    const emailRegex = /\S+@\S+\.\S+/;
+    return emailRegex.test(email);
+  };
+
+  const handleChangeE = (event) => {
+    if (passEmail(event.target.value) === false) {
+      setIsEmail('is not a valid email adress');
+    } else {
+      setIsEmail(null);
+    }
+    setEmail(event.target.value);
+  };
+
+  const handleChangeP = (event) => {
+    if (pass(event.target.value) === false) {
+      setIspassword('Please enter at least 8 characters');
+    } else {
+      setIspassword(null);
+    }
+    setPassword(event.target.value);
+  };
+
   return (
     <>
       <Nav />
@@ -50,11 +89,42 @@ const Signup = () => {
             </Input_Wrap>
             <Input_Wrap>
               <span>Email</span>
-              <input />
+              <input
+                value={email}
+                onChange={handleChangeE}
+                style={{ marginBottom: 0 }}
+              />
+              <div
+                style={{
+                  color: 'rgb(208, 57, 62)',
+                  fontSize: '13px',
+                  fontWeight: 'bold',
+                  marginTop: '5px',
+                  marginBottom: '15px',
+                }}
+              >
+                {isEmail}
+              </div>
             </Input_Wrap>
             <Input_Wrap>
               <span>Password</span>
-              <input type={'password'} />
+              <input
+                type={'password'}
+                value={password}
+                onChange={handleChangeP}
+                style={{ marginBottom: 0 }}
+              />
+              <div
+                style={{
+                  color: 'rgb(208, 57, 62)',
+                  fontSize: '13px',
+                  fontWeight: 'bold',
+                  marginTop: '5px',
+                  marginBottom: '15px',
+                }}
+              >
+                {isPassword}
+              </div>
             </Input_Wrap>
             <div className="comment">
               Passwords must contain at least eight characters, including at
