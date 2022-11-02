@@ -10,35 +10,63 @@ const RightSide = () => {
         <header>The Overflow Blog</header>
         <ul>
           <li>
-            <PenIcon />
-            Introducing the Overflow Offline project
+            <RightDiv>
+              <RightSpan>
+                <PenIcon />
+              </RightSpan>
+              Introducing the Overflow Offline project
+            </RightDiv>
           </li>
           <li>
-            <PenIcon />
-            He helped build .NET and VS Code(Ep. 499)
+            <RightDiv>
+              <RightSpan>
+                <PenIcon />
+              </RightSpan>
+              He helped build .NET and VS Code(Ep. 499)
+            </RightDiv>
           </li>
         </ul>
         <header>Featured on Meta</header>
         <ul>
           <li>
-            <CommentIcon />
-            The 2022 Community-a-thon has begun!
+            <RightDiv>
+              <RightSpan>
+                <CommentIcon />
+              </RightSpan>
+              The 2022 Community-a-thon has begun!
+            </RightDiv>
           </li>
           <li>
-            <CommentIcon />
-            Mobile app infrastructure
+            <RightDiv>
+              <RightSpan>
+                <CommentIcon />
+              </RightSpan>
+              Mobile app infrastructure
+            </RightDiv>
           </li>
           <li>
-            <CommentIcon />
-            Staging Ground Workflow
+            <RightDiv>
+              <RightSpan>
+                <CommentIcon />
+              </RightSpan>
+              Staging Ground Workflow
+            </RightDiv>
           </li>
           <li>
-            <CommentIcon />
-            The [script] tag is being burninated
+            <RightDiv>
+              <RightSpan>
+                <CommentIcon />
+              </RightSpan>
+              The [script] tag is being burninated
+            </RightDiv>
           </li>
           <li>
-            <CommentIcon />
-            Staging Ground Workflow: Canned Comments
+            <RightDiv>
+              <RightSpan>
+                <CommentIcon />
+              </RightSpan>
+              Staging Ground Workflow: Canned Comments
+            </RightDiv>
           </li>
         </ul>
       </RightBar>
@@ -52,8 +80,19 @@ export default RightSide;
 const RightSideBox = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 0 0 2%;
+  margin: 0 10px 0 2%;
   @media screen and (max-width: 1100px) {
     display: none;
   }
+`;
+
+const RightDiv = styled.div`
+  display: flex;
+  justify-content: left;
+`;
+
+const RightSpan = styled.span`
+  display: flex;
+  justify-content: center;
+  padding-top: 3px;
 `;

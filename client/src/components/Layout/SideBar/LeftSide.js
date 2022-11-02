@@ -7,20 +7,6 @@ import { TapStates } from '../../../states/Tap';
 const LeftSide = () => {
   const [tap, setTap] = useRecoilState(TapStates);
 
-  // const [one, setOne] = useState();
-  // const [two, setTwo] = useState(false); // eslint-disable-line no-unused-vars
-  // const [three, setThree] = useState(false); // eslint-disable-line no-unused-vars
-
-  // const onHandle = () => {
-  //   setOne(true);
-  //   setTwo(false);
-  //   setThree(false);
-  // };
-  // const onHandle2 = () => {
-  //   setOne(false);
-  //   setTwo(true);
-  // };
-
   return (
     <LeftBar>
       <ul>

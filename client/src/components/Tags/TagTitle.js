@@ -70,6 +70,7 @@ const Container = styled.div`
   .between {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 10px;
   }
   .filterBtn {
     button {
@@ -92,7 +93,6 @@ const TextInput = styled.input`
   border: 1px solid silver;
   border-radius: 3px;
   width: 10rem;
-  height: 2rem;
   &:focus {
     outline: 1px solid #59a4de;
   }
