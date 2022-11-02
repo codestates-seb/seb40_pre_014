@@ -25,7 +25,7 @@ const Nav = () => {
         </LogoBox>
         <TopLink />
         <SearchBox />
-        {login.Profilelogin === true ? <HideAuthButton /> : <AuthButton />}
+        {localStorage.getItem('Token') ? <HideAuthButton /> : <AuthButton />}
       </NavBox>
     </NavHeader>
   );
