@@ -7,12 +7,14 @@ import signicon from '../assets/images/signup2.png';
 import signicon1 from '../assets/images/signup1.png';
 import signicon3 from '../assets/images/signup3.png';
 import signicon4 from '../assets/images/signup4.png';
+import axios from 'axios';
 import {
   SignupContainer,
   Signup_Form,
   Wrap,
   Description,
 } from './signup.style';
+import Failcomment from '../components/Failcomment';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -25,53 +27,67 @@ const Signup = () => {
   const [isEmail, setIsEmail] = useState(false);
   const [isPassword, setIspassword] = useState(false);
 
-  const passName = (name) => {
-    if (name.length !== 0) {
-      return true;
-    } else {
-      return false;
+  const check = (data, type) => {
+    if (type === 'password') {
+      if (data.length >= 8) {
+        return true;
+      } else return false;
     }
-  };
-
-  // 삼항연산자로 하면 적용이 안됨 왜?
-  const pass = (password) => {
-    if (password.length >= 8) {
-      return true;
-    } else {
-      return false;
+    if (type === 'email') {
+      const emailRegex = /\S+@\S+\.\S+/;
+      return emailRegex.test(data);
     }
-  };
-
-  const passEmail = (email) => {
-    const emailRegex = /\S+@\S+\.\S+/;
-    return emailRegex.test(email);
+    if (type === 'name') {
+      if (data.length !== 0) {
+        return true;
+      } else return false;
+    }
   };
 
   const handleChangeN = (event) => {
-    if (passName(event.target.value) === false) {
-      setIsName('Please enter your nickname');
+    if (check(event.target.value, 'name')) {
+      setIsName(true);
     } else {
-      setIsName(null);
+      setIsName(false);
     }
     setName(event.target.value);
+    console.log(isName);
   };
 
   const handleChangeE = (event) => {
-    if (passEmail(event.target.value) === false) {
-      setIsEmail('is not a valid email adress');
+    if (check(event.target.value, 'email')) {
+      setIsEmail(true);
     } else {
-      setIsEmail(null);
+      setIsEmail(false);
     }
     setEmail(event.target.value);
+    console.log(isEmail);
   };
 
   const handleChangeP = (event) => {
-    if (pass(event.target.value) === false) {
-      setIspassword('Please enter at least 8 characters');
+    if (check(event.target.value, 'password')) {
+      setIspassword(true);
     } else {
-      setIspassword(null);
+      setIspassword(false);
     }
     setPassword(event.target.value);
+    console.log(isPassword);
+  };
+
+  const submitHandle = async () => {
+    console.log('Click');
+    if (isEmail && isName && isPassword) {
+      try {
+        await axios.post('/api/users', {
+          email: email,
+          password: password,
+          nickName: name,
+        });
+        navigate('/login');
+      } catch (e) {
+        console.log(e);
+      }
+    }
   };
 
   return (
@@ -109,17 +125,9 @@ const Signup = () => {
                 onChange={handleChangeN}
                 style={{ marginBottom: 0 }}
               />
-              <div
-                style={{
-                  color: 'rgb(208, 57, 62)',
-                  fontSize: '13px',
-                  fontWeight: 'bold',
-                  marginTop: '5px',
-                  marginBottom: '15px',
-                }}
-              >
-                {isName}
-              </div>
+              {isName ? null : (
+                <Failcomment comment={'닉네임을 입력해주세요.'} />
+              )}
             </Input_Wrap>
             <Input_Wrap>
               <span>Email</span>
@@ -128,17 +136,9 @@ const Signup = () => {
                 onChange={handleChangeE}
                 style={{ marginBottom: 0 }}
               />
-              <div
-                style={{
-                  color: 'rgb(208, 57, 62)',
-                  fontSize: '13px',
-                  fontWeight: 'bold',
-                  marginTop: '5px',
-                  marginBottom: '15px',
-                }}
-              >
-                {isEmail}
-              </div>
+              {isEmail ? null : (
+                <Failcomment comment={'이메일 형식을 확인해주세요.'} />
+              )}
             </Input_Wrap>
             <Input_Wrap>
               <span>Password</span>
@@ -148,23 +148,16 @@ const Signup = () => {
                 onChange={handleChangeP}
                 style={{ marginBottom: 0 }}
               />
-              <div
-                style={{
-                  color: 'rgb(208, 57, 62)',
-                  fontSize: '13px',
-                  fontWeight: 'bold',
-                  marginTop: '5px',
-                  marginBottom: '15px',
-                }}
-              >
-                {isPassword}
-              </div>
+              {isPassword ? null : (
+                <Failcomment comment={'8글자 이상 입력해주세요.'} />
+              )}
             </Input_Wrap>
             <div className="comment">
               Passwords must contain at least eight characters, including at
               least 1 letter and 1 number.
             </div>
             <Btn
+              funcProps={submitHandle}
               text={'Sign up'}
               textColor={'white'}
               width={'245px'}
