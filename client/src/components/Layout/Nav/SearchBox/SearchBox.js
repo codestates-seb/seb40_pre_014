@@ -32,7 +32,6 @@ const SearchBox = () => {
   });
   //defendency array 넣지마세요!
 
-  console.log(searchs, searchModalRef);
   return (
     <SearchContainer>
       <SearchIcon />

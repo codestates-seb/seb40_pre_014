@@ -18,6 +18,7 @@ export const CopyBox = styled.div`
 
 export const LinkBox = styled.a`
   text-decoration: none;
+  color: #fff;
 `;
 
 export const SociallUL = styled(SubMenuUL)`

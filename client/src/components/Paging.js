@@ -24,6 +24,7 @@ const Paging = () => {
 };
 
 const Container = styled.div`
+  padding-top: 40px;
   ul {
     display: flex;
     gap: 5px;

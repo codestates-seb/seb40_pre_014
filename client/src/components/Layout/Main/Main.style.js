@@ -39,6 +39,10 @@ export const ContentsBox = styled.div`
     width: 100%;
     padding: 10px 0 10px 0;
   }
+  @media screen and (max-width: 580px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const MainFirstBox = styled.div`
@@ -57,10 +61,17 @@ export const MainSecondBox = styled.div`
   margin: 0 0 20px 0;
   h2 {
     font-size: 20px;
+    padding-top: 7px;
   }
 `;
 
-export const SectionUL = styled.ul``;
+export const SectionUL = styled.ul`
+  @media screen and (max-width: 580px) {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+`;
 export const SectionLI = styled.li`
   display: flex;
 `;
@@ -83,6 +94,13 @@ export const RigthSection = styled.section`
   div:nth-child(3) {
     color: #6a737c;
   }
+  @media screen and (max-width: 580px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: fit-content;
+    padding: 0;
+  }
 `;
 
 export const ContentLI = styled.li`
@@ -99,6 +117,10 @@ export const ContentsSection = styled.section`
     font-size: 15px;
     color: #0078cd;
     text-decoration: none;
+    @media screen and (max-width: 580px) {
+      font-size: 20px;
+      padding: 5px 0;
+    }
   }
   p {
     font-size: 13px;
@@ -109,6 +131,9 @@ export const ContentsSection = styled.section`
     @media screen and (max-width: 1100px) {
       flex-direction: column;
     }
+  }
+  @media screen and (max-width: 580px) {
+    display: flex;
   }
 `;
 
@@ -127,4 +152,38 @@ export const Tag = styled.div`
 
 export const LinkBox = styled(Link)`
   text-decoration: none;
+`;
+
+export const Name = styled.div`
+  font-weight: 600;
+`;
+
+export const Date = styled.div`
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ProfileImg = styled.img`
+  width: 15px;
+  height: 15px;
+  margin-top: 4px;
+  padding-right: 5px;
+`;
+
+export const ProfileAndDate = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  @media screen and (max-width: 1100px) {
+    padding-top: 5px;
+  }
+`;
+
+export const Contents = styled.p`
+  @media screen and (max-width: 1100px) {
+    display: none;
+  }
 `;
