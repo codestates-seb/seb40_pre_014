@@ -91,6 +91,7 @@ public interface QuestionMapper {
             aResDto.setContent(answer.getContent());
             aResDto.setRegDate(answer.getCreatedDate());
             aResDto.setNickName(answer.getUser().getNickName());
+
             return aResDto;
         }).collect(Collectors.toList());
     }

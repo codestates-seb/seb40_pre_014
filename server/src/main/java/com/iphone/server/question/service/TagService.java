@@ -55,7 +55,13 @@ public class TagService {
     }
 
     public Page<Tags> findTags(int page, int size, String sort){
-        Page<Tags> findAllTags = tagsRepository.findAll(PageRequest.of(page,size, Sort.by(sort).descending()));
+        Page<Tags> findAllTags;
+
+        if(sort.contains("tagName")){
+           findAllTags = tagsRepository.findAll(PageRequest.of(page,size, Sort.by(sort).ascending()));
+        }else{
+           findAllTags = tagsRepository.findAll(PageRequest.of(page,size, Sort.by(sort).descending()));
+        }
 
         return findAllTags;
     }
