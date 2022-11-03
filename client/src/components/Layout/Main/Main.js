@@ -118,7 +118,7 @@ const Main = () => {
                     <SectionLI>
                       <RigthSection>
                         <div>{data.voteCount} votes</div>
-                        <div>{data.answersCount} answers</div>
+                        <div>{data.answerCount} answers</div>
                         <div>{data.viewCount} views</div>
                       </RigthSection>
                     </SectionLI>
