@@ -91,6 +91,8 @@ public interface QuestionMapper {
             aResDto.setContent(answer.getContent());
             aResDto.setRegDate(answer.getCreatedDate());
             aResDto.setNickName(answer.getUser().getNickName());
+            aResDto.setVoteCount(answer.getVoteCount());
+            aResDto.setViewCount(answer.getViewCount());
 
             return aResDto;
         }).collect(Collectors.toList());

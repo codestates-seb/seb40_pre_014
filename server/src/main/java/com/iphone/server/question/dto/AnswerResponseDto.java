@@ -21,4 +21,8 @@ public class AnswerResponseDto {
 
     private String  nickName;
 
+    private Integer viewCount;
+
+    private Integer voteCount;
+
 }
