@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import Pagination from 'react-js-pagination';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
+import { pageStates } from '../states/page';
 
-const Paging = () => {
+const Paging = ({ count }) => {
   const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useRecoilState(pageStates); // eslint-disable-line no-unused-vars
   const handlePageChange = (page) => {
     setPage(page);
+    setCurrentPage(page);
   };
 
   return (
@@ -13,7 +17,7 @@ const Paging = () => {
       <Pagination
         activePage={page}
         itemsCountPerPage={15} // 한 페이지에 보여줄 아이템 갯수
-        totalItemsCount={75} // 총 아이템 갯수
+        totalItemsCount={count} // 총 아이템 갯수
         pageRangeDisplayed={5} // 페이지 범위
         onChange={handlePageChange}
         prevPageText="Prev"
@@ -25,6 +29,7 @@ const Paging = () => {
 
 const Container = styled.div`
   padding-top: 40px;
+  cursor: pointer;
   ul {
     display: flex;
     gap: 5px;
