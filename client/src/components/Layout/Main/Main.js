@@ -29,12 +29,13 @@ import Paging from '../../Paging';
 import Img from '../../../assets/images/user.png';
 import { useRecoilState } from 'recoil';
 import { pageStates } from '../../../states/page';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Main = () => {
   const [question, setQuestion] = useState([]);
   const [AllQuestion, setAllQuestion] = useState(0);
   const [currentPage, setCurrentPage] = useRecoilState(pageStates); // eslint-disable-line no-unused-vars
+  const navigate = useNavigate();
 
   const clickVote = () => {
     let sort = question.sort((a, b) => {
@@ -76,6 +77,10 @@ const Main = () => {
 
   const count = AllQuestion;
 
+  const askQuestion = () => {
+    navigate('/question');
+  };
+
   return (
     <>
       <MainBox>
@@ -84,7 +89,7 @@ const Main = () => {
           <MainMiniBox>
             <MainFirstBox>
               <h1>All Questions</h1>
-              <LinkBox to={'/question'}>
+              <LinkBox onClick={askQuestion}>
                 <Btn
                   text={'Ask Question'}
                   backColor={'#0d8ae1'}
