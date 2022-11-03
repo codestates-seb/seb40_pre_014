@@ -1,20 +1,33 @@
 import styled from 'styled-components';
 import TagTitle from '../components/Tags/TagTitle';
 import TagList from '../components/Tags/TagList';
-import TagDummy from '../components/Tags/TagDummy';
-import { useState } from 'react';
+// import TagDummy from '../components/Tags/TagDummy';
+import { useState, useEffect } from 'react';
 import Paging from '../components/Paging';
 import LeftSide from '../components/Layout/SideBar/LeftSide';
+import axios from 'axios';
 
 const Tags = () => {
-  const [tags, setTags] = useState(TagDummy);
+  const [tags, setTags] = useState([]);
+
+  const getTags = async () => {
+    const res = await axios.get(
+      `http://3.38.108.228:8080/tags/?page=1&size=48&sort=tagId`,
+    );
+    console.log(res.data);
+    return res.data;
+  };
+
+  useEffect(() => {
+    getTags().then((el) => setTags(el.data));
+  }, []);
 
   return (
     <BigBox>
       <MidBox>
         <LeftSide />
         <Container>
-          <TagTitle tags={tags} setTags={setTags} />
+          <TagTitle tags={tags} setTags={setTags} getTags={getTags} />
           <TagList tags={tags} />
           <Paging />
         </Container>

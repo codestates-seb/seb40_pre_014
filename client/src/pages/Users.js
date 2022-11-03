@@ -1,18 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import User from '../components/User';
 import dummyUsers from '../static/dummyUsers';
 import SortTab from '../components/Button/SortTab';
 import LeftSide from '../components/Layout/SideBar/LeftSide';
-// import { MainBox } from '../components/Layout/Main/Main.style';
+import axios from 'axios';
 
 const Users = () => {
-  const [users, setUsers] = useState(dummyUsers);
+  const [users, setUsers] = useState([]);
+
+  const getUser = async () => {
+    const res = await axios.get(`http://3.38.108.228:8080/api/users`);
+    return res.data;
+  };
+
+  useEffect(() => {
+    getUser().then((el) => setUsers(el.content));
+  }, []);
 
   const clickhandle = () => {
-    let sort = dummyUsers.sort((a, b) => {
-      let x = a.name.toLocaleLowerCase();
-      let y = b.name.toLocaleLowerCase();
+    let sort = users.sort((a, b) => {
+      let x = a.nickName;
+      let y = b.nickName;
 
       if (x < y) {
         return -1;
@@ -24,11 +33,8 @@ const Users = () => {
     setUsers([...sort]);
   };
 
-  const datehandle = () => {
-    let sort = dummyUsers.sort((a, b) => {
-      return new Date(a.createAt) - new Date(b.createAt);
-    });
-    setUsers([...sort]);
+  const defaulthandle = () => {
+    getUser().then((el) => setUsers(el.content));
   };
 
   const userSearch = (e) => {
@@ -53,9 +59,9 @@ const Users = () => {
             ></FilterInput>
             <SortTab
               funcprop={clickhandle}
-              funcprop2={datehandle}
+              funcprop2={defaulthandle}
               text={'Name'}
-              text2={'Newest'}
+              text2={'Default'}
             />
           </FilterButtonWrap>
           <User users={users} />

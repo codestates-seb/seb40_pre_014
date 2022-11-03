@@ -11,8 +11,31 @@ import Detail_User from '../components/Detail/Detail_User';
 import Answer from '../components/Detail/Answer';
 import userImg from '../assets/images/user.png';
 import TextEditor from '../components/TextEditor';
+import axios from 'axios';
 
 const Question_Detail = () => {
+  const IncreaseVote = async () => {
+    try {
+      const response = await axios.post(`3.38.108.228:8080/question/like/3`, {
+        status: 1,
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const DecreaseVote = async () => {
+    try {
+      const response = await axios.post(`3.38.108.228:8080/question/like/3`, {
+        status: 0,
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <Nav />
@@ -42,7 +65,7 @@ const Question_Detail = () => {
           </Detail_Top>
 
           <Detail_Body>
-            <VoteBtn vote={dummyQuestion[0].voteCount} />
+            <VoteBtn IncreaseVote={IncreaseVote} DecreaseVote={DecreaseVote} />
             <Detail_Content>
               <span>{dummyQuestion[0].content}</span>
               <Detail_Tags_Wrapper>
