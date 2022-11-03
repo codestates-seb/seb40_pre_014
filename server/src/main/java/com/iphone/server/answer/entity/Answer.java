@@ -1,5 +1,6 @@
 package com.iphone.server.answer.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.iphone.server.answer_like.entity.AnswerLike;
 import com.iphone.server.question.entity.Question;
 import com.iphone.server.user.domain.BaseTimeEntity;
@@ -7,6 +8,7 @@ import com.iphone.server.user.domain.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
@@ -17,6 +19,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@ToString(exclude = {"question","user"})
 public class Answer extends BaseTimeEntity {
 
     @Id
@@ -50,8 +53,8 @@ public class Answer extends BaseTimeEntity {
         this.content = content;
     }
 
-    @OneToMany(mappedBy = "answer")
-    private List<AnswerLike> answer_likes = new ArrayList<>();
+    @OneToMany(mappedBy = "answer" , cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)
+    private List<AnswerLike> answer_likes;
 
     public void addAnswer_like(AnswerLike answer_like)
     {
