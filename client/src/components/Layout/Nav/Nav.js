@@ -32,7 +32,8 @@ const Nav = () => {
   const ModalOpen = () => {
     setClick(!click);
   };
-  console.log(localStorage.getItem('Token'));
+
+  // console.log('navToken', localStorage.getItem('Token'));
   return (
     <NavHeader>
       <NavBox>

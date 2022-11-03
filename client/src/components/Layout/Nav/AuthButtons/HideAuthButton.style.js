@@ -16,21 +16,25 @@ export const ProfileBox = styled.div`
   padding: 0 4px;
   margin: 0 0 0 4px;
   position: relative;
+`;
+
+export const ProfileImg1 = styled.img`
+  width: 20px;
+  height: 20px;
   &:hover {
     cursor: pointer;
-    background-color: #e3e6e8;
   }
 `;
 
-export const ProfileImg = styled.img`
-  width: 20px;
-  height: 20px;
+export const ProfileImg2 = styled.img`
+  width: 40px;
+  height: 40px;
 `;
 
 export const ProfileContainer = styled.div`
   z-index: 3;
-  width: 100%;
-  justify-content: space-between;
+  width: 150px;
+  height: 150px;
   background-color: #fff;
   position: absolute;
   top: 45px;
@@ -49,8 +53,23 @@ export const ProfileWrap = styled.ul`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  email {
+    margin-top: 15px;
+    font-size: 16px;
+  }
+  nickname {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 600;
+  }
 `;
 
 export const ProfileDiv = styled.div`
   margin-top: 20px;
+  position: absolute;
+  bottom: 0;
+  &:hover {
+    cursor: pointer;
+    background-color: #e3e6e8;
+  }
 `;
