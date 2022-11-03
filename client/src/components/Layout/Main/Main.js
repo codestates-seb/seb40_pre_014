@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import Btn from '../../Button/Btn';
 import {
   MainBox,
@@ -56,6 +56,13 @@ const Main = () => {
     return res.data;
   };
 
+  const handlepage = async () => {
+    const res = await axios.get(
+      `http://3.38.108.228:8080/question/?page=${currentPage}&size=15&sort=questionId`,
+    );
+    return res.data;
+  };
+
   useEffect(() => {
     getQuestion().then((el) => {
       setAllQuestion(el.pageInfo.totalElements);
@@ -63,15 +70,12 @@ const Main = () => {
     });
   }, []);
 
+  useLayoutEffect(() => {
+    handlepage().then((el) => setQuestion(el.data));
+  }, [currentPage]);
+
   const count = AllQuestion;
 
-  const handlepage = async () => {
-    const res = await axios.get(
-      `http://3.38.108.228:8080/question/?page=${currentPage}&size=15&sort=questionId`,
-    );
-    return res.data;
-  };
-  handlepage().then((el) => setQuestion(el.data));
   return (
     <>
       <MainBox>
