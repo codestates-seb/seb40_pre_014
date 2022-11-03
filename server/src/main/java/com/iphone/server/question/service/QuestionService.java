@@ -39,6 +39,7 @@ public class QuestionService {
         this.answerRepository = answerRepository;
     }
 
+    @Transactional
     public Question createQuestion(Question question){
 
         findVerifiedUser(question.getUser().getNumber());
@@ -46,6 +47,7 @@ public class QuestionService {
         return questionRepository.save(question);
     }
 
+    @Transactional
     public Question updateQuestion( Question question){
         Question findQuestion = findVerifiedQuestion(question.getQuestionId());
 
@@ -60,6 +62,7 @@ public class QuestionService {
         return updatedQuestion;
     }
 
+    @Transactional
     public void deleteQuestion(Long id){
         Question findQuestion = findVerifiedQuestion(id);
 

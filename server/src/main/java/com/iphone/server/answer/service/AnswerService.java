@@ -47,10 +47,17 @@ public class AnswerService {
         return updateAnswer;
 
     }
-    public void deleteAnswer(long answer_id)
-    {        Answer findAnswer = findVerifiedAnswer(answer_id);
 
-        answerRepository.delete(findAnswer);
+    @Transactional
+    public void deleteAnswer(long answer_id)
+    {
+
+        Answer findAnswer = findVerifiedAnswer(answer_id);
+
+        answerLikeRepository.deleteByAnswerLikeId(answer_id);
+
+
+        answerRepository.deleted(findAnswer.getAnswer_id());
     }
 
 
