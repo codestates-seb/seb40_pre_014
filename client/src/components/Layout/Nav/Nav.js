@@ -7,12 +7,9 @@ import { Link } from 'react-router-dom';
 import TopLink from './TopLink/TopLink';
 import SearchBox from './SearchBox/SearchBox';
 import AuthButton from './AuthButtons/AuthButton';
-import { useRecoilState } from 'recoil';
-import { loginStates } from '../../../states/login';
 import HideAuthButton from './AuthButtons/HideAuthButton';
 
 const Nav = () => {
-  const [login, setLogin] = useRecoilState(loginStates); // eslint-disable-line no-unused-vars
   return (
     <NavHeader>
       <NavBox>
