@@ -27,7 +27,7 @@ public class Answer extends BaseTimeEntity {
     @Column(name="answer_id")
     private Long answer_id;
 
-    @Column(name="content",nullable = false, length = 1000)
+    @Column(name="content",nullable = false ,columnDefinition = "TEXT")
     private String content;
 
 
