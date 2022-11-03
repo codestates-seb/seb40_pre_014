@@ -1,29 +1,15 @@
-# pre-project
-
-## TEAM 아이폰 "14" pro
+# 팀 - 아이폰 "14" pro
 
 <br />
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tbody>
-    <tr>
-      <td align="center">
-      <a href="https://github.com/heoputer">
-      <img src="https://avatars.githubusercontent.com/u/58350169?v=4" width="100px;" alt=""/><br /><sub><b>Jung-woo Heo</b></sub></a><br /><a href="https://github.com/codestates-seb/seb40_pre_014/commits?author=heoputer" title="Documentation">📖</a> <a href="https://github.com/codestates-seb/seb40_pre_014/pulls?q=is%3Apr+author%3Aheoputer" title="Pull Requests">🥂</a></td>
-      <td align="center"><a href="https://github.com/Exist95"><img src="https://avatars.githubusercontent.com/u/96723716?v=4" width="100px;" alt=""/><br /><sub><b>Jong-yeol Noh</b></sub></a><br /><a href="https://github.com/codestates-seb/seb40_pre_014/commits?author=Exist95" title="Documentation">📖</a> <a href="https://github.com/codestates-seb/seb40_pre_014/pulls?q=is%3Apr+author%3AExist95" title="Pull Requests">🥂</a></td>
-      <td align="center"><a href="https://github.com/inmyownway"><img src="https://avatars.githubusercontent.com/u/90558247?v=4" width="100px;" alt=""/><br /><sub><b>
-Jung-min Park</b></sub></a><br /><a href="https://github.com/codestates-seb/seb40_pre_014/commits?author=inmyownway" title="Documentation">📖</a> <a href="https://github.com/codestates-seb/seb40_pre_014/pulls?q=is%3Apr+author%3Ainmyownway" title="Pull Requests">🥂</a></td>
-    </tr>
-    <tr>
-      <td align="center"><a href="https://github.com/riverrevir"><img src="https://avatars.githubusercontent.com/u/81510864?v=4" width="100px;" alt=""/><br /><sub><b>Dong-gwan Lee</b></sub></a><br /><a href="https://github.com/codestates-seb/seb40_pre_014/commits?author=riverrevir" title="Documentation">📖</a> <a href="https://github.com/codestates-seb/seb40_pre_014/pulls?q=is%3Apr+author%3Ariverrevir" title="Pull Requests">🥂</a></td>
-      <td align="center"><a href="https://github.com/chungmin23"><img src="https://avatars.githubusercontent.com/u/20486170?v=4" width="100px;" alt=""/><br /><sub><b>Chung-min Lee</b></sub></a><br /><a href="https://github.com/codestates-seb/seb40_pre_014/commits?author=chungmin23" title="Documentation">📖</a> <a href="https://github.com/codestates-seb/seb40_pre_014/pulls?q=is%3Apr+author%3Achungmin23" title="Pull Requests">🥂</a></td>
-      <td align="center"><a href="https://github.com/js-ha"><img src="https://avatars.githubusercontent.com/u/103746767?v=4" width="100px;" alt=""/><br /><sub><b>Ji-su Ha</b></sub></a><br /><a href="https://github.com/codestates-seb/seb40_pre_014/commits?author=js-ha" title="Documentation">📖</a> <a href="https://github.com/codestates-seb/seb40_pre_014/pulls?q=is%3Apr+author%3Ajs-ha" title="Pull Requests">🥂</a></td>
-    </tr>
-  </tbody>
-</table>
+## 팀원을 소개합니다!
+
+
+| 허정우(팀장) | 노종열 | 하지수 | 이충민 | 박정민 | 이동광 |
+|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+| ![img](https://avatars.githubusercontent.com/u/58350169?v=4) | ![img](https://avatars.githubusercontent.com/u/96723716?v=4) | ![img](https://avatars.githubusercontent.com/u/103746767?v=4) | ![img](https://avatars.githubusercontent.com/u/20486170?v=4) | ![img](https://avatars.githubusercontent.com/u/90558247?v=4) | ![img](https://avatars.githubusercontent.com/u/81510864?v=4) |
+| [heoputer](https://github.com/heoputer) | [Exist95](https://github.com/Exist95) | [js-ha](https://github.com/js-ha) | [chungmin23](https://github.com/chungmin23) | [inmyownway](https://github.com/inmyownway) | [riverrevir](https://github.com/riverrevir) |
+| Frontend | Frontend | Frontend | Backend | Backend | Backend |
 
 
 <!-- markdownlint-restore -->
