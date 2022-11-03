@@ -1,18 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Nav from '../components/Layout/Nav/Nav';
 import Footer from '../components/Layout/Footer/Footer';
 import LeftSide from '../components/Layout/SideBar/LeftSide';
 import Btn from '../components/Button/Btn';
 import { Link } from 'react-router-dom';
-import dummyQuestion from '../static/dymmyQuestion';
+// import dummyQuestion from '../static/dymmyQuestion';
 import VoteBtn from '../components/Detail/VoteBtn';
 import Detail_User from '../components/Detail/Detail_User';
-import Answer from '../components/Detail/Answer';
+// import Answer from '../components/Detail/Answer';
 import userImg from '../assets/images/user.png';
 import TextEditor from '../components/TextEditor';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const Question_Detail = () => {
+  const [questionInfo, setQuestionInfo] = useState();
+  // const [answerInfo, setAnswerInfo] = useState([]);
+  let params = useParams();
+  console.log(params.id);
+
+  const getQuestionDetail = async () => {
+    const res = await axios.get(
+      `http://3.38.108.228:8080/question/${params.id}`,
+    );
+    // console.log(res.data.data.question);
+    return res.data.data;
+  };
+
+  useEffect(() => {
+    getQuestionDetail().then((el) => {
+      setQuestionInfo(el.question);
+      // setAnswerInfo(el.answer);
+      console.log(questionInfo);
+      // console.log(answerInfo);
+    });
+  }, []);
   return (
     <>
       <Nav />
@@ -21,10 +44,14 @@ const Question_Detail = () => {
         <Detail_Wrapper>
           <Detail_Top>
             <QuestionInfo>
-              <h1> {dummyQuestion[0].title} </h1>
+              <h1> {questionInfo && questionInfo.title} </h1>
               <div>
-                <span className="sub"> Asked: {dummyQuestion[0].regDate}</span>
-                <span className="sub"> View: {dummyQuestion[0].view}</span>
+                <span className="sub">
+                  Asked: {questionInfo && questionInfo.regDate}
+                </span>
+                <span className="sub">
+                  View: {questionInfo && questionInfo.view}
+                </span>
               </div>
             </QuestionInfo>
             <Link to={'/question'}>
@@ -42,32 +69,38 @@ const Question_Detail = () => {
           </Detail_Top>
 
           <Detail_Body>
-            <VoteBtn vote={dummyQuestion[0].voteCount} />
+            <VoteBtn vote={questionInfo && questionInfo.voteCount} />
             <Detail_Content>
-              <span>{dummyQuestion[0].content}</span>
-              <Detail_Tags_Wrapper>
-                {dummyQuestion[0].tagList.map((tag, idx) => {
-                  return <Detail_Tags key={idx}>{tag}</Detail_Tags>;
-                })}
-              </Detail_Tags_Wrapper>
+              <span>{questionInfo && questionInfo.content}</span>
+              {/* <Detail_Tags_Wrapper>
+                {questionInfo &&
+                  questionInfo.tagLists.map((tag, idx) => {
+                    return <Detail_Tags key={idx}>{tag}</Detail_Tags>;
+                  })}
+              </Detail_Tags_Wrapper> */}
             </Detail_Content>
-            <Detail_User img={userImg} nickName={dummyQuestion[0].nickName} />
+            <Detail_User
+              img={userImg}
+              nickName={questionInfo && questionInfo.nickName}
+            />
           </Detail_Body>
-
+          {/* 
           <Detail_Answer>
-            <h1> {dummyQuestion[0].answers.length} Answers </h1>
-            {dummyQuestion[0].answers.map((answer) => {
-              return (
-                <Answer
-                  key={answer.answerId}
-                  img={userImg}
-                  content={answer.content}
-                  nickname={answer.nickName}
-                  voteCount={answer.voteCount}
-                />
-              );
-            })}
-          </Detail_Answer>
+            <h1> {questionInfo && answerInfo.length} Answers </h1>
+            {answerInfo.length > 0 &&
+              answerInfo.map((answer) => {
+                return (
+                  <Answer
+                    key={answer.answerId}
+                    img={userImg}
+                    content={answer.content}
+                    nickname={answer.nickName}
+                    voteCount={answer.voteCount}
+                    // 아하 오케오케
+                  />
+                );
+              })}
+          </Detail_Answer> */}
           <Detail_Bottom>
             <h1> Your Answer </h1>
             <TextEditor height={'300px'} />
@@ -92,7 +125,6 @@ const Question_Detail = () => {
 const Detail_Container = styled.div`
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   height: 100vw;
   width: 100vw;
   padding-top: 50px;
@@ -101,7 +133,7 @@ const Detail_Container = styled.div`
 const Detail_Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1200px;
+  width: 80%;
 `;
 
 const Detail_Top = styled.div`
@@ -154,31 +186,31 @@ const Detail_Content = styled.div`
   }
 `;
 
-const Detail_Tags_Wrapper = styled.div`
-  display: flex;
-`;
+// const Detail_Tags_Wrapper = styled.div`
+//   display: flex;
+// `;
 
-const Detail_Tags = styled.div`
-  width: 70px;
-  height: 15px;
-  padding: 4px 6px 4px 6px;
-  margin: 2px;
-  background: #e1ecf4;
-  border-radius: 3px;
-  color: #39739d;
-  font-size: 11px;
-`;
+// const Detail_Tags = styled.div`
+//   width: 70px;
+//   height: 15px;
+//   padding: 4px 6px 4px 6px;
+//   margin: 2px;
+//   background: #e1ecf4;
+//   border-radius: 3px;
+//   color: #39739d;
+//   font-size: 11px;
+// `;
 
-const Detail_Answer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 1200px;
-  margin: 20px;
+// const Detail_Answer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   width: 1200px;
+//   margin: 20px;
 
-  > h1 {
-    font-size: 19px;
-  }
-`;
+//   > h1 {
+//     font-size: 19px;
+//   }
+// `;
 
 const Detail_Bottom = styled.div`
   display: flex;

@@ -29,6 +29,7 @@ import Paging from '../../Paging';
 import Img from '../../../assets/images/user.png';
 import { useRecoilState } from 'recoil';
 import { pageStates } from '../../../states/page';
+import { Link } from 'react-router-dom';
 
 const Main = () => {
   const [question, setQuestion] = useState([]);
@@ -114,7 +115,9 @@ const Main = () => {
                     </SectionLI>
                     <ContentLI>
                       <ContentsSection>
-                        <a href="*">{data.title}</a>
+                        <Link to={`/question/${data.questionId}`}>
+                          {data.title}
+                        </Link>
                         <Contents>{data.content}</Contents>
                         <footer>
                           <Tags>
