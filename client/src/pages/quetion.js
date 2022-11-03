@@ -4,10 +4,14 @@ import { useState } from 'react';
 import Question_Wrapper from '../components/Question_Input';
 import Btn from '../components/Button/Btn';
 import TextEditor from '../components/TextEditor';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Question = () => {
+  const navigate = useNavigate();
   const [title, setTitle] = useState();
   const [tags, setTags] = useState();
+  const [text, setText] = useState('');
 
   const titleHandler = (e) => {
     let temp = e.target.value;
@@ -15,11 +19,27 @@ const Question = () => {
   };
   const tagsHandler = (e) => {
     let temp = e.target.value;
-    setTags(temp);
+    setTags(temp.split(','));
   };
 
-  console.log(title);
-  console.log(tags);
+  const submitHandler = async () => {
+    await axios
+      .post(
+        `/question/${localStorage.getItem('UserID')}`,
+        {
+          title: title,
+          content: text,
+          questionTags: tags,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('Token')}`,
+          },
+        },
+      )
+      .then(navigate('/'));
+  };
+
   return (
     <>
       <Question_Container>
@@ -44,7 +64,7 @@ const Question = () => {
                 'Include all the information someone would need to answer your question.'
               }
             />
-            <TextEditor height={'550px'} />
+            <TextEditor height={'550px'} setText={setText} />
           </div>
           <div>
             <Question_Wrapper
@@ -65,6 +85,7 @@ const Question = () => {
           fontSize={'13.8px'}
           hoverColor={'#0069c5'}
           margin={'20px 0px 0px 0px'}
+          funcProps={submitHandler}
         ></Btn>
       </Question_Container>
     </>

@@ -2,16 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import Detail_User from './Detail_User';
 import VoteBtn from './VoteBtn';
+import { Viewer } from '@toast-ui/react-editor';
 
 const Answer = ({ img, content, voteCount, nickname }) => {
   return (
     <>
       <Answer_Container>
-        <VoteBtn vote={voteCount} />
         <Answer_Content>
-          <span> {content} </span>
+          <VoteBtn vote={voteCount} />
+          {content && <Viewer initialValue={content} />}
+          <Detail_User img={img} nickName={nickname} />
         </Answer_Content>
-        <Detail_User img={img} nickName={nickname} />
       </Answer_Container>
     </>
   );
@@ -27,7 +28,7 @@ const Answer_Container = styled.div`
 
 const Answer_Content = styled.div`
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   width: 1100px;
   height: 150px;
   padding: 10px;
