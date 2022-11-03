@@ -1,22 +1,57 @@
+/* eslint-disable no-unused-vars */
 import styled from 'styled-components';
 import TagTitle from '../components/Tags/TagTitle';
 import TagList from '../components/Tags/TagList';
-import TagDummy from '../components/Tags/TagDummy';
-import { useState } from 'react';
+// import TagDummy from '../components/Tags/TagDummy';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import Paging from '../components/Paging';
 import LeftSide from '../components/Layout/SideBar/LeftSide';
+import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { pageStates } from '../states/page';
 
 const Tags = () => {
-  const [tags, setTags] = useState(TagDummy);
+  const [tags, setTags] = useState([]);
+  const [AllTags, setAllTags] = useState(0);
+  const [currentPage, setCurrentPage] = useRecoilState(pageStates);
+
+  const getTags = async () => {
+    const res = await axios.get(
+      `http://3.38.108.228:8080/tags/?page=1&size=90&sort=tagId`,
+    );
+    console.log(res.data);
+    return res.data;
+  };
+
+  const handlepage = async () => {
+    const res = await axios.get(
+      `http://3.38.108.228:8080/tags/?page=${currentPage}&size=90&sort=tagId`,
+    );
+    return res.data;
+  };
+
+  useEffect(() => {
+    getTags().then((el) => {
+      setAllTags(el.pageInfo.totalElements);
+      setTags(el.data);
+    });
+  }, []);
+
+  useLayoutEffect(() => {
+    handlepage().then((el) => setTags(el.data));
+  }, [currentPage]);
+
+  const count = AllTags;
+  console.log(count);
 
   return (
     <BigBox>
       <MidBox>
         <LeftSide />
         <Container>
-          <TagTitle tags={tags} setTags={setTags} />
+          <TagTitle tags={tags} setTags={setTags} getTags={getTags} />
           <TagList tags={tags} />
-          <Paging />
+          <Paging count={count} onClick={handlepage} abc={100} />
         </Container>
       </MidBox>
     </BigBox>

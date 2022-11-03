@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
-import TagDummy from './TagDummy';
+// import TagDummy from './TagDummy';
 import SortTab from '../Button/SortTab';
+// import { useEffect } from 'react';
 
 const TagTitle = ({ tags, setTags }) => {
   const clickpopular = () => {
@@ -15,17 +16,21 @@ const TagTitle = ({ tags, setTags }) => {
 
   const clickname = () => {
     let sort = tags.sort((a, b) => {
-      return a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 1;
+      return a.tagName.toUpperCase() < b.tagName.toUpperCase() ? -1 : 1;
     });
     console.log(sort);
     setTags([...sort]);
   };
 
+  // useEffect(() => {
+  //   getTags().then((el) => setTags(el.data));
+  // }, []);
+
   const tagsearch = (event) => {
     const filterTag = [];
 
-    TagDummy.filter((tag) => {
-      tag.name.includes(event.target.value) ? filterTag.push(tag) : null;
+    tags.filter((tag) => {
+      tag.tagName.includes(event.target.value) ? filterTag.push(tag) : null;
     });
 
     console.log(filterTag);
@@ -56,7 +61,6 @@ const TagTitle = ({ tags, setTags }) => {
 
 const Container = styled.div`
   position: relative;
-
   p {
     width: 630px;
     font-size: 15px;

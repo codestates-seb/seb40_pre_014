@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { pageStates } from '../states/page';
 
-const Paging = ({ count }) => {
+const Paging = ({ count, abc }) => {
   const [page, setPage] = useState(1);
   const [currentPage, setCurrentPage] = useRecoilState(pageStates); // eslint-disable-line no-unused-vars
   const handlePageChange = (page) => {
@@ -16,7 +16,7 @@ const Paging = ({ count }) => {
     <Container>
       <Pagination
         activePage={page}
-        itemsCountPerPage={15} // 한 페이지에 보여줄 아이템 갯수
+        itemsCountPerPage={abc} // 한 페이지에 보여줄 아이템 갯수
         totalItemsCount={count} // 총 아이템 갯수
         pageRangeDisplayed={5} // 페이지 범위
         onChange={handlePageChange}

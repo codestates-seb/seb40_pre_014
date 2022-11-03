@@ -154,7 +154,7 @@ const Main = () => {
                 );
               })}
             </ContentsBox>
-            <Paging count={count} onClick={handlepage} />
+            <Paging count={count} onClick={handlepage} abc={15} />
           </MainMiniBox>
           <RightSide />
         </MainMidBox>

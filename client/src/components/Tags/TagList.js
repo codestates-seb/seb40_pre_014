@@ -4,14 +4,14 @@ const TagList = ({ tags }) => {
   console.log(tags);
   return (
     <Container>
-      {tags.map((item) => (
-        <Tagbox key={item.id}>
+      {tags.map((tag) => (
+        <Tagbox key={tag.tagId}>
           <div>
-            <Tag>{item.name}</Tag>
-            <p>{item.content}</p>
-            <span style={{ fontSize: '12px', color: 'gray' }}>
-              {item.questions} questions
-            </span>
+            <Tag>{tag.tagName}</Tag>
+            {/* <p>{item.content}</p> */}
+            <div style={{ fontSize: '12px', color: 'gray', marginTop: '1rem' }}>
+              {tag.count} questions
+            </div>
           </div>
         </Tagbox>
       ))}
@@ -21,7 +21,7 @@ const TagList = ({ tags }) => {
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, auto));
+  grid-template-columns: repeat(5, minmax(0, auto));
   gap: 12px;
 `;
 
