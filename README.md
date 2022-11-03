@@ -2,6 +2,7 @@
 
 <br />
 ## 팀원을 소개합니다!
+
 | 허정우(팀장) | 노종열 | 하지수 | 이충민 | 박정민 | 이동광 |
 |:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
 | ![img](https://avatars.githubusercontent.com/u/58350169?v=4) | ![img](https://avatars.githubusercontent.com/u/96723716?v=4) | ![img](https://avatars.githubusercontent.com/u/103746767?v=4) | ![img](https://avatars.githubusercontent.com/u/20486170?v=4) | ![img](https://avatars.githubusercontent.com/u/90558247?v=4) | ![img](https://avatars.githubusercontent.com/u/81510864?v=4) |
