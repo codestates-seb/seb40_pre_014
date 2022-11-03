@@ -5,10 +5,9 @@ import Footer from '../components/Layout/Footer/Footer';
 import LeftSide from '../components/Layout/SideBar/LeftSide';
 import Btn from '../components/Button/Btn';
 import { Link } from 'react-router-dom';
-// import dummyQuestion from '../static/dymmyQuestion';
 import VoteBtn from '../components/Detail/VoteBtn';
 import Detail_User from '../components/Detail/Detail_User';
-// import Answer from '../components/Detail/Answer';
+import Answer from '../components/Detail/Answer';
 import userImg from '../assets/images/user.png';
 import TextEditor from '../components/TextEditor';
 import { useParams } from 'react-router-dom';
@@ -16,7 +15,7 @@ import axios from 'axios';
 
 const Question_Detail = () => {
   const [questionInfo, setQuestionInfo] = useState();
-  // const [answerInfo, setAnswerInfo] = useState([]);
+  const [answerInfo, setAnswerInfo] = useState([]);
   let params = useParams();
   console.log(params.id);
 
@@ -24,16 +23,13 @@ const Question_Detail = () => {
     const res = await axios.get(
       `http://3.38.108.228:8080/question/${params.id}`,
     );
-    // console.log(res.data.data.question);
     return res.data.data;
   };
 
   useEffect(() => {
     getQuestionDetail().then((el) => {
       setQuestionInfo(el.question);
-      // setAnswerInfo(el.answer);
-      console.log(questionInfo);
-      // console.log(answerInfo);
+      setAnswerInfo(el.answer);
     });
   }, []);
   return (
@@ -72,19 +68,21 @@ const Question_Detail = () => {
             <VoteBtn vote={questionInfo && questionInfo.voteCount} />
             <Detail_Content>
               <span>{questionInfo && questionInfo.content}</span>
-              {/* <Detail_Tags_Wrapper>
+              <Detail_Tags_Wrapper>
                 {questionInfo &&
                   questionInfo.tagLists.map((tag, idx) => {
-                    return <Detail_Tags key={idx}>{tag}</Detail_Tags>;
+                    return (
+                      <Detail_Tags key={idx}>{tag.tags.tagName}</Detail_Tags>
+                    );
                   })}
-              </Detail_Tags_Wrapper> */}
+              </Detail_Tags_Wrapper>
             </Detail_Content>
             <Detail_User
               img={userImg}
               nickName={questionInfo && questionInfo.nickName}
             />
           </Detail_Body>
-          {/* 
+
           <Detail_Answer>
             <h1> {questionInfo && answerInfo.length} Answers </h1>
             {answerInfo.length > 0 &&
@@ -96,11 +94,10 @@ const Question_Detail = () => {
                     content={answer.content}
                     nickname={answer.nickName}
                     voteCount={answer.voteCount}
-                    // 아하 오케오케
                   />
                 );
               })}
-          </Detail_Answer> */}
+          </Detail_Answer>
           <Detail_Bottom>
             <h1> Your Answer </h1>
             <TextEditor height={'300px'} />
@@ -186,31 +183,31 @@ const Detail_Content = styled.div`
   }
 `;
 
-// const Detail_Tags_Wrapper = styled.div`
-//   display: flex;
-// `;
+const Detail_Tags_Wrapper = styled.div`
+  display: flex;
+`;
 
-// const Detail_Tags = styled.div`
-//   width: 70px;
-//   height: 15px;
-//   padding: 4px 6px 4px 6px;
-//   margin: 2px;
-//   background: #e1ecf4;
-//   border-radius: 3px;
-//   color: #39739d;
-//   font-size: 11px;
-// `;
+const Detail_Tags = styled.div`
+  width: 70px;
+  height: 15px;
+  padding: 4px 6px 4px 6px;
+  margin: 2px;
+  background: #e1ecf4;
+  border-radius: 3px;
+  color: #39739d;
+  font-size: 11px;
+`;
 
-// const Detail_Answer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   width: 1200px;
-//   margin: 20px;
+const Detail_Answer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  margin: 20px;
 
-//   > h1 {
-//     font-size: 19px;
-//   }
-// `;
+  > h1 {
+    font-size: 19px;
+  }
+`;
 
 const Detail_Bottom = styled.div`
   display: flex;
