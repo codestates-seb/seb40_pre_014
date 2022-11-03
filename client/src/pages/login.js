@@ -27,8 +27,8 @@ const Login = () => {
         password: password,
       })
       .then((res) => localStorage.setItem('Token', res.data.token))
-      .then(navigate('/'))
-      .then(window.location.reload());
+      .then(navigate('/'));
+    // .then(window.location.reload());
   };
   console.log(localStorage.getItem('Token'));
   return (

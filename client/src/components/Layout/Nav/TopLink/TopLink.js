@@ -1,16 +1,24 @@
 import React from 'react';
+import { useRecoilState } from 'recoil';
+import { TapStates } from '../../../../states/Tap';
 import { HideableList, Products, TopLinkList, TopLinks } from './TopLink.style';
 
 const TopLink = () => {
+  const [tap, setTap] = useRecoilState(TapStates); // eslint-disable-line no-unused-vars
+
   return (
     <TopLinkList>
-      <HideableList>
+      <HideableList
+        onClick={() => setTap({ One: true, Two: false, Three: false })}
+      >
         <TopLinks to="/">About</TopLinks>
       </HideableList>
-      <Products>
+      <Products onClick={() => setTap({ One: true, Two: false, Three: false })}>
         <TopLinks to="/">Products</TopLinks>
       </Products>
-      <HideableList>
+      <HideableList
+        onClick={() => setTap({ One: true, Two: false, Three: false })}
+      >
         <TopLinks to="/">For Teams</TopLinks>
       </HideableList>
     </TopLinkList>

@@ -1,35 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
-import TagDummy from './TagDummy';
 import SortTab from '../Button/SortTab';
 
-const TagTitle = ({ tags, setTags }) => {
+const TagTitle = ({ tags, setTags, num, setNum, handleFilter }) => {
+  const Search = [];
+  const [searchValue, setSearchValue] = useState('');
+  const filterSearch = Search.filter((el) => el.tagName.includes(searchValue));
+
+  console.log(setSearchValue, setNum, num, filterSearch);
   const clickpopular = () => {
     let sort = tags.sort((a, b) => {
       return a.questions < b.questions ? 1 : -1;
     });
-    console.log(sort);
     setTags([...sort]);
   };
-
   const clickname = () => {
     let sort = tags.sort((a, b) => {
-      return a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 1;
+      console.log(a);
+      return a.tagName.toUpperCase() < b.tagName.toUpperCase() ? -1 : 1;
     });
-    console.log(sort);
     setTags([...sort]);
-  };
-
-  const tagsearch = (event) => {
-    const filterTag = [];
-
-    TagDummy.filter((tag) => {
-      tag.name.includes(event.target.value) ? filterTag.push(tag) : null;
-    });
-
-    console.log(filterTag);
-    setTags([...filterTag]);
   };
 
   return (
@@ -42,7 +33,7 @@ const TagTitle = ({ tags, setTags }) => {
       </p>
       <div className="between">
         <SearchIcon />
-        <TextInput placeholder="Filter by tag name" onChange={tagsearch} />
+        <TextInput placeholder="Filter by tag name" onChange={handleFilter} />
         <SortTab
           funcprop={clickpopular}
           funcprop2={clickname}
