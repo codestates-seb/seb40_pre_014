@@ -1,14 +1,22 @@
+import React, { useState } from 'react';
 import { Editor } from '@toast-ui/react-editor';
 import '@toast-ui/editor/dist/toastui-editor.css';
 
-const TextEditor = ({ height }) => {
+export default function TextEditor({ height }) {
+  const [text, setText] = useState('');
+  const editorRef = React.createRef();
+  const onChange = () => {
+    const data = editorRef.current.getInstance().getHTML(); // getHTML or getMarkdown
+    setText(data);
+    console.log(text);
+  };
   return (
     <>
       <Editor
         placeholder="내용을 입력해주세요."
-        previewStyle="vertical" // 미리보기 스타일 지정
-        height={height} // 에디터 창 높이
-        initialEditType="wysiwyg" // 초기 입력모드 설정(디폴트 markdown)
+        previewStyle="vertical" // vertical로 설정시 미리보기 화면 분할가능
+        height={height}
+        initialEditType="markdown" // markdown or wysiwyg
         toolbarItems={[
           // 툴바 옵션 설정
           ['heading', 'bold', 'italic', 'strike'],
@@ -17,9 +25,9 @@ const TextEditor = ({ height }) => {
           ['table', 'link'],
           ['code', 'codeblock'],
         ]}
+        ref={editorRef}
+        onChange={onChange}
       />
     </>
   );
-};
-
-export default TextEditor;
+}
