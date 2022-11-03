@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Editor } from '@toast-ui/react-editor';
 import '@toast-ui/editor/dist/toastui-editor.css';
 
-export default function TextEditor({ height }) {
-  const [text, setText] = useState('');
+export default function TextEditor({ height, setText }) {
   const editorRef = React.createRef();
   const onChange = () => {
     const data = editorRef.current.getInstance().getHTML(); // getHTML or getMarkdown
     setText(data);
-    console.log(text);
   };
   return (
     <>
