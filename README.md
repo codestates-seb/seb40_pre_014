@@ -7,7 +7,7 @@
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<table>
+<!-- <table>
   <tbody>
     <tr>
       <td align="center">
@@ -23,11 +23,11 @@ Jung-min Park</b></sub></a><br /><a href="https://github.com/codestates-seb/seb4
       <td align="center"><a href="https://github.com/js-ha"><img src="https://avatars.githubusercontent.com/u/103746767?v=4" width="100px;" alt=""/><br /><sub><b>Ji-su Ha</b></sub></a><br /><a href="https://github.com/codestates-seb/seb40_pre_014/commits?author=js-ha" title="Documentation">📖</a> <a href="https://github.com/codestates-seb/seb40_pre_014/pulls?q=is%3Apr+author%3Ajs-ha" title="Pull Requests">🥂</a></td>
     </tr>
   </tbody>
-</table>
+</table> -->
 
 | 허정우 | 노종열 | 하지수 | 이충민 | 박정민 | 이동광 |
 |:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
-| ![img](https://avatars.githubusercontent.com/u/58350169?v=4) | ![img](https://avatars.githubusercontent.com/u/96723716?v=4) | ![img](https://avatars.githubusercontent.com/u/103746767?v=4) | ![img](https://avatars.githubusercontent.com/u/20486170?v=4) | ![img](https://avatars.githubusercontent.com/u/90558247?v=4) | ![img]([https://avatars.githubusercontent.com/u/20486170?v=4](https://avatars.githubusercontent.com/u/81510864?v=4))
+| ![img](https://avatars.githubusercontent.com/u/58350169?v=4) | ![img](https://avatars.githubusercontent.com/u/96723716?v=4) | ![img](https://avatars.githubusercontent.com/u/103746767?v=4) | ![img](https://avatars.githubusercontent.com/u/20486170?v=4) | ![img](https://avatars.githubusercontent.com/u/90558247?v=4) | ![img]((https://avatars.githubusercontent.com/u/81510864?v=4) |
 | [heoputer](https://github.com/heoputer) | [Exist95](https://github.com/Exist95) | [js-ha](https://github.com/js-ha) | [chungmin23](https://github.com/chungmin23) | [inmyownway](https://github.com/inmyownway) | [riverrevir](https://github.com/riverrevir) |
 | Frontend(팀장) | Frontend | Frontend | Backend | Backend | Backend |
 
