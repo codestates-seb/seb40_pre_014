@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import Btn from '../../Button/Btn';
 import {
   MainBox,
@@ -27,18 +27,20 @@ import LeftSide from '../SideBar/LeftSide';
 import axios from 'axios';
 import Paging from '../../Paging';
 import Img from '../../../assets/images/user.png';
+import { useRecoilState } from 'recoil';
+import { pageStates } from '../../../states/page';
 
 const Main = () => {
   const [question, setQuestion] = useState([]);
+  const [AllQuestion, setAllQuestion] = useState(0);
+  const [currentPage, setCurrentPage] = useRecoilState(pageStates); // eslint-disable-line no-unused-vars
 
   const clickVote = () => {
     let sort = question.sort((a, b) => {
       return b.voteCount - a.voteCount;
     });
     setQuestion([...sort]);
-    console.log(setQuestion);
   };
-
   const clickNewest = () => {
     let sort = question.sort((a, b) => {
       return new Date(b.regDate) - new Date(a.regDate);
@@ -47,18 +49,32 @@ const Main = () => {
   };
 
   const getQuestion = async () => {
-    const res = await axios
-      .get(
-        `http://3.38.108.228:8080/question/?page=1&size=1000&sort=questionId`,
-      )
-      .catch((err) => console.log(err));
+    const res = await axios.get(
+      `http://3.38.108.228:8080/question/?page=1&size=15&sort=questionId`,
+    );
+    return res.data;
+  };
+
+  const handlepage = async () => {
+    const res = await axios.get(
+      `http://3.38.108.228:8080/question/?page=${currentPage}&size=15&sort=questionId`,
+    );
     return res.data;
   };
 
   useEffect(() => {
-    getQuestion().then((el) => setQuestion(el.data));
+    getQuestion().then((el) => {
+      setAllQuestion(el.pageInfo.totalElements);
+      setQuestion(el.data);
+    });
   }, []);
-  console.log('qweqwe', question);
+
+  useLayoutEffect(() => {
+    handlepage().then((el) => setQuestion(el.data));
+  }, [currentPage]);
+
+  const count = AllQuestion;
+
   return (
     <>
       <MainBox>
@@ -81,7 +97,7 @@ const Main = () => {
               </LinkBox>
             </MainFirstBox>
             <MainSecondBox>
-              <h2>{question.length} results</h2>
+              <h2>{AllQuestion} results</h2>
               <SortTab
                 funcprop={clickVote}
                 funcprop2={clickNewest}
@@ -130,7 +146,7 @@ const Main = () => {
                 );
               })}
             </ContentsBox>
-            <Paging />
+            <Paging count={count} onClick={handlepage} />
           </MainMiniBox>
           <RightSide />
         </MainMidBox>

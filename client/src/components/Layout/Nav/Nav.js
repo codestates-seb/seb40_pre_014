@@ -8,13 +8,13 @@ import TopLink from './TopLink/TopLink';
 import SearchBox from './SearchBox/SearchBox';
 import AuthButton from './AuthButtons/AuthButton';
 import { useRecoilState } from 'recoil';
-import { loginStates } from '../../../states/login';
+// import { loginStates } from '../../../states/login';
 import HideAuthButton from './AuthButtons/HideAuthButton';
 import { Container, LeftBar, LinkBox, QuestionIcon } from './Hidebar';
 import { TapStates } from '../../../states/Tap';
 
 const Nav = () => {
-  const [login, setLogin] = useRecoilState(loginStates); // eslint-disable-line no-unused-vars
+  // const [login, setLogin] = useRecoilState(loginStates); // eslint-disable-line no-unused-vars
   const [click, setClick] = useState(false);
   const profileModalRef = useRef();
   const [tap, setTap] = useRecoilState(TapStates);
@@ -33,6 +33,7 @@ const Nav = () => {
     setClick(!click);
   };
 
+  // console.log('navToken', localStorage.getItem('Token'));
   return (
     <NavHeader>
       <NavBox>

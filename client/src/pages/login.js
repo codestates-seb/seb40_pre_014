@@ -30,7 +30,7 @@ const Login = () => {
       .then(navigate('/'))
       .then(window.location.reload());
   };
-
+  console.log(localStorage.getItem('Token'));
   return (
     <div>
       {/* {login.Profilelogin ? navigate('/') : ''} */}

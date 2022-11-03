@@ -1,15 +1,15 @@
 import styled from 'styled-components';
+import userImg from '../assets/images/user.png';
 
 const User = ({ users }) => {
   return (
     <User_Container>
       {users.map((user) => (
-        <User_Wrap key={user.id}>
-          <img src={user.img} alt=""></img>
+        <User_Wrap key={user.number}>
+          <img src={userImg} alt=""></img>
           <div className="textWrap">
-            <p> {user.name} </p>
-            <p> {user.email} </p>
-            <p> {user.createAt}</p>
+            <p> {user.nickName} </p>
+            <p> {user.number} </p>
           </div>
         </User_Wrap>
       ))}
