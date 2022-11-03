@@ -12,10 +12,12 @@ import userImg from '../assets/images/user.png';
 import TextEditor from '../components/TextEditor';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { Viewer } from '@toast-ui/react-editor';
 
 const Question_Detail = () => {
   const [questionInfo, setQuestionInfo] = useState();
   const [answerInfo, setAnswerInfo] = useState([]);
+  const [text, setText] = useState('');
   let params = useParams();
   console.log(params.id);
 
@@ -24,6 +26,28 @@ const Question_Detail = () => {
       `http://3.38.108.228:8080/question/${params.id}`,
     );
     return res.data.data;
+  };
+
+  console.log(questionInfo && questionInfo.questionId);
+  console.log(localStorage.getItem('UserID'));
+  console.log(text);
+
+  const submitHandler = async () => {
+    await axios
+      .post(
+        `/answer`,
+        {
+          questionId: questionInfo && questionInfo.questionId,
+          userId: localStorage.getItem('UserID'),
+          content: text,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('Token')}`,
+          },
+        },
+      )
+      .then(window.location.reload());
   };
 
   useEffect(() => {
@@ -67,7 +91,8 @@ const Question_Detail = () => {
           <Detail_Body>
             <VoteBtn vote={questionInfo && questionInfo.voteCount} />
             <Detail_Content>
-              <span>{questionInfo && questionInfo.content}</span>
+              {/* <span>{questionInfo && questionInfo.content}</span> */}
+              {questionInfo && <Viewer initialValue={questionInfo.content} />}
               <Detail_Tags_Wrapper>
                 {questionInfo &&
                   questionInfo.tagLists.map((tag, idx) => {
@@ -100,7 +125,7 @@ const Question_Detail = () => {
           </Detail_Answer>
           <Detail_Bottom>
             <h1> Your Answer </h1>
-            <TextEditor height={'300px'} />
+            <TextEditor height={'300px'} setText={setText} />
             <Btn
               text={'Post Your Answer'}
               backColor={'#0d8ae1'}
@@ -110,6 +135,7 @@ const Question_Detail = () => {
               hoverColor={'#0069c5'}
               cursorPointer={'pointer'}
               margin={'40px 5px 0 0'}
+              funcProps={submitHandler}
             ></Btn>
           </Detail_Bottom>
         </Detail_Wrapper>
