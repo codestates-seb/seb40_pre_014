@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const VoteBtn = ({ vote }) => {
+const VoteBtn = ({ vote, IncreaseVote, DecreaseVote }) => {
   return (
     <>
       <Btn_Container>
         <Vote_Wrapper>
-          <VoteUp_btn />
+          <VoteUp_btn onClick={IncreaseVote} />
           <span> {vote} </span>
-          <VoteDown_btn />
+          <VoteDown_btn onClick={DecreaseVote} />
         </Vote_Wrapper>
       </Btn_Container>
     </>
