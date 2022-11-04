@@ -4,11 +4,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username:
     password:
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/test3?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-#    username: root
-#    password: cos1234
+
 
 
 

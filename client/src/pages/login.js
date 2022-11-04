@@ -26,8 +26,9 @@ const Login = () => {
       .then((res) => {
         localStorage.setItem('Token', res.data.token);
         localStorage.setItem('UserID', res.data.id);
-        navigate('/');
+        window.location.reload();
       })
+      .then(navigate('/'))
       .catch(() => {
         alert('이메일, 패스워드를 확인해주세요.');
       });

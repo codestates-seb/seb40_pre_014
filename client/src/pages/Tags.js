@@ -32,7 +32,7 @@ const Tags = () => {
 
   const handlepage = async () => {
     const res = await axios.get(
-      `http://3.38.108.228:8080/tags/?page=${currentPage}&size=90&sort=tagId`,
+      `/tags/?page=${currentPage}&size=90&sort=tagId`,
     );
     return res.data;
   };

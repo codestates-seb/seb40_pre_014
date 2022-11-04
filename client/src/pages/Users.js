@@ -8,7 +8,7 @@ import axios from 'axios';
 const Users = () => {
   const [users, setUsers] = useState([]);
   const getUser = async () => {
-    const res = await axios.get(`http://3.38.108.228:8080/api/users`);
+    const res = await axios.get(`/api/users`);
     return res.data;
   };
 

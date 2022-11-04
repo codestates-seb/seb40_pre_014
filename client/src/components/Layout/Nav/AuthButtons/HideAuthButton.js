@@ -22,14 +22,11 @@ const HideAuthButton = () => {
   const [userInfo, setUserInfo] = useState([]); // eslint-disable-line no-unused-vars
   const Token = localStorage.getItem('Token');
   const getUser = async () => {
-    const res = await axios.get(
-      `http://3.38.108.228:8080/api/users/authentication`,
-      {
-        headers: {
-          Authorization: `Bearer ${Token}`,
-        },
+    const res = await axios.get(`/api/users/authentication`, {
+      headers: {
+        Authorization: `Bearer ${Token}`,
       },
-    );
+    });
     return res;
   };
 

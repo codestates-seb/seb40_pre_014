@@ -6,9 +6,9 @@ const VoteBtn = ({ vote, IncreaseVote, DecreaseVote }) => {
     <>
       <Btn_Container>
         <Vote_Wrapper>
-          <VoteUp_btn onClick={IncreaseVote}></VoteUp_btn>
+          <VoteUp_btn onClick={IncreaseVote} />
           <span> {vote} </span>
-          <VoteDown_btn onClick={DecreaseVote}></VoteDown_btn>
+          <VoteDown_btn onClick={DecreaseVote} />
         </Vote_Wrapper>
       </Btn_Container>
     </>
@@ -17,6 +17,7 @@ const VoteBtn = ({ vote, IncreaseVote, DecreaseVote }) => {
 
 const Btn_Container = styled.div`
   display: flex;
+  margin-right: 20px;
 `;
 
 const Vote_Wrapper = styled.div`
