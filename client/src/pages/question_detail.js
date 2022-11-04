@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Nav from '../components/Layout/Nav/Nav';
-import Footer from '../components/Layout/Footer/Footer';
 import LeftSide from '../components/Layout/SideBar/LeftSide';
 import Btn from '../components/Button/Btn';
 import { Link } from 'react-router-dom';
@@ -19,18 +18,11 @@ const Question_Detail = () => {
   const [answerInfo, setAnswerInfo] = useState([]);
   const [text, setText] = useState('');
   let params = useParams();
-  console.log(params.id);
 
   const getQuestionDetail = async () => {
-    const res = await axios.get(
-      `http://3.38.108.228:8080/question/${params.id}`,
-    );
+    const res = await axios.get(`/question/${params.id}`);
     return res.data.data;
   };
-
-  console.log(questionInfo && questionInfo.questionId);
-  console.log(localStorage.getItem('UserID'));
-  console.log(text);
 
   const submitHandler = async () => {
     await axios
@@ -140,7 +132,6 @@ const Question_Detail = () => {
           </Detail_Bottom>
         </Detail_Wrapper>
       </Detail_Container>
-      <Footer />
     </>
   );
 };
