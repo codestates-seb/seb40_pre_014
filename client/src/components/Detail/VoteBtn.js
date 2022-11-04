@@ -6,9 +6,9 @@ const VoteBtn = ({ vote }) => {
     <>
       <Btn_Container>
         <Vote_Wrapper>
-          <VoteUp_btn></VoteUp_btn>
+          <VoteUp_btn />
           <span> {vote} </span>
-          <VoteDown_btn></VoteDown_btn>
+          <VoteDown_btn />
         </Vote_Wrapper>
       </Btn_Container>
     </>
@@ -17,6 +17,7 @@ const VoteBtn = ({ vote }) => {
 
 const Btn_Container = styled.div`
   display: flex;
+  margin-right: 20px;
 `;
 
 const Vote_Wrapper = styled.div`
