@@ -3,12 +3,9 @@ import Btn from '../components/Button/Btn';
 import Nav from '../components/Layout/Nav/Nav';
 import { useNavigate } from 'react-router-dom';
 import { LoginContainer, Input_Wrap, Login_Form } from './login.style';
-// import { useRecoilState } from 'recoil';
-// import { loginStates } from '../states/login';
 import axios from 'axios';
 
 const Login = () => {
-  // const [login, setLogin] = useRecoilState(loginStates);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -26,14 +23,18 @@ const Login = () => {
         email: email,
         password: password,
       })
-      .then((res) => localStorage.setItem('Token', res.data.token))
-      .then(navigate('/'));
-    // .then(window.location.reload());
+      .then((res) => {
+        localStorage.setItem('Token', res.data.token);
+        localStorage.setItem('UserID', res.data.id);
+        navigate('/');
+      })
+      .catch(() => {
+        alert('이메일, 패스워드를 확인해주세요.');
+      });
   };
   console.log(localStorage.getItem('Token'));
   return (
     <div>
-      {/* {login.Profilelogin ? navigate('/') : ''} */}
       <Nav />
       <LoginContainer>
         <Login_Form>

@@ -29,11 +29,13 @@ import Paging from '../../Paging';
 import Img from '../../../assets/images/user.png';
 import { useRecoilState } from 'recoil';
 import { pageStates } from '../../../states/page';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Main = () => {
   const [question, setQuestion] = useState([]);
   const [AllQuestion, setAllQuestion] = useState(0);
   const [currentPage, setCurrentPage] = useRecoilState(pageStates); // eslint-disable-line no-unused-vars
+  const navigate = useNavigate();
 
   const clickVote = () => {
     let sort = question.sort((a, b) => {
@@ -75,6 +77,10 @@ const Main = () => {
 
   const count = AllQuestion;
 
+  const askQuestion = () => {
+    navigate('/question');
+  };
+
   return (
     <>
       <MainBox>
@@ -83,7 +89,7 @@ const Main = () => {
           <MainMiniBox>
             <MainFirstBox>
               <h1>All Questions</h1>
-              <LinkBox to={'/question'}>
+              <LinkBox onClick={askQuestion}>
                 <Btn
                   text={'Ask Question'}
                   backColor={'#0d8ae1'}
@@ -112,13 +118,15 @@ const Main = () => {
                     <SectionLI>
                       <RigthSection>
                         <div>{data.voteCount} votes</div>
-                        <div>{data.answersCount} answers</div>
+                        <div>{data.answerCount} answers</div>
                         <div>{data.viewCount} views</div>
                       </RigthSection>
                     </SectionLI>
                     <ContentLI>
                       <ContentsSection>
-                        <a href="*">{data.title}</a>
+                        <Link to={`/question/${data.questionId}`}>
+                          {data.title}
+                        </Link>
                         <Contents>{data.content}</Contents>
                         <footer>
                           <Tags>
@@ -146,7 +154,7 @@ const Main = () => {
                 );
               })}
             </ContentsBox>
-            <Paging count={count} onClick={handlepage} />
+            <Paging count={count} onClick={handlepage} abc={15} />
           </MainMiniBox>
           <RightSide />
         </MainMidBox>

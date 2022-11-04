@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 import SortTab from '../Button/SortTab';
+// import { useEffect } from 'react';
 
 const TagTitle = ({ tags, setTags, handleFilter, onKeyDown }) => {
   const clickpopular = () => {
@@ -45,7 +46,6 @@ const TagTitle = ({ tags, setTags, handleFilter, onKeyDown }) => {
 
 const Container = styled.div`
   position: relative;
-
   p {
     width: 630px;
     font-size: 15px;

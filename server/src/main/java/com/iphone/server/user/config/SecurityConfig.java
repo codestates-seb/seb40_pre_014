@@ -35,6 +35,8 @@ public class SecurityConfig {
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
 
+
+
     @Autowired
     public void configGlobal(AuthenticationManagerBuilder auth) throws Exception {
         // 일치하는 자격증명을 위해 사용자를 로드할 위치를 알수 있도록

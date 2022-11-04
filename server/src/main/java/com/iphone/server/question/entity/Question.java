@@ -28,10 +28,10 @@ public class Question extends BaseEntity {
     @Column(name = "question_id")
     private Long questionId;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String title;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String content;
 
 

@@ -26,6 +26,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
@@ -47,6 +48,8 @@ public class QuestionController {
     private final TagsMapper tagsMapper;
 
     private final TagService tagService;
+
+
 
     // 질문 --------------------------------
 
@@ -137,6 +140,7 @@ public class QuestionController {
     // 질문 좋아요 ----------------------------------------
 
     //질문 글 추천
+
 
     @PostMapping("/question/like/{question-id}")
     public ResponseEntity likeQuestion(@PathVariable("question-id") @Positive @NotNull long questionId,
