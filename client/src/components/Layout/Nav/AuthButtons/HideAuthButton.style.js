@@ -53,15 +53,16 @@ export const ProfileWrap = styled.ul`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  email {
-    margin-top: 15px;
-    font-size: 16px;
-  }
-  nickname {
-    margin-top: 5px;
-    font-size: 16px;
-    font-weight: 600;
-  }
+`;
+export const Email = styled.div`
+  margin-top: 15px;
+  font-size: 16px;
+`;
+
+export const Nickname = styled.div`
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 600;
 `;
 
 export const ProfileDiv = styled.div`
