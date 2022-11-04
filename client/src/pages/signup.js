@@ -51,7 +51,6 @@ const Signup = () => {
       setIsName(false);
     }
     setName(event.target.value);
-    console.log(isName);
   };
 
   const handleChangeE = (event) => {
@@ -61,7 +60,6 @@ const Signup = () => {
       setIsEmail(false);
     }
     setEmail(event.target.value);
-    console.log(isEmail);
   };
 
   const handleChangeP = (event) => {
@@ -71,11 +69,9 @@ const Signup = () => {
       setIspassword(false);
     }
     setPassword(event.target.value);
-    console.log(isPassword);
   };
 
   const submitHandle = async () => {
-    console.log('Click');
     if (isEmail && isName && isPassword) {
       try {
         await axios.post('/api/users', {
@@ -84,8 +80,8 @@ const Signup = () => {
           nickName: name,
         });
         navigate('/login');
-      } catch (e) {
-        console.log(e);
+      } catch {
+        alert('양식을 확인해주세요.');
       }
     }
   };
