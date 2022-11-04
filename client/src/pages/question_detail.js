@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Nav from '../components/Layout/Nav/Nav';
-import Footer from '../components/Layout/Footer/Footer';
 import LeftSide from '../components/Layout/SideBar/LeftSide';
 import Btn from '../components/Button/Btn';
 import { Link } from 'react-router-dom';
@@ -58,7 +56,6 @@ const Question_Detail = () => {
   }, []);
   return (
     <>
-      <Nav />
       <Detail_Container>
         <LeftSide />
         <Detail_Wrapper>
@@ -87,11 +84,9 @@ const Question_Detail = () => {
               ></Btn>
             </Link>
           </Detail_Top>
-
           <Detail_Body>
             <VoteBtn vote={questionInfo && questionInfo.voteCount} />
             <Detail_Content>
-              {/* <span>{questionInfo && questionInfo.content}</span> */}
               {questionInfo && <Viewer initialValue={questionInfo.content} />}
               <Detail_Tags_Wrapper>
                 {questionInfo &&
@@ -134,13 +129,12 @@ const Question_Detail = () => {
               fontSize={'13.6px'}
               hoverColor={'#0069c5'}
               cursorPointer={'pointer'}
-              margin={'40px 5px 0 0'}
+              margin={'40px 5px 20px 0'}
               funcProps={submitHandler}
             ></Btn>
           </Detail_Bottom>
         </Detail_Wrapper>
       </Detail_Container>
-      <Footer />
     </>
   );
 };
@@ -148,9 +142,8 @@ const Question_Detail = () => {
 const Detail_Container = styled.div`
   display: flex;
   justify-content: center;
-  height: 100vw;
-  width: 100vw;
-  padding-top: 50px;
+  width: 100%;
+  padding: 50px 0 0 0;
 `;
 
 const Detail_Wrapper = styled.div`

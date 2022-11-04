@@ -2,27 +2,38 @@
 import styled from 'styled-components';
 import TagTitle from '../components/Tags/TagTitle';
 import TagList from '../components/Tags/TagList';
-// import TagDummy from '../components/Tags/TagDummy';
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Paging from '../components/Paging';
 import LeftSide from '../components/Layout/SideBar/LeftSide';
 import axios from 'axios';
+import { useLayoutEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { pageStates } from '../states/page';
 
 const Tags = () => {
   const [tags, setTags] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
+  const [num, setNum] = useState(0);
   const [AllTags, setAllTags] = useState(0);
   const [currentPage, setCurrentPage] = useRecoilState(pageStates);
+  const abc = [];
 
   const getTags = async () => {
     const res = await axios.get(
-      `http://3.38.108.228:8080/tags/?page=1&size=90&sort=tagId`,
+      `http://3.38.108.228:8080/tags/?page=1&size=48&sort=tagId`,
     );
-    console.log(res.data);
     return res.data;
   };
+  const handleFilter = (e) => {
+    setSearchValue(e.target.value);
+    setNum(e.target.value.length);
+  };
 
+  const onKeyDown = (event) => {
+    if (event.key === 'Backspace') {
+      setSearchValue('');
+    }
+  };
   const handlepage = async () => {
     const res = await axios.get(
       `http://3.38.108.228:8080/tags/?page=${currentPage}&size=90&sort=tagId`,
@@ -30,26 +41,40 @@ const Tags = () => {
     return res.data;
   };
 
+  //랜더링 시 기본 화면
   useEffect(() => {
     getTags().then((el) => {
-      setAllTags(el.pageInfo.totalElements);
       setTags(el.data);
+      setAllTags(el.pageInfo.totalElements);
     });
   }, []);
-
+  //새로운 렌더링 조건
   useLayoutEffect(() => {
-    handlepage().then((el) => setTags(el.data));
-  }, [currentPage]);
+    if (num === 0) {
+      getTags().then((el) => setTags(el.data));
+    } else {
+      tags.filter((el) =>
+        el.tagName.includes(searchValue) ? abc.push(el) : '',
+      );
+    }
+    setTags([...abc]);
+  }, [num, searchValue]);
 
   const count = AllTags;
-  console.log(count);
 
   return (
     <BigBox>
       <MidBox>
         <LeftSide />
         <Container>
-          <TagTitle tags={tags} setTags={setTags} getTags={getTags} />
+          <TagTitle
+            tags={tags}
+            setTags={setTags}
+            setSearchValue={setSearchValue}
+            setNum={setNum}
+            handleFilter={handleFilter}
+            onKeyDown={onKeyDown}
+          />
           <TagList tags={tags} />
           <Paging count={count} onClick={handlepage} abc={100} />
         </Container>

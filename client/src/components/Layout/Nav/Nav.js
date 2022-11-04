@@ -82,7 +82,9 @@ const Nav = () => {
             </LeftBar>
           )}
         </Container>
-        <LogoBox>
+        <LogoBox
+          onClick={() => setTap({ One: true, Two: false, Three: false })}
+        >
           <Link to="/">
             <LogoImg src={Stacklogo} alt="" />
             <SmallLogo src={SmStackLogo} alt="" />
