@@ -28,7 +28,7 @@ const Answer_Container = styled.div`
 
 const Answer_Content = styled.div`
   display: flex;
-  /* flex-direction: column; */
+  align-items: start;
   width: 1100px;
   height: 150px;
   padding: 10px;
