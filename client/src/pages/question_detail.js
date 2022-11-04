@@ -24,21 +24,19 @@ const Question_Detail = () => {
   };
 
   const submitHandler = async () => {
-    await axios
-      .post(
-        `/answer`,
-        {
-          questionId: questionInfo && questionInfo.questionId,
-          userId: localStorage.getItem('UserID'),
-          content: text,
+    await axios.post(
+      `/answer`,
+      {
+        questionId: questionInfo && questionInfo.questionId,
+        userId: localStorage.getItem('UserID'),
+        content: text,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('Token')}`,
         },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('Token')}`,
-          },
-        },
-      )
-      .then(window.location.reload());
+      },
+    );
   };
 
   useEffect(() => {
@@ -60,7 +58,6 @@ const Question_Detail = () => {
         },
       },
     );
-    // .then(window.location.reload());
   };
 
   const DecreaseVote = async () => {
@@ -75,7 +72,6 @@ const Question_Detail = () => {
         },
       },
     );
-    // .then(window.location.reload());
   };
 
   return (
