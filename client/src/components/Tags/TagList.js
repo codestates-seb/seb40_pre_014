@@ -7,7 +7,6 @@ const TagList = ({ tags }) => {
         <Tagbox key={tag.tagId}>
           <div>
             <Tag>{tag.tagName}</Tag>
-            {/* <p>{item.content}</p> */}
             <div style={{ fontSize: '12px', color: 'gray', marginTop: '1rem' }}>
               {tag.count} questions
             </div>
@@ -22,33 +21,33 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(5, minmax(0, auto));
   gap: 12px;
+  @media screen and (max-width: 1100px) {
+    grid-template-columns: repeat(4, minmax(0, auto));
+  }
+  @media screen and (max-width: 900px) {
+    grid-template-columns: repeat(3, minmax(0, auto));
+  }
+  @media screen and (max-width: 700px) {
+    grid-template-columns: repeat(2, minmax(0, auto));
+  }
+  @media screen and (max-width: 580px) {
+    grid-template-columns: repeat(1, minmax(0, auto));
+  }
 `;
 
 const Tagbox = styled.div`
-  padding: 20px;
+  padding: 15px;
   border: 1px solid #d6d9dc;
   border-radius: 3px;
   display: flex;
   flex-direction: column;
-  p {
-    font-size: 13px;
-    margin-top: 1rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 4; /* 라인수 */
-    -webkit-box-orient: vertical;
-    word-wrap: break-word;
-    line-height: 1.2em;
-    height: 4.8em; // 1.2em * 4줄
-    margin-bottom: 1rem;
-  }
+  justify-content: center;
 `;
 
 const Tag = styled.button`
-  color: '#39739d';
-  background-color: '#e1ecf4';
-  padding: 4px 6px;
+  display: flex;
+  color: #39739d;
+  background-color: #e1ecf4;
   border-radius: 3px;
   font-size: 13px;
   cursor: pointer;
@@ -59,6 +58,9 @@ const Tag = styled.button`
   background-color: rgb(225, 236, 244);
   border: none;
   color: rgb(57, 115, 157);
+  @media screen and (max-width: 580px) {
+    font-size: 15px;
+  }
 `;
 
 export default TagList;

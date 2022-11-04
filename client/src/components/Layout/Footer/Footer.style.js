@@ -6,6 +6,7 @@ export const Footers = styled.footer`
   width: 100vw;
   background-color: #232629;
   padding-bottom: 35px;
+  overflow-x: hidden;
 `;
 
 export const FooterBox = styled.div`

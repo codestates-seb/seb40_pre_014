@@ -9,7 +9,7 @@ export const NavHeader = styled.header`
   background-color: #f8f9f9;
   box-shadow: 0px 1px 2px hsl(210, 8%, 85%);
   z-index: 2;
-
+  overflow-x: hidden;
   &::before {
     display: block;
     position: absolute;

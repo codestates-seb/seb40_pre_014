@@ -28,6 +28,7 @@ export const SearchsWrap = styled.ul`
 
 export const SearchDiv = styled.div`
   width: 100%;
+  padding-left: 10px;
 `;
 
 export const SearchDiv2 = styled.div`
@@ -57,6 +58,7 @@ export const SearchHelp = styled.div`
   cursor: pointer;
   padding: 6.6px;
   font-weight: bold;
+  margin-right: 10px;
   :hover {
     color: #cae8ff;
   }

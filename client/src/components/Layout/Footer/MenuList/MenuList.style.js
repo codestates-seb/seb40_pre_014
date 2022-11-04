@@ -36,6 +36,7 @@ export const SubMenuUL = styled.ul`
 `;
 
 export const SubMenuLI = styled.li`
+  color: #fff;
   a {
     color: #fff;
     &:visited {
