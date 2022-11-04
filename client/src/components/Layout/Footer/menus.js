@@ -8,7 +8,7 @@ const stackOverflow = {
     },
     {
       title: 'Help',
-      to: '/questions',
+      to: '/',
     },
   ],
 };
@@ -19,34 +19,34 @@ const products = {
   subMenus: [
     {
       title: 'Teams',
-      to: '/questions',
+      to: '/',
     },
     {
       title: 'Advertising',
-      to: '/questions',
+      to: '/',
     },
     {
       title: 'Collectives',
-      to: '/questions',
+      to: '/',
     },
     {
       title: 'Talent',
-      to: '/questions',
+      to: '/',
     },
   ],
 };
 
 const company = {
   menuCategory: 'COMPANY',
-  to: '/questions',
+  to: '/',
   subMenus: [
     {
       title: 'About',
-      to: '/questions',
+      to: '/',
     },
     {
       title: 'Press',
-      to: '/questions',
+      to: '/',
     },
     {
       title: 'Work Here',

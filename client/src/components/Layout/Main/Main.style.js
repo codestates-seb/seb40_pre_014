@@ -5,8 +5,8 @@ export const MainBox = styled.div`
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  //nav 높이만큼 패딩 해줘야 side바 border 안 끊김
   padding: 50px 0 0 0;
+  overflow-x: hidden;
 `;
 
 export const MainMidBox = styled.section`
@@ -138,6 +138,11 @@ export const ContentsSection = styled.section`
 
 export const Tags = styled.div`
   display: flex;
+  width: 300px;
+  overflow: hidden;
+  @media screen and (max-width: 820px) {
+    width: 300px;
+  }
 `;
 
 export const Tag = styled.div`
