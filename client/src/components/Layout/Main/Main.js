@@ -73,6 +73,7 @@ const Main = () => {
 
   useLayoutEffect(() => {
     handlepage().then((el) => setQuestion(el.data));
+    window.scrollTo(0, 0);
   }, [currentPage]);
 
   const count = AllQuestion;
@@ -127,7 +128,7 @@ const Main = () => {
                         <Link to={`/question/${data.questionId}`}>
                           {data.title}
                         </Link>
-                        <Contents>{data.content}</Contents>
+                        <Contents>{data.Content}</Contents>
                         <footer>
                           <Tags>
                             {data.tagLists.map((tag, i) => {

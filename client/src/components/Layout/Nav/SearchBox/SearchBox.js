@@ -60,7 +60,7 @@ const SearchBox = () => {
           <SearchsWrap>
             <SearchDiv2>
               <SearchsData>
-                <LinkBox to="/question">
+                <LinkBox>
                   <Btn
                     text={'Ask Question'}
                     textColor={'hsl(205,47%,42%);'}

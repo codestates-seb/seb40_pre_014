@@ -4,7 +4,7 @@ import { FaSearch } from 'react-icons/fa';
 import SortTab from '../Button/SortTab';
 // import { useEffect } from 'react';
 
-const TagTitle = ({ tags, setTags, handleFilter, onKeyDown }) => {
+const TagTitle = ({ tags, setTags, handleFilter }) => {
   const clickpopular = () => {
     let sort = tags.sort((a, b) => {
       return a.questions < b.questions ? 1 : -1;
@@ -28,11 +28,7 @@ const TagTitle = ({ tags, setTags, handleFilter, onKeyDown }) => {
       </p>
       <div className="between">
         <SearchIcon />
-        <TextInput
-          placeholder="Filter by tag name"
-          onChange={handleFilter}
-          onKeyDown={onKeyDown}
-        />
+        <TextInput placeholder="Filter by tag name" onChange={handleFilter} />
         <SortTab
           funcprop={clickpopular}
           funcprop2={clickname}

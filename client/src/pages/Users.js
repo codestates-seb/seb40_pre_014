@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import User from '../components/User';
-import dummyUsers from '../static/dummyUsers';
 import SortTab from '../components/Button/SortTab';
 import LeftSide from '../components/Layout/SideBar/LeftSide';
 import axios from 'axios';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-
   const getUser = async () => {
     const res = await axios.get(`http://3.38.108.228:8080/api/users`);
     return res.data;
@@ -36,15 +34,6 @@ const Users = () => {
     getUser().then((el) => setUsers(el.content));
   };
 
-  const userSearch = (e) => {
-    const filterUser = [];
-    dummyUsers.filter((user) => {
-      user.name.includes(e.target.value) ? filterUser.push(user) : null;
-    });
-
-    setUsers(filterUser);
-  };
-
   return (
     <LayoutBox>
       <MiddleBox>
@@ -52,15 +41,11 @@ const Users = () => {
         <UserContainer>
           <h1> Users </h1>
           <FilterButtonWrap>
-            <FilterInput
-              onChange={userSearch}
-              placeholder="Filter by user"
-            ></FilterInput>
             <SortTab
               funcprop={clickhandle}
               funcprop2={defaulthandle}
               text={'Name'}
-              text2={'Default'}
+              text2={'UserId'}
             />
           </FilterButtonWrap>
           <User users={users} />
@@ -79,19 +64,11 @@ const UserContainer = styled.div`
   }
 `;
 
-const FilterInput = styled.input`
-  width: 190px;
-  height: 30px;
-  border-radius: 3px;
-  border: 1px solid rgb(177, 183, 188);
-  margin-bottom: 5px;
-`;
 const LayoutBox = styled.div`
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  //nav 높이만큼 패딩 해줘야 side바 border 안 끊김
   padding-top: 50px;
 `;
 
@@ -105,6 +82,7 @@ const MiddleBox = styled.div`
 
 const FilterButtonWrap = styled.div`
   display: flex;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: flex-end;
 `;
 export default Users;

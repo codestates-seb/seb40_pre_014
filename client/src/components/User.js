@@ -8,7 +8,7 @@ const User = ({ users }) => {
         <User_Wrap key={user.number}>
           <img src={userImg} alt=""></img>
           <div className="textWrap">
-            <p> {user.nickName} </p>
+            <UserName> [{user.nickName}] </UserName>
             <p> {user.number} </p>
           </div>
         </User_Wrap>
@@ -29,19 +29,23 @@ const User_Wrap = styled.div`
     border-radius: 5px;
   }
 `;
+const UserName = styled.p`
+  font-weight: 600;
+  padding-bottom: 10px;
+  margin-top: 6px;
+`;
 
 const User_Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 5px 5px 7px 7px;
+
   width: 100%;
 
   .textWrap {
-    height: 60px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    margin-left: 7px;
+    justify-content: flex-start;
+    margin: 0 0 0 7px;
   }
 `;
 

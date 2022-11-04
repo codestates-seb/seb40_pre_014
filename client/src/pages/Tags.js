@@ -17,10 +17,11 @@ const Tags = () => {
   const [AllTags, setAllTags] = useState(0);
   const [currentPage, setCurrentPage] = useRecoilState(pageStates);
   const abc = [];
+  const [efg, setEfg] = useState([]);
 
   const getTags = async () => {
     const res = await axios.get(
-      `http://3.38.108.228:8080/tags/?page=1&size=48&sort=tagId`,
+      `http://3.38.108.228:8080/tags/?page=1&size=90&sort=tagId`,
     );
     return res.data;
   };
@@ -29,11 +30,6 @@ const Tags = () => {
     setNum(e.target.value.length);
   };
 
-  const onKeyDown = (event) => {
-    if (event.key === 'Backspace') {
-      setSearchValue('');
-    }
-  };
   const handlepage = async () => {
     const res = await axios.get(
       `http://3.38.108.228:8080/tags/?page=${currentPage}&size=90&sort=tagId`,
@@ -53,43 +49,49 @@ const Tags = () => {
     if (num === 0) {
       getTags().then((el) => setTags(el.data));
     } else {
-      tags.filter((el) =>
+      getTags().then((el) => setEfg(el.data));
+      efg.filter((el) =>
         el.tagName.includes(searchValue) ? abc.push(el) : '',
       );
     }
     setTags([...abc]);
   }, [num, searchValue]);
 
+  useEffect(() => {
+    handlepage().then((el) => setTags(el.data));
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
   const count = AllTags;
 
   return (
-    <BigBox>
-      <MidBox>
-        <LeftSide />
-        <Container>
-          <TagTitle
-            tags={tags}
-            setTags={setTags}
-            setSearchValue={setSearchValue}
-            setNum={setNum}
-            handleFilter={handleFilter}
-            onKeyDown={onKeyDown}
-          />
-          <TagList tags={tags} />
-          <Paging count={count} onClick={handlepage} abc={100} />
-        </Container>
-      </MidBox>
-    </BigBox>
+    <>
+      <BigBox>
+        <MidBox>
+          <LeftSide />
+          <Container>
+            <TagTitle
+              tags={tags}
+              setTags={setTags}
+              setSearchValue={setSearchValue}
+              setNum={setNum}
+              handleFilter={handleFilter}
+            />
+            <TagList tags={tags} />
+            <Paging count={count} onClick={handlepage} abc={100} />
+          </Container>
+        </MidBox>
+      </BigBox>
+    </>
   );
 };
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;
   padding: 20px;
   display: flex;
   flex-direction: column;
-
+  overflow-x: hidden;
   .btn {
     margin-top: 300px;
   }
@@ -100,8 +102,8 @@ const BigBox = styled.div`
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  //nav 높이만큼 패딩 해줘야 side바 border 안 끊김
   padding-top: 50px;
+  overflow-x: hidden;
 `;
 
 const MidBox = styled.div`

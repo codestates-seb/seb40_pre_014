@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { RightBar, PenIcon, CommentIcon } from './RightSide.style';
-import Tag from './Tag';
 
 const RightSide = () => {
   return (
@@ -70,7 +69,6 @@ const RightSide = () => {
           </li>
         </ul>
       </RightBar>
-      <Tag />
     </RightSideBox>
   );
 };
