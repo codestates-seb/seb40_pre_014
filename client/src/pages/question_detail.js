@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import Nav from '../components/Layout/Nav/Nav';
 import LeftSide from '../components/Layout/SideBar/LeftSide';
 import Btn from '../components/Button/Btn';
 import { Link } from 'react-router-dom';
@@ -17,18 +18,11 @@ const Question_Detail = () => {
   const [answerInfo, setAnswerInfo] = useState([]);
   const [text, setText] = useState('');
   let params = useParams();
-  console.log(params.id);
 
   const getQuestionDetail = async () => {
-    const res = await axios.get(
-      `http://3.38.108.228:8080/question/${params.id}`,
-    );
+    const res = await axios.get(`/question/detail/${params.id}`);
     return res.data.data;
   };
-
-  console.log(questionInfo && questionInfo.questionId);
-  console.log(localStorage.getItem('UserID'));
-  console.log(text);
 
   const submitHandler = async () => {
     await axios
@@ -54,6 +48,37 @@ const Question_Detail = () => {
       setAnswerInfo(el.answer);
     });
   }, []);
+
+  const IncreaseVote = async () => {
+    await axios.post(
+      `/question/like/${params.id}`,
+      {
+        status: '1',
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('Token')}`,
+        },
+      },
+    );
+    // .then(window.location.reload());
+  };
+
+  const DecreaseVote = async () => {
+    await axios.post(
+      `/question/like/${params.id}`,
+      {
+        status: '0',
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('Token')}`,
+        },
+      },
+    );
+    // .then(window.location.reload());
+  };
+
   return (
     <>
       <Detail_Container>
@@ -85,7 +110,11 @@ const Question_Detail = () => {
             </Link>
           </Detail_Top>
           <Detail_Body>
-            <VoteBtn vote={questionInfo && questionInfo.voteCount} />
+            <VoteBtn
+              vote={questionInfo && questionInfo.voteCount}
+              IncreaseVote={IncreaseVote}
+              DecreaseVote={DecreaseVote}
+            />
             <Detail_Content>
               {questionInfo && <Viewer initialValue={questionInfo.content} />}
               <Detail_Tags_Wrapper>

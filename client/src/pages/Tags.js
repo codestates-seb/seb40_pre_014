@@ -19,9 +19,8 @@ const Tags = () => {
   const abc = [];
 
   const getTags = async () => {
-    const res = await axios.get(
-      `http://3.38.108.228:8080/tags/?page=1&size=48&sort=tagId`,
-    );
+    const res = await axios.get(`/tags/?page=1&size=90&sort=tagId`);
+    console.log(res.data);
     return res.data;
   };
   const handleFilter = (e) => {
@@ -36,7 +35,7 @@ const Tags = () => {
   };
   const handlepage = async () => {
     const res = await axios.get(
-      `http://3.38.108.228:8080/tags/?page=${currentPage}&size=90&sort=tagId`,
+      `/tags/?page=${currentPage}&size=90&sort=tagId`,
     );
     return res.data;
   };

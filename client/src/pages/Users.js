@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import User from '../components/User';
-import dummyUsers from '../static/dummyUsers';
 import SortTab from '../components/Button/SortTab';
 import LeftSide from '../components/Layout/SideBar/LeftSide';
 import axios from 'axios';
@@ -10,7 +9,7 @@ const Users = () => {
   const [users, setUsers] = useState([]);
 
   const getUser = async () => {
-    const res = await axios.get(`http://3.38.108.228:8080/api/users`);
+    const res = await axios.get(`/api/users`);
     return res.data;
   };
 
@@ -36,14 +35,14 @@ const Users = () => {
     getUser().then((el) => setUsers(el.content));
   };
 
-  const userSearch = (e) => {
-    const filterUser = [];
-    dummyUsers.filter((user) => {
-      user.name.includes(e.target.value) ? filterUser.push(user) : null;
-    });
+  // const userSearch = (e) => {
+  //   const filterUser = [];
+  //   dummyUsers.filter((user) => {
+  //     user.name.includes(e.target.value) ? filterUser.push(user) : null;
+  //   });
 
-    setUsers(filterUser);
-  };
+  //   setUsers(filterUser);
+  // };
 
   return (
     <LayoutBox>
@@ -52,10 +51,10 @@ const Users = () => {
         <UserContainer>
           <h1> Users </h1>
           <FilterButtonWrap>
-            <FilterInput
+            {/* <FilterInput
               onChange={userSearch}
               placeholder="Filter by user"
-            ></FilterInput>
+            ></FilterInput> */}
             <SortTab
               funcprop={clickhandle}
               funcprop2={defaulthandle}
@@ -79,13 +78,13 @@ const UserContainer = styled.div`
   }
 `;
 
-const FilterInput = styled.input`
-  width: 190px;
-  height: 30px;
-  border-radius: 3px;
-  border: 1px solid rgb(177, 183, 188);
-  margin-bottom: 5px;
-`;
+// const FilterInput = styled.input`
+//   width: 190px;
+//   height: 30px;
+//   border-radius: 3px;
+//   border: 1px solid rgb(177, 183, 188);
+//   margin-bottom: 5px;
+// `;
 const LayoutBox = styled.div`
   width: 100%;
   display: flex;
