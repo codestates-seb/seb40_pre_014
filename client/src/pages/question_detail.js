@@ -81,7 +81,6 @@ const Question_Detail = () => {
 
   return (
     <>
-      <Nav />
       <Detail_Container>
         <LeftSide />
         <Detail_Wrapper>
@@ -110,7 +109,6 @@ const Question_Detail = () => {
               ></Btn>
             </Link>
           </Detail_Top>
-
           <Detail_Body>
             <VoteBtn
               vote={questionInfo && questionInfo.voteCount}
@@ -160,7 +158,7 @@ const Question_Detail = () => {
               fontSize={'13.6px'}
               hoverColor={'#0069c5'}
               cursorPointer={'pointer'}
-              margin={'40px 5px 0 0'}
+              margin={'40px 5px 20px 0'}
               funcProps={submitHandler}
             ></Btn>
           </Detail_Bottom>
@@ -173,9 +171,8 @@ const Question_Detail = () => {
 const Detail_Container = styled.div`
   display: flex;
   justify-content: center;
-  height: 100vw;
-  width: 100vw;
-  padding-top: 50px;
+  width: 100%;
+  padding: 50px 0 0 0;
 `;
 
 const Detail_Wrapper = styled.div`
