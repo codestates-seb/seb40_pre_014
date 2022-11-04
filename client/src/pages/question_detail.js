@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Nav from '../components/Layout/Nav/Nav';
 import LeftSide from '../components/Layout/SideBar/LeftSide';
 import Btn from '../components/Button/Btn';
 import { Link } from 'react-router-dom';
