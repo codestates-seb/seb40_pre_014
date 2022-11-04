@@ -33,7 +33,6 @@ const Login = () => {
         alert('이메일, 패스워드를 확인해주세요.');
       });
   };
-  console.log(localStorage.getItem('Token'));
   return (
     <div>
       <Nav />
