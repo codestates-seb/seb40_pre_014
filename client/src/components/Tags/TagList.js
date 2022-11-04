@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const TagList = ({ tags }) => {
-  console.log(tags);
   return (
     <Container>
       {tags.map((tag) => (
