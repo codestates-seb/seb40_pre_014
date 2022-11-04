@@ -6,6 +6,7 @@ import com.iphone.server.answer_like.entity.AnswerLike;
 import com.iphone.server.answer_like.repository.AnswerLikeRepository;
 import com.iphone.server.exception.BusinessLogicException;
 import com.iphone.server.exception.ExceptionCode;
+import com.iphone.server.question.entity.Question;
 import com.iphone.server.question.repository.QuestionRepository;
 import com.iphone.server.user.domain.User;
 import com.iphone.server.user.domain.UserRepository;
@@ -34,6 +35,8 @@ public class AnswerService {
     public Answer createAnswer(Answer answer)
     {
         findVerifiedUser(answer.getUser().getNumber());
+        findVerifiedQuestion(answer.getQuestion().getQuestionId());
+
         return answerRepository.save(answer);
     }
     public Answer updateAnswer(Answer answer)
@@ -87,4 +90,12 @@ public class AnswerService {
         User findUser = optionalUser.orElseThrow(()->
                 new BusinessLogicException(ExceptionCode.USER_NOT_FOUND));
     }
+    public Question findVerifiedQuestion(long questionId){ //요청된 질문이 DB에 없으면 에러
+        Optional<Question> optionalQuestion = questionRepository.findById(questionId);
+        Question findQuestion = optionalQuestion.orElseThrow(()->
+                new BusinessLogicException(ExceptionCode.QUESTION_NOT_FOUND));
+        return findQuestion;
+    }
+
+
 }

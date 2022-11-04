@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import User from '../components/User';
 import SortTab from '../components/Button/SortTab';
@@ -16,8 +16,6 @@ const Users = () => {
   useEffect(() => {
     getUser().then((el) => setUsers(el.content));
   }, []);
-
-  useLayoutEffect(() => {}, [users]);
 
   const clickhandle = () => {
     let sort = users.sort((a, b) => {
@@ -109,13 +107,3 @@ const FilterButtonWrap = styled.div`
   justify-content: space-between;
 `;
 export default Users;
-
-// export const MainBox = styled.div`
-//   width: 100%;
-//   height: 100%;
-//   display: flex;
-//   flex-flow: row nowrap;
-//   justify-content: center;
-//   //nav 높이만큼 패딩 해줘야 side바 border 안 끊김
-//   padding-top: 50px;
-// `;
