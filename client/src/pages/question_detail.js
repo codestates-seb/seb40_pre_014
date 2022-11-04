@@ -20,7 +20,7 @@ const Question_Detail = () => {
   let params = useParams();
 
   const getQuestionDetail = async () => {
-    const res = await axios.get(`/question/${params.id}`);
+    const res = await axios.get(`/question/detail/${params.id}`);
     return res.data.data;
   };
 
@@ -48,6 +48,37 @@ const Question_Detail = () => {
       setAnswerInfo(el.answer);
     });
   }, []);
+
+  const IncreaseVote = async () => {
+    await axios.post(
+      `/question/like/${params.id}`,
+      {
+        status: '1',
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('Token')}`,
+        },
+      },
+    );
+    // .then(window.location.reload());
+  };
+
+  const DecreaseVote = async () => {
+    await axios.post(
+      `/question/like/${params.id}`,
+      {
+        status: '0',
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('Token')}`,
+        },
+      },
+    );
+    // .then(window.location.reload());
+  };
+
   return (
     <>
       <Nav />
@@ -81,9 +112,12 @@ const Question_Detail = () => {
           </Detail_Top>
 
           <Detail_Body>
-            <VoteBtn vote={questionInfo && questionInfo.voteCount} />
+            <VoteBtn
+              vote={questionInfo && questionInfo.voteCount}
+              IncreaseVote={IncreaseVote}
+              DecreaseVote={DecreaseVote}
+            />
             <Detail_Content>
-              {/* <span>{questionInfo && questionInfo.content}</span> */}
               {questionInfo && <Viewer initialValue={questionInfo.content} />}
               <Detail_Tags_Wrapper>
                 {questionInfo &&
