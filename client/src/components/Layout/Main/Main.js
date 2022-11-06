@@ -111,48 +111,51 @@ const Main = () => {
               />
             </MainSecondBox>
             <ContentsBox>
-              {question.map((data) => {
-                return (
-                  <SectionUL key={data && data.questionId}>
-                    <SectionLI>
-                      <RigthSection>
-                        <div>{data && data.voteCount} votes</div>
-                        <div>{data && data.answerCount} answers</div>
-                        <div>{data && data.viewCount} views</div>
-                      </RigthSection>
-                    </SectionLI>
-                    <ContentLI>
-                      <ContentsSection>
-                        <Link to={`/question/${data.questionId}`}>
-                          {data && data.title}
-                        </Link>
-                        <Contents>{data && data.Content}</Contents>
-                        <footer>
-                          <Tags>
-                            {data &&
-                              data.tagLists.map((tag, i) => {
-                                return <Tag key={i}> {tag.tags.tagName} </Tag>;
-                              })}
-                          </Tags>
-                          <ProfileAndDate>
-                            <ProfileImg src={Img} alt="프로필" />
-                            <div
-                              style={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                gap: '10px',
-                              }}
-                            >
-                              <Name>[{data && data.nickName}]</Name>
-                              <Date>{data && data.regDate.slice(0, 10)}</Date>
-                            </div>
-                          </ProfileAndDate>
-                        </footer>
-                      </ContentsSection>
-                    </ContentLI>
-                  </SectionUL>
-                );
-              })}
+              {question &&
+                question.map((data) => {
+                  return (
+                    <SectionUL key={data && data.questionId}>
+                      <SectionLI>
+                        <RigthSection>
+                          <div>{data && data.voteCount} votes</div>
+                          <div>{data && data.answerCount} answers</div>
+                          <div>{data && data.viewCount} views</div>
+                        </RigthSection>
+                      </SectionLI>
+                      <ContentLI>
+                        <ContentsSection>
+                          <Link to={`/question/${data.questionId}`}>
+                            {data && data.title}
+                          </Link>
+                          <Contents>{data && data.Content}</Contents>
+                          <footer>
+                            <Tags>
+                              {data &&
+                                data.tagLists.map((tag, i) => {
+                                  return (
+                                    <Tag key={i}> {tag.tags.tagName} </Tag>
+                                  );
+                                })}
+                            </Tags>
+                            <ProfileAndDate>
+                              <ProfileImg src={Img} alt="프로필" />
+                              <div
+                                style={{
+                                  display: 'flex',
+                                  flexDirection: 'row',
+                                  gap: '10px',
+                                }}
+                              >
+                                <Name>[{data && data.nickName}]</Name>
+                                <Date>{data && data.regDate.slice(0, 10)}</Date>
+                              </div>
+                            </ProfileAndDate>
+                          </footer>
+                        </ContentsSection>
+                      </ContentLI>
+                    </SectionUL>
+                  );
+                })}
             </ContentsBox>
             <Paging count={count} onClick={handlepage} abc={15} />
           </MainMiniBox>
