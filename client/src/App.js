@@ -1,17 +1,17 @@
 import React from 'react';
 import { RecoilRoot } from 'recoil';
 import { Route, Routes } from 'react-router-dom';
-import Login from './Pages/login';
-import Signup from './Pages/signup';
-import Tags from './Pages/Tags';
-import Users from './Pages/Users';
-import Question from './Pages/quetion';
-import Question_Detail from './Pages/question_detail';
+import Login from './pages/login';
+import Signup from './pages/signup';
+import Tags from './pages/Tags';
+import Users from './pages/Users';
+import Question from './pages/quetion';
+import Question_Detail from './pages/question_detail';
 // import { Layout } from './components/Layout/Layout';
 
 import Nav from './components/Layout/Nav/Nav';
 import Footer from './components/Layout/Footer/Footer';
-import MainPage from './Pages/Main';
+import MainPage from './pages/Main';
 
 const App = () => {
   return (
