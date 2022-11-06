@@ -74,6 +74,22 @@ const Question_Detail = () => {
     );
   };
 
+  const deleteQuestion = async () => {
+    await axios
+      .post(
+        `/question/${params.id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('Token')}`,
+          },
+        },
+      )
+      .catch(() => {
+        alert('로그인이 필요합니다.');
+      });
+  };
+
   return (
     <>
       <Detail_Container>
@@ -120,6 +136,7 @@ const Question_Detail = () => {
                     );
                   })}
               </Detail_Tags_Wrapper>
+              <Delete_BTN onClick={deleteQuestion}> Delete </Delete_BTN>
             </Detail_Content>
             <Detail_User
               img={userImg}
@@ -261,6 +278,14 @@ const Detail_Bottom = styled.div`
     font-size: 19px;
     margin-bottom: 15px;
   }
+`;
+
+const Delete_BTN = styled.button`
+  border-style: none;
+  width: 80px;
+  height: 35px;
+  margin-top: 30px;
+  cursor: pointer;
 `;
 
 export default Question_Detail;
