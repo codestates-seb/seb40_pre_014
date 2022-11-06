@@ -7,6 +7,8 @@ import {
   ProfileImg2,
   ProfileWrap,
   ProfileDiv,
+  Email,
+  Nickname,
 } from './HideAuthButton.style';
 
 import userImg from '../../../../assets/images/user.png';
@@ -68,8 +70,8 @@ const HideAuthButton = () => {
           <ProfileContainer>
             <ProfileWrap>
               <ProfileImg2 src={userImg} alt="프로필" />
-              <email>{userInfo[0]}</email>
-              <nickname>{userInfo[1]}</nickname>
+              <Email>{userInfo[0]}</Email>
+              <Nickname>{userInfo[1]}</Nickname>
               <ProfileDiv>
                 <Btn
                   text={'Log Out'}

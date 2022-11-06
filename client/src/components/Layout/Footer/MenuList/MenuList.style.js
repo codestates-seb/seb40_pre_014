@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 export const MenuBox = styled.div`
   display: flex;
@@ -53,6 +52,11 @@ export const SubMenuLI = styled.li`
   }
 `;
 
-export const LinkBox = styled(Link)`
+export const LinkBox = styled.div`
   text-decoration: none;
+  color: inherit;
+
+  :hover {
+    cursor: pointer;
+  }
 `;

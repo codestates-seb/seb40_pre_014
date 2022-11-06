@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import {
   MenuBox,
@@ -6,8 +7,17 @@ import {
   SubMenuLI,
   LinkBox,
 } from './MenuList.style';
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { TapStates } from '../../../../states/Tap';
 
 const MenuList = ({ menuCategories, to, subMenus }) => {
+  const [tap, setTap] = useRecoilState(TapStates);
+  const navigate = useNavigate();
+  const clickHandler = () => {
+    navigate('/');
+    setTap({ One: true, Two: false, Three: false });
+  };
   return (
     <MenuBox>
       <CategoryBox>
@@ -19,7 +29,7 @@ const MenuList = ({ menuCategories, to, subMenus }) => {
         {subMenus.map((link, i) => {
           return (
             <SubMenuLI index={i} key={link.title}>
-              <LinkBox to={link.to}>{link.title}</LinkBox>
+              <LinkBox onClick={clickHandler}>{link.title}</LinkBox>
             </SubMenuLI>
           );
         })}

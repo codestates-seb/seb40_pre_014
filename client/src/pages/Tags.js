@@ -20,9 +20,7 @@ const Tags = () => {
   const [efg, setEfg] = useState([]);
 
   const getTags = async () => {
-    const res = await axios.get(
-      `http://3.38.108.228:8080/tags/?page=1&size=90&sort=tagId`,
-    );
+    const res = await axios.get(`/tags/?page=1&size=90&sort=tagId`);
     return res.data;
   };
   const handleFilter = (e) => {
