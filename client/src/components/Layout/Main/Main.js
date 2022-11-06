@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react'; // eslint-disable-line no-unused-vars
 import Btn from '../../Button/Btn';
 import {
   MainBox,
@@ -33,7 +33,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Main = () => {
   const [question, setQuestion] = useState([]);
-  const [AllQuestion, setAllQuestion] = useState(0);
+  const [AllQuestion, setAllQuestion] = useState(0); // eslint-disable-line no-unused-vars
   const [currentPage, setCurrentPage] = useRecoilState(pageStates); // eslint-disable-line no-unused-vars
   const navigate = useNavigate();
 
@@ -51,9 +51,9 @@ const Main = () => {
   };
 
   const getQuestion = async () => {
-    const res = await axios.get(
-      `/api/question/?page=1&size=15&sort=questionId`,
-    );
+    const res = await axios
+      .get(`/api/question/?page=1&size=15&sort=questionId`)
+      .then((res) => console.log(res));
     return res.data;
   };
 
@@ -64,12 +64,15 @@ const Main = () => {
     return res.data;
   };
 
-  useEffect(() => {
-    getQuestion().then((el) => {
-      setAllQuestion(el.pageInfo.totalElements);
-      setQuestion([...el.data]);
-    });
-  }, []);
+  getQuestion();
+
+  // useEffect(() => {
+  //   getQuestion().then((el) => {
+  //     console.log(el);
+  //     // setAllQuestion(el.pageInfo.totalElements);
+  //     setQuestion([...el.data]);
+  //   });
+  // }, []);
 
   useLayoutEffect(() => {
     handlepage().then((el) => setQuestion(el.data));
