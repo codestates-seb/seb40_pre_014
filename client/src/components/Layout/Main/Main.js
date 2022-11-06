@@ -113,7 +113,7 @@ const Main = () => {
               />
             </MainSecondBox>
             <ContentsBox>
-              {question &&
+              {question.length > 0 &&
                 question.map((data) => {
                   return (
                     <SectionUL key={data && data.questionId}>
