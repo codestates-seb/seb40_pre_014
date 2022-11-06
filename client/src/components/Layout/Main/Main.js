@@ -113,25 +113,26 @@ const Main = () => {
             <ContentsBox>
               {question.map((data) => {
                 return (
-                  <SectionUL key={data.questionId}>
+                  <SectionUL key={data && data.questionId}>
                     <SectionLI>
                       <RigthSection>
-                        <div>{data.voteCount} votes</div>
-                        <div>{data.answerCount} answers</div>
-                        <div>{data.viewCount} views</div>
+                        <div>{data && data.voteCount} votes</div>
+                        <div>{data && data.answerCount} answers</div>
+                        <div>{data && data.viewCount} views</div>
                       </RigthSection>
                     </SectionLI>
                     <ContentLI>
                       <ContentsSection>
                         <Link to={`/question/${data.questionId}`}>
-                          {data.title}
+                          {data && data.title}
                         </Link>
-                        <Contents>{data.Content}</Contents>
+                        <Contents>{data && data.Content}</Contents>
                         <footer>
                           <Tags>
-                            {data.tagLists.map((tag, i) => {
-                              return <Tag key={i}> {tag.tags.tagName} </Tag>;
-                            })}
+                            {data &&
+                              data.tagLists.map((tag, i) => {
+                                return <Tag key={i}> {tag.tags.tagName} </Tag>;
+                              })}
                           </Tags>
                           <ProfileAndDate>
                             <ProfileImg src={Img} alt="프로필" />
@@ -142,8 +143,8 @@ const Main = () => {
                                 gap: '10px',
                               }}
                             >
-                              <Name>[{data.nickName}]</Name>
-                              <Date>{data.regDate.slice(0, 10)}</Date>
+                              <Name>[{data && data.nickName}]</Name>
+                              <Date>{data && data.regDate.slice(0, 10)}</Date>
                             </div>
                           </ProfileAndDate>
                         </footer>
