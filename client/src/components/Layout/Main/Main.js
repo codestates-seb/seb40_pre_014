@@ -67,7 +67,7 @@ const Main = () => {
   useEffect(() => {
     getQuestion().then((el) => {
       setAllQuestion(el.pageInfo.totalElements);
-      setQuestion(el.data);
+      setQuestion([...el.data]);
     });
   }, []);
 
