@@ -51,28 +51,27 @@ const Main = () => {
   };
 
   const getQuestion = async () => {
-    const res = await axios
-      .get(`/api/question/?page=1&size=15&sort=questionId`)
-      .then((res) => console.log(res));
+    const res = await axios.get(`/question/?page=1&size=15&sort=questionId`);
+    // .then((res) => console.log(res));
     return res.data;
   };
 
   const handlepage = async () => {
     const res = await axios.get(
-      `/api/question/?page=${currentPage}&size=15&sort=questionId`,
+      `/question/?page=${currentPage}&size=15&sort=questionId`,
     );
     return res.data;
   };
 
   getQuestion();
 
-  // useEffect(() => {
-  //   getQuestion().then((el) => {
-  //     console.log(el);
-  //     // setAllQuestion(el.pageInfo.totalElements);
-  //     setQuestion([...el.data]);
-  //   });
-  // }, []);
+  useEffect(() => {
+    getQuestion().then((el) => {
+      console.log(el);
+      // setAllQuestion(el.pageInfo.totalElements);
+      setQuestion([...el.data]);
+    });
+  }, []);
 
   useLayoutEffect(() => {
     handlepage().then((el) => setQuestion(el.data));
