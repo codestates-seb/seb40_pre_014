@@ -74,7 +74,7 @@ const Signup = () => {
   const submitHandle = async () => {
     if (isEmail && isName && isPassword) {
       try {
-        await axios.post('/api/users', {
+        await axios.post('/api/api/users', {
           email: email,
           password: password,
           nickName: name,

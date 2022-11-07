@@ -25,7 +25,7 @@ const Question = () => {
   const submitHandler = async () => {
     await axios
       .post(
-        `/question/${localStorage.getItem('UserID')}`,
+        `/api/question/${localStorage.getItem('UserID')}`,
         {
           title: title,
           content: text,
@@ -37,7 +37,8 @@ const Question = () => {
           },
         },
       )
-      .then(navigate('/'));
+      .then(navigate('/'))
+      .then(window.location.reload());
   };
 
   return (

@@ -8,7 +8,7 @@ import axios from 'axios';
 const Users = () => {
   const [users, setUsers] = useState([]);
   const getUser = async () => {
-    const res = await axios.get(`/api/users`);
+    const res = await axios.get(`/api/api/users`);
     return res.data;
   };
 
