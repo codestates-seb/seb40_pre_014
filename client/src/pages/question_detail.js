@@ -49,35 +49,31 @@ const Question_Detail = () => {
   }, []);
 
   const IncreaseVote = async () => {
-    await axios
-      .post(
-        `/api/question/like/${params.id}`,
-        {
-          status: '1',
+    await axios.post(
+      `/api/question/like/${params.id}`,
+      {
+        status: '1',
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('Token')}`,
         },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('Token')}`,
-          },
-        },
-      )
-      .then(window.location.reload());
+      },
+    );
   };
 
   const DecreaseVote = async () => {
-    await axios
-      .post(
-        `/api/question/like/${params.id}`,
-        {
-          status: '0',
+    await axios.post(
+      `/api/question/like/${params.id}`,
+      {
+        status: '0',
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('Token')}`,
         },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('Token')}`,
-          },
-        },
-      )
-      .then(window.location.reload());
+      },
+    );
   };
 
   const deleteQuestion = async () => {
