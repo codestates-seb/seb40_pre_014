@@ -20,7 +20,7 @@ const Tags = () => {
   const [efg, setEfg] = useState([]);
 
   const getTags = async () => {
-    const res = await axios.get(`/api/tags/?page=1&size=90&sort=tagId`);
+    const res = await axios.get(`/api/tags?page=1&size=90&sort=tagId`);
     return res.data;
   };
   const handleFilter = (e) => {
@@ -30,7 +30,7 @@ const Tags = () => {
 
   const handlepage = async () => {
     const res = await axios.get(
-      `/api/tags/?page=${currentPage}&size=90&sort=tagId`,
+      `/api/tags?page=${currentPage}&size=90&sort=tagId`,
     );
     return res.data;
   };
