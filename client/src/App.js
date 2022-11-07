@@ -7,8 +7,6 @@ import Tags from './pages/Tags';
 import Users from './pages/Users';
 import Question from './pages/quetion';
 import Question_Detail from './pages/question_detail';
-// import { Layout } from './components/Layout/Layout';
-
 import Nav from './components/Layout/Nav/Nav';
 import Footer from './components/Layout/Footer/Footer';
 import MainPage from './pages/Main';
@@ -24,7 +22,7 @@ const App = () => {
         <Route path="/tags" element={<Tags />} />
         <Route path="/users" element={<Users />} />
         <Route path="/question/:id" element={<Question_Detail />} />
-        <Route path="/question" element={<Question />} />
+        <Route path="/questionlist" element={<Question />} />
       </Routes>
       <Footer />
     </RecoilRoot>
