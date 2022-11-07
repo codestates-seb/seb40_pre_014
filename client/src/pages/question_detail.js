@@ -19,24 +19,26 @@ const Question_Detail = () => {
   let params = useParams();
 
   const getQuestionDetail = async () => {
-    const res = await axios.get(`/question/detail/${params.id}`);
+    const res = await axios.get(`/api/question/detail/${params.id}`);
     return res.data.data;
   };
 
   const submitHandler = async () => {
-    await axios.post(
-      `/answer`,
-      {
-        questionId: questionInfo && questionInfo.questionId,
-        userId: localStorage.getItem('UserID'),
-        content: text,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('Token')}`,
+    await axios
+      .post(
+        `/api/answer`,
+        {
+          questionId: questionInfo && questionInfo.questionId,
+          userId: localStorage.getItem('UserID'),
+          content: text,
         },
-      },
-    );
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('Token')}`,
+          },
+        },
+      )
+      .then(window.location.reload());
   };
 
   useEffect(() => {
@@ -47,37 +49,41 @@ const Question_Detail = () => {
   }, []);
 
   const IncreaseVote = async () => {
-    await axios.post(
-      `/question/like/${params.id}`,
-      {
-        status: '1',
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('Token')}`,
+    await axios
+      .post(
+        `/api/question/like/${params.id}`,
+        {
+          status: '1',
         },
-      },
-    );
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('Token')}`,
+          },
+        },
+      )
+      .then(window.location.reload());
   };
 
   const DecreaseVote = async () => {
-    await axios.post(
-      `/question/like/${params.id}`,
-      {
-        status: '0',
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('Token')}`,
+    await axios
+      .post(
+        `/api/question/like/${params.id}`,
+        {
+          status: '0',
         },
-      },
-    );
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('Token')}`,
+          },
+        },
+      )
+      .then(window.location.reload());
   };
 
   const deleteQuestion = async () => {
     await axios
       .post(
-        `/question/${params.id}`,
+        `/api/question/${params.id}`,
         {},
         {
           headers: {
