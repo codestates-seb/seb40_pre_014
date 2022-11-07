@@ -39,7 +39,7 @@ const Tags = () => {
   useEffect(() => {
     getTags().then((el) => {
       setTags(el.data);
-      setAllTags(el.pageInfo.totalElements);
+      setAllTags([...el.pageInfo.totalElements]);
     });
   }, []);
   //새로운 렌더링 조건
