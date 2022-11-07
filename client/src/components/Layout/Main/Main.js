@@ -80,7 +80,7 @@ const Main = () => {
   const count = AllQuestion;
 
   const askQuestion = () => {
-    navigate('/question');
+    navigate('/questionlist');
   };
 
   return (
