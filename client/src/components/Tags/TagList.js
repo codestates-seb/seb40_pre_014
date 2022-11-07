@@ -3,16 +3,19 @@ import styled from 'styled-components';
 const TagList = ({ tags }) => {
   return (
     <Container>
-      {tags.map((tag) => (
-        <Tagbox key={tag.tagId}>
-          <div>
-            <Tag>{tag.tagName}</Tag>
-            <div style={{ fontSize: '12px', color: 'gray', marginTop: '1rem' }}>
-              {tag.count} questions
+      {tags &&
+        tags.map((tag) => (
+          <Tagbox key={tag.tagId}>
+            <div>
+              <Tag>{tag.tagName}</Tag>
+              <div
+                style={{ fontSize: '12px', color: 'gray', marginTop: '1rem' }}
+              >
+                {tag.count} questions
+              </div>
             </div>
-          </div>
-        </Tagbox>
-      ))}
+          </Tagbox>
+        ))}
     </Container>
   );
 };
