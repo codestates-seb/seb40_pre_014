@@ -49,31 +49,35 @@ const Question_Detail = () => {
   }, []);
 
   const IncreaseVote = async () => {
-    await axios.post(
-      `/api/question/like/${params.id}`,
-      {
-        status: '1',
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('Token')}`,
+    await axios
+      .post(
+        `/api/question/like/${params.id}`,
+        {
+          status: '1',
         },
-      },
-    );
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('Token')}`,
+          },
+        },
+      )
+      .then(window.location.reload());
   };
 
   const DecreaseVote = async () => {
-    await axios.post(
-      `/api/question/like/${params.id}`,
-      {
-        status: '0',
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('Token')}`,
+    await axios
+      .post(
+        `/api/question/like/${params.id}`,
+        {
+          status: '0',
         },
-      },
-    );
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('Token')}`,
+          },
+        },
+      )
+      .then(window.location.reload());
   };
 
   const deleteQuestion = async () => {
@@ -95,88 +99,90 @@ const Question_Detail = () => {
   return (
     <>
       <Detail_Container>
-        <LeftSide />
-        <Detail_Wrapper>
-          <Detail_Top>
-            <QuestionInfo>
-              <h1> {questionInfo && questionInfo.title} </h1>
-              <div>
-                <span className="sub">
-                  Asked: {questionInfo && questionInfo.regDate}
-                </span>
-                <span className="sub">
-                  View: {questionInfo && questionInfo.view}
-                </span>
-              </div>
-            </QuestionInfo>
-            <Link to={'/questionlist'}>
+        <MidBox>
+          <LeftSide />
+          <Detail_Wrapper>
+            <Detail_Top>
+              <QuestionInfo>
+                <h1> {questionInfo && questionInfo.title} </h1>
+                <div>
+                  <span className="sub">
+                    Asked: {questionInfo && questionInfo.regDate}
+                  </span>
+                  <span className="sub">
+                    View: {questionInfo && questionInfo.view}
+                  </span>
+                </div>
+              </QuestionInfo>
+              <Link to={'/questionlist'}>
+                <Btn
+                  text={'Ask Question'}
+                  backColor={'#0d8ae1'}
+                  width={'90px'}
+                  height={'35px'}
+                  fontSize={'13px'}
+                  hoverColor={'#0069c5'}
+                  cursorPointer={'pointer'}
+                  margin={'5px 5px 0 0'}
+                ></Btn>
+              </Link>
+            </Detail_Top>
+            <Detail_Body>
+              <VoteBtn
+                vote={questionInfo && questionInfo.voteCount}
+                IncreaseVote={IncreaseVote}
+                DecreaseVote={DecreaseVote}
+              />
+              <Detail_Content>
+                {questionInfo && <Viewer initialValue={questionInfo.content} />}
+                <Detail_Tags_Wrapper>
+                  {questionInfo &&
+                    questionInfo.tagLists.map((tag, idx) => {
+                      return (
+                        <Detail_Tags key={idx}>{tag.tags.tagName}</Detail_Tags>
+                      );
+                    })}
+                </Detail_Tags_Wrapper>
+                <Delete_BTN onClick={deleteQuestion}> Delete </Delete_BTN>
+              </Detail_Content>
+              <Detail_User
+                img={userImg}
+                nickName={questionInfo && questionInfo.nickName}
+              />
+            </Detail_Body>
+
+            <Detail_Answer>
+              <h1> {questionInfo && answerInfo.length} Answers </h1>
+              {answerInfo.length > 0 &&
+                answerInfo.map((answer) => {
+                  return (
+                    <Answer
+                      key={answer.answerId}
+                      img={userImg}
+                      content={answer.content}
+                      nickname={answer.nickName}
+                      voteCount={answer.voteCount}
+                    />
+                  );
+                })}
+            </Detail_Answer>
+            <Detail_Bottom>
+              <h1> Your Answer </h1>
+              <TextEditor height={'300px'} setText={setText} />
               <Btn
-                text={'Ask Question'}
+                text={'Post Your Answer'}
                 backColor={'#0d8ae1'}
-                width={'90px'}
+                width={'180px'}
                 height={'35px'}
-                fontSize={'13px'}
+                fontSize={'13.6px'}
                 hoverColor={'#0069c5'}
                 cursorPointer={'pointer'}
-                margin={'5px 5px 0 0'}
+                margin={'40px 5px 20px 0'}
+                funcProps={submitHandler}
               ></Btn>
-            </Link>
-          </Detail_Top>
-          <Detail_Body>
-            <VoteBtn
-              vote={questionInfo && questionInfo.voteCount}
-              IncreaseVote={IncreaseVote}
-              DecreaseVote={DecreaseVote}
-            />
-            <Detail_Content>
-              {questionInfo && <Viewer initialValue={questionInfo.content} />}
-              <Detail_Tags_Wrapper>
-                {questionInfo &&
-                  questionInfo.tagLists.map((tag, idx) => {
-                    return (
-                      <Detail_Tags key={idx}>{tag.tags.tagName}</Detail_Tags>
-                    );
-                  })}
-              </Detail_Tags_Wrapper>
-              <Delete_BTN onClick={deleteQuestion}> Delete </Delete_BTN>
-            </Detail_Content>
-            <Detail_User
-              img={userImg}
-              nickName={questionInfo && questionInfo.nickName}
-            />
-          </Detail_Body>
-
-          <Detail_Answer>
-            <h1> {questionInfo && answerInfo.length} Answers </h1>
-            {answerInfo.length > 0 &&
-              answerInfo.map((answer) => {
-                return (
-                  <Answer
-                    key={answer.answerId}
-                    img={userImg}
-                    content={answer.content}
-                    nickname={answer.nickName}
-                    voteCount={answer.voteCount}
-                  />
-                );
-              })}
-          </Detail_Answer>
-          <Detail_Bottom>
-            <h1> Your Answer </h1>
-            <TextEditor height={'300px'} setText={setText} />
-            <Btn
-              text={'Post Your Answer'}
-              backColor={'#0d8ae1'}
-              width={'180px'}
-              height={'35px'}
-              fontSize={'13.6px'}
-              hoverColor={'#0069c5'}
-              cursorPointer={'pointer'}
-              margin={'40px 5px 20px 0'}
-              funcProps={submitHandler}
-            ></Btn>
-          </Detail_Bottom>
-        </Detail_Wrapper>
+            </Detail_Bottom>
+          </Detail_Wrapper>
+        </MidBox>
       </Detail_Container>
     </>
   );
@@ -288,6 +294,14 @@ const Delete_BTN = styled.button`
   height: 35px;
   margin-top: 30px;
   cursor: pointer;
+`;
+
+const MidBox = styled.div`
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 420px);
+  max-width: 1300px;
+  display: flex;
 `;
 
 export default Question_Detail;
