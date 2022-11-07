@@ -107,7 +107,7 @@ const Question_Detail = () => {
                 </span>
               </div>
             </QuestionInfo>
-            <Link to={'/question'}>
+            <Link to={'/questionlist'}>
               <Btn
                 text={'Ask Question'}
                 backColor={'#0d8ae1'}
