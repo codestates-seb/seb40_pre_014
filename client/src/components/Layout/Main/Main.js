@@ -51,14 +51,15 @@ const Main = () => {
   };
 
   const getQuestion = async () => {
-    const res = await axios.get(`/question/?page=1&size=15&sort=questionId`);
-    // .then((res) => console.log(res));
+    const res = await axios.get(
+      `/api/question/?page=1&size=15&sort=questionId`,
+    );
     return res.data;
   };
 
   const handlepage = async () => {
     const res = await axios.get(
-      `/question/?page=${currentPage}&size=15&sort=questionId`,
+      `/api/question/?page=${currentPage}&size=15&sort=questionId`,
     );
     return res.data;
   };
